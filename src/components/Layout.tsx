@@ -1,17 +1,14 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import '@/styles/globals.css';  // This points to src/styles/globals.css
+import '../styles/globals.css';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Safwan Khan | Frontend Engineer',
-  description: 'Portfolio website showcasing modern web development expertise',
-  icons: {
-    icon: '/favicon.ico',
-  },
-  themeColor: '#00ff9d'
+  description: 'Portfolio website showcasing my work and expertise',
 };
 
 export default function RootLayout({
@@ -23,7 +20,8 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         <Navbar />
-        <main>{children}</main>
+        {children}
+        <Footer />
       </body>
     </html>
   );
