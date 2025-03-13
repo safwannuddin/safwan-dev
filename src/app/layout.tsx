@@ -1,17 +1,20 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
-import '@/styles/globals.css';  // This points to src/styles/globals.css
+import '@/styles/globals.css';
 import Navbar from '@/components/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Safwan Khan | Frontend Engineer',
+  title: 'Mohd Safwan Uddin | Frontend Engineer',
   description: 'Portfolio website showcasing modern web development expertise',
   icons: {
     icon: '/favicon.ico',
   },
-  themeColor: '#00ff9d'
+};
+
+export const viewport: Viewport = {
+  themeColor: '#00ff9d',
 };
 
 export default function RootLayout({

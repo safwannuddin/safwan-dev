@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -51,7 +53,7 @@ export default function Button({
 
   if (href) {
     return (
-      <Link href={href}>
+      <Link href={href} className="inline-block">
         {buttonContent}
       </Link>
     );
