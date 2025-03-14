@@ -38,19 +38,90 @@ export default function About() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative w-full max-w-md mx-auto"
           >
+            {/* Main Image Container */}
             <div className="aspect-square relative rounded-2xl overflow-hidden">
               <Image
-                src="/projects/1.jpeg" // Updated path to your photo
-                alt="Mohd Safwan Uddin"
+                src="/projects/3.png"
+                alt="Developer Illustration"
                 fill
-                className="object-cover"
+                className="object-contain hover:scale-105 transition-transform duration-500"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/20 to-transparent" />
+              
+              {/* Animated Glow Effects */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-radial from-[#00ff9d]/20 via-transparent to-transparent"
+                animate={{
+                  opacity: [0.3, 0.6, 0.3],
+                  scale: [1, 1.05, 1]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+
+              {/* Enhanced Floating Particles */}
+              <div className="absolute inset-0">
+                {[...Array(4)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-[#00ff9d] rounded-full"
+                    animate={{
+                      y: [0, -30, 0],
+                      x: [0, i % 2 === 0 ? 20 : -20, 0],
+                      opacity: [0, 1, 0],
+                      scale: [0, 1.2, 0]
+                    }}
+                    transition={{
+                      duration: 3 + i,
+                      repeat: Infinity,
+                      delay: i * 0.5,
+                      ease: "easeInOut"
+                    }}
+                    style={{
+                      left: `${25 + i * 15}%`,
+                      top: `${40 + (i % 2) * 20}%`
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* Radial Glow Behind Image */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  className="w-3/4 h-3/4 rounded-full bg-[#00ff9d]/5 blur-2xl"
+                  animate={{
+                    scale: [0.8, 1, 0.8],
+                    opacity: [0.3, 0.5, 0.3]
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              </div>
             </div>
-            <div className="absolute inset-0 bg-[radial-gradient(#00ff9d_0.5px,transparent_0.5px)] bg-[length:16px_16px] opacity-20" />
+
+            {/* Enhanced Background Pattern */}
+            <div className="absolute inset-0 -z-10">
+              <div className="absolute inset-0 bg-[radial-gradient(#00ff9d_0.5px,transparent_0.5px)] bg-[length:16px_16px] opacity-20" />
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/5 to-transparent"
+                animate={{
+                  opacity: [0.1, 0.3, 0.1]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </div>
           </motion.div>
 
           {/* Content */}

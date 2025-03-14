@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 import Navbar from '@/components/Navbar';
@@ -6,15 +6,8 @@ import Navbar from '@/components/Navbar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Mohd Safwan Uddin | Frontend Engineer',
-  description: 'Portfolio website showcasing modern web development expertise',
-  icons: {
-    icon: '/favicon.ico',
-  },
-};
-
-export const viewport: Viewport = {
-  themeColor: '#00ff9d',
+  title: 'Mohd Safwan Uddin | Full-Stack Developer',
+  description: 'Full-stack developer specializing in modern web technologies',
 };
 
 export default function RootLayout({

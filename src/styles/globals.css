@@ -113,4 +113,8 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  .nav-blur {
+    @apply backdrop-blur-md bg-gradient-to-b from-[#050816]/80 to-[#050816]/60;
+  }
 }
