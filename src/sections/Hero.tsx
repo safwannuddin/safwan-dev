@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Button from '@/components/Button'; // Update this import
+import Button from '@/components/Button'; // Ensure this path is correct
 import AnimatedText from '@/components/AnimatedText';
 
 export default function Hero() {
@@ -26,20 +26,27 @@ export default function Hero() {
               👋 Hi There!   I&apos;m
             </h2>
             
-            <AnimatedText 
-              text="Mohd Safwan Uddin"
+            {/* Animated Name with Gradient Effect */}
+            <motion.h1
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
               className="text-5xl md:text-6xl font-bold mb-4"
-            />
-            
+            >
+              <span className="text-neon-green">Mohd</span> 
+              <span className="text-white"> Safwan</span> 
+              <span className="text-neon-green"> Uddin</span>
+            </motion.h1>
+
             <AnimatedText 
-              text="A Frontend Engineer"
+              text="A Full-Stack Developer"
               className="text-3xl md:text-4xl font-bold mb-6 neon-text"
             />
             
             <p className="text-gray-400 text-lg mb-8">
-              I help startups <span className="neon-text">launch</span> and{' '}
-              <span className="neon-text">grow</span> their products with modern web technologies
-              and clean, efficient code.
+              I&apos;m a <span className="neon-text">Computer Science</span> student passionate about 
+              <span className="neon-text"> AI/ML</span> and <span className="neon-text">Blockchain</span>. 
+              I specialize in building modern, scalable web applications with clean and efficient code.
             </p>
 
             <div className="flex flex-wrap gap-4">

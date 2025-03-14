@@ -5,119 +5,112 @@
 :root {
   --neon-green: #00ff9d;
   --space-bg: #050816;
-  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-bg: rgba(0, 255, 157, 0.1);
+  --glow: 0 0 10px rgba(0, 255, 157, 0.8), 0 0 20px rgba(0, 255, 157, 0.6);
 }
 
 @layer base {
   body {
     background-color: var(--space-bg);
-    @apply text-white overflow-x-hidden;
+    @apply text-white overflow-x-hidden font-mono;
   }
 }
 
 @layer components {
+  /* Neon Text */
   .neon-text {
     color: var(--neon-green);
-    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5),
-                 0 0 20px rgba(0, 255, 157, 0.3);
+    text-shadow: var(--glow);
+    animation: flicker 1.5s infinite alternate;
   }
 
+  @keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+  }
+
+  /* Neon Border */
   .neon-border {
-    border: 1px solid var(--neon-green);
-    box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+    border: 2px solid var(--neon-green);
+    box-shadow: var(--glow);
   }
 
+  /* Glass Effect */
   .glass-effect {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    @apply bg-black/20 backdrop-blur-md border border-neon-green-50;
   }
 
+  /* Buttons */
   .btn {
-    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply px-6 py-3 rounded-lg font-bold transition-all duration-300;
   }
 
   .btn-primary {
     background-color: var(--neon-green);
-    @apply text-space hover:opacity-90;
+    box-shadow: var(--glow);
+    @apply text-black hover:opacity-80;
   }
 
   .btn-outline {
-    @apply border border-neon text-neon hover:bg-neon/10;
+    @apply border border-neon-green text-neon-green hover:bg-neon-green/10;
   }
-}
 
-/* Card hover effects */
-.card-hover {
-  transition: all 0.3s ease;
-}
+  /* Glitch Effect */
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
 
-.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 255, 157, 0.1);
-}
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: var(--neon-green);
+    background: transparent;
+    overflow: hidden;
+  }
 
-/* Grid background */
-.grid-bg {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
-}
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 rgba(0, 255, 157, 0.8);
+    animation: glitch-anim 0.5s infinite alternate;
+  }
 
-/* Animation utilities */
-.hover-scale {
-  @apply transition-transform duration-300 hover:scale-105;
-}
+  .glitch::after {
+    left: -2px;
+    text-shadow: 2px 0 rgba(0, 255, 157, 0.8);
+    animation: glitch-anim 0.5s infinite alternate-reverse;
+  }
 
-/* Hamburger menu */
-.hamburger span {
-  transition: all 0.3s ease-in-out;
-  @apply bg-white;
-}
+  @keyframes glitch-anim {
+    0% { clip: rect(0, 9999px, 0, 0); }
+    50% { clip: rect(10px, 9999px, 50px, 0); }
+    100% { clip: rect(30px, 9999px, 70px, 0); }
+  }
 
-.hamburger.open span:first-child {
-  transform: rotate(45deg) translate(4px, 4px);
-}
+  /* Matrix Background Effect */
+  .matrix-bg {
+    background-image: radial-gradient(rgba(0, 255, 157, 0.2) 1px, transparent 1px);
+    background-size: 35px 35px;
+    animation: matrix-fall 10s linear infinite;
+  }
 
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
+  @keyframes matrix-fall {
+    from { background-position: 0 0; }
+    to { background-position: 0 1000px; }
+  }
 
-.hamburger.open span:last-child {
-  transform: rotate(-45deg) translate(4px, -4px);
-}
+  /* Section Fade-in */
+  .section-fade-in {
+    @apply opacity-0 translate-y-10 transition-all duration-700;
+  }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--space-bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--neon-green);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 157, 0.8);
-}
-
-/* Text selection */
-::selection {
-  background: var(--neon-green);
-  color: var(--space-bg);
-}
-
-/* Gradient text */
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00ff9d] to-[#00ffff];
-}
-
-/* Section transitions */
-.section-fade-in {
-  @apply opacity-0 translate-y-10 transition-all duration-700;
-}
-
-.section-fade-in.in-view {
-  @apply opacity-100 translate-y-0;
+  .section-fade-in.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
