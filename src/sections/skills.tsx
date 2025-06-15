@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaJs, FaReact, FaNodeJs, FaGit, FaGithub, FaFigma, FaDocker } from 'react-icons/fa';
-import { SiTypescript, SiNextdotjs, SiExpress, SiMysql, SiPostgresql, SiTailwindcss, SiNestjs, SiMongodb, SiSass, SiPostman, SiVercel, SiPrisma, SiClerk, SiRadixui, SiMetabase } from 'react-icons/si';
+import { SiTypescript, SiNextdotjs, SiExpress, SiMysql, SiPostgresql, SiTailwindcss, SiNestjs, SiMongodb, SiSass, SiPostman, SiVercel, SiPrisma, SiClerk, SiRadixui, SiMetabase, SiSupabase } from 'react-icons/si';
 import { TbBrandFramer } from 'react-icons/tb';
 
 const skills = [
@@ -29,8 +29,7 @@ const skills = [
       { name: "Express.js", icon: <SiExpress className="text-white" /> },
       { name: "Prisma", icon: <SiPrisma className="text-teal-500" /> },
     ]
-  },
-  {
+  },  {
     category: "Database Management",
     description: "Working with modern database solutions",
     items: [
@@ -38,6 +37,7 @@ const skills = [
       { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-500" /> },
       { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
       { name: "Neon DB", icon: <SiMetabase className="text-cyan-400" /> },
+      { name: "Supabase", icon: <SiSupabase className="text-emerald-500" /> },
     ]
   },
   {

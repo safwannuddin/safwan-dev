@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-
-// Remove the ProjectAnimatedText component and use the shared AnimatedText component
 import AnimatedText from '@/components/AnimatedText';
 
 interface CardProps {
@@ -66,9 +64,25 @@ const Card = ({ title, description, imagePath, tags, link }: CardProps) => {
 
 const projects = [
   {
-    title: "Project One",
-    description: "A modern web application built with Next.js and TypeScript",
-    imagePath: "/projects/project1.png",
+    title: "AuthNexus",
+    description:
+      "A decentralized AI-powered document verification system that uses blockchain for tamper-proof validation. Built using Next.js, Zustand, and Framer Motion.",
+    imagePath: "/projects/4.png",
+    tags: ["Next.js", "Tailwind CSS", "Zustand", "Framer Motion", "Blockchain", "AI"],
+    link: "https://authnexus-v.vercel.app/"
+  },
+  {
+    title: "Finova",
+    description:
+      "A modern and interactive financial portfolio dashboard UI made for a hackathon. Built with clean Tailwind CSS and smooth user experience in mind.",
+    imagePath: "/projects/finova.png",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion", "Finance UI"],
+    link: "https://capital-flow.vercel.app/"
+  },
+  {
+    title: "NeuroNav",
+    description: "NeuroNav is an AI-powered neurohealth platform that allows users to upload brain MRI scans and receive instant diagnostic predictions. Built using Next.js and TypeScript, it features FastAPI-based backend integration, a MobileNetV2 CNN trained on the BRATS 2020 dataset, and interactive 3D brain visualization. NeuroNav aims to be the Google Maps for brain health, combining beautiful UI, AI inference, and 3D rendering for impactful medical insight.",
+    imagePath: "/projects/NeuroNav.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     link: "https://project1.com"
   },
