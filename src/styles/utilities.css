@@ -1,0 +1,126 @@
+@layer utilities {
+  /* Animation Classes */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 0.7s ease-out;
+  }
+  
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Floating Animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Glow Effects */
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+  }
+  
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+  
+  /* Loading States */
+  .skeleton {
+    background-image: linear-gradient(to right, #1e293b, #334155, #1e293b);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Scroll Animations */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: all 0.7s ease-out;
+  }
+  
+  .reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-3rem);
+    transition: all 0.7s ease-out;
+  }
+  
+  .reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(3rem);
+    transition: all 0.7s ease-out;
+  }
+  
+  .reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Background Patterns */
+  .bg-dots {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .bg-grid {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  /* Typography Utilities */
+  .text-gradient {
+    background-image: linear-gradient(to right, #38bdf8, #d946ef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Status Indicators */
+  .status-online {
+    background-color: #10b981;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .status-busy {
+    background-color: #ef4444;
+  }
+  
+  .status-away {
+    background-color: #f59e0b;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+}

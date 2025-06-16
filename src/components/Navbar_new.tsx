@@ -20,10 +20,6 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-
-    // Set initial scroll state on mount
-    handleScroll(); 
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -96,7 +92,7 @@ const Navbar = () => {
                 href="#contact"
                 className="btn btn-primary text-sm px-6 py-2"
               >
-                Let&#39;s Talk
+                Let's Talk
               </Link>
             </motion.div>
 
@@ -168,7 +164,7 @@ const Navbar = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className="btn btn-primary w-full text-center"
                   >
-                    Let&#39;s Talk
+                    Let's Talk
                   </Link>
                 </motion.div>
               </div>

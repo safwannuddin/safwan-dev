@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FaJs, FaReact, FaNodeJs, FaGit, FaGithub, FaFigma, FaDocker } from 'react-icons/fa';
 import { SiTypescript, SiNextdotjs, SiExpress, SiMysql, SiPostgresql, SiTailwindcss, SiNestjs, SiMongodb, SiSass, SiPostman, SiVercel, SiPrisma, SiClerk, SiRadixui, SiMetabase, SiSupabase } from 'react-icons/si';
 import { TbBrandFramer } from 'react-icons/tb';
+import AnimatedText from '@/components/AnimatedText';
 
 const skills = [
   {
@@ -78,22 +79,15 @@ const itemVariants = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 bg-[#050816] relative">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            Technical <span className="text-[#00ff9d]">Expertise</span>
-          </h2>
-          <p className="text-gray-400 text-xl">Building modern web applications with cutting-edge technologies</p>
-        </motion.div>
+    <section id="skills" className="section-padding relative">
+      <div className="container-custom">
+        <AnimatedText 
+          text="Technical Expertise" 
+          className="text-5xl font-bold text-center mb-16 gradient-text"
+        />
 
         <motion.div 
-          className="space-y-16"
+          className="space-y-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -103,26 +97,26 @@ export default function Skills() {
             <motion.div
               key={category}
               variants={itemVariants}
-              className="bg-white/[0.02] backdrop-blur-sm rounded-2xl p-10 border border-white/10 hover:bg-white/[0.05] transition-colors duration-300"
+              className="glass-card p-8"
             >
-              <div className="mb-10">
-                <h3 className="text-3xl md:text-4xl font-bold text-[#00ff9d] mb-3">{category}</h3>
+              <div className="mb-8">
+                <h3 className="text-3xl font-bold gradient-text mb-3">{category}</h3>
                 <p className="text-gray-400 text-lg">{description}</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {items.map((skill) => (
                   <motion.div
                     key={skill.name}
-                    className="flex items-center gap-5 p-5 bg-white/[0.02] rounded-xl hover:bg-white/[0.08] transition-all duration-300 hover:shadow-lg hover:shadow-[#00ff9d]/10"
+                    className="glass-card-hover p-6 flex items-center gap-4"
                     whileHover={{ 
-                      scale: 1.05,
+                      scale: 1.02,
                       y: -5,
                     }}
-                    whileTap={{ scale: 0.95 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     <motion.div
-                      className="text-6xl" // Increased icon size
+                      className="text-4xl"
                       animate={{ 
                         rotate: [0, 5, -5, 0],
                         scale: [1, 1.1, 1]
@@ -135,17 +129,48 @@ export default function Skills() {
                     >
                       {skill.icon}
                     </motion.div>
-                    <span className="text-white text-lg font-medium">{skill.name}</span>
+                    <div>
+                      <span className="text-white text-lg font-medium">{skill.name}</span>
+                      <div className="h-1 w-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mt-2" />
+                    </div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Skill Level Visualization */}
+        <motion.div 
+          className="mt-16 glass-card p-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3 className="text-3xl font-bold gradient-text mb-8">Skill Proficiency</h3>
+          <div className="space-y-6">
+            {['Frontend Development', 'Backend Development', 'Database Management', 'DevOps & Tools'].map((category) => (
+              <div key={category} className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-300">{category}</span>
+                  <span className="text-primary-400">Advanced</span>
+                </div>
+                <div className="h-2 bg-dark-800 rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full bg-gradient-to-r from-primary-500 to-secondary-500"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "90%" }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
 
-      {/* Enhanced Background Grid Effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(#00ff9d_0.5px,transparent_0.5px)] bg-[length:24px_24px] opacity-[0.05] pointer-events-none" />
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-dots opacity-[0.05] pointer-events-none" />
     </section>
   );
 }

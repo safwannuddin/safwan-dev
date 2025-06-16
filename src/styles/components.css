@@ -1,0 +1,201 @@
+@layer components {
+  /* Glass Card Effect */
+  .glass-card {
+    background-color: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-card-hover {
+    background-color: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+  }
+  
+  .glass-card-hover:hover {
+    background-color: rgba(30, 41, 59, 0.7);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    transform: translateY(-4px);
+  }
+  
+  /* Modern Buttons */
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .btn-primary {
+    background-image: linear-gradient(to right, #0ea5e9, #0284c7);
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary:hover {
+    background-image: linear-gradient(to right, #0284c7, #0369a1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background-image: linear-gradient(to right, #d946ef, #c026d3);
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-secondary:hover {
+    background-image: linear-gradient(to right, #c026d3, #a21caf);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .btn-outline {
+    border: 2px solid #0ea5e9;
+    color: #38bdf8;
+  }
+  
+  .btn-outline:hover {
+    background-color: #0ea5e9;
+    color: white;
+    border-color: #0284c7;
+  }
+  
+  .btn-ghost {
+    color: #cbd5e1;
+  }
+  
+  .btn-ghost:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background-image: linear-gradient(to right, #38bdf8, #d946ef, #34d399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .gradient-text-blue {
+    background-image: linear-gradient(to right, #38bdf8, #34d399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  /* Navigation */
+  .nav-glass {
+    backdrop-filter: blur(12px);
+    background-color: rgba(15, 23, 42, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Section Spacing */
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  
+  .container-custom {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-custom {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  /* Card Hover Effects */
+  .card-hover {
+    transition: all 0.3s;
+  }
+  
+  .card-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  
+  .card-tilt {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out;
+  }
+  
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #1e293b;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #0284c7;
+    border-radius: 9999px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #0ea5e9;
+  }
+  
+  /* Form Elements */
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    color: white;
+    transition: all 0.2s;
+  }
+  
+  .form-input::placeholder {
+    color: #94a3b8;
+  }
+  
+  .form-input:focus {
+    border-color: #0ea5e9;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+  }
+  
+  .form-textarea {
+    composes: form-input;
+    resize: none;
+  }
+}
