@@ -2,9 +2,15 @@
 
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import AnimatedText from '@/components/AnimatedText';
-import { Code2, ExternalLink, Github } from 'lucide-react';
+// Using dynamic import to handle potential missing lucide-react
+const Code2 = dynamic(() => import('lucide-react').then(mod => mod.Code2), { ssr: false });
+const ExternalLink = dynamic(() => import('lucide-react').then(mod => mod.ExternalLink), { ssr: false });
+const Github = dynamic(() => import('lucide-react').then(mod => mod.Github), { ssr: false });
+import dynamic from 'next/dynamic';
+
+type ProjectCategory = 'web' | 'ai' | 'blockchain' | 'mobile';
 
 interface Project {
   title: string;
@@ -14,7 +20,7 @@ interface Project {
   link: string;
   github?: string;
   date: string;
-  category: 'web' | 'ai' | 'blockchain' | 'mobile' | 'all';
+  category: ProjectCategory;
 }
 
 const projects: Project[] = [
@@ -80,7 +86,12 @@ const projects: Project[] = [
   }
 ];
 
-const categories = [
+interface Category {
+  id: ProjectCategory | 'all';
+  label: string;
+}
+
+const categories: Category[] = [
   { id: 'all', label: 'All Projects' },
   { id: 'web', label: 'Web Apps' },
   { id: 'ai', label: 'AI/ML' },
@@ -88,8 +99,14 @@ const categories = [
   { id: 'mobile', label: 'Mobile' },
 ];
 
-const ProjectCard = ({ project }: { project: Project }) => {
+interface ProjectCardProps {
+  project: Project;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const controls = useAnimation();
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
@@ -116,6 +133,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
     });
   };
 
+  const handleImageError = () => {
+    setHasError(true);
+  };
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
+
   return (
     <motion.div
       className="h-full"
@@ -132,44 +157,89 @@ const ProjectCard = ({ project }: { project: Project }) => {
         style={{ transformStyle: 'preserve-3d' }}
       >
         <div className="relative h-48 overflow-hidden">
-          <Image
-            src={project.imagePath}
-            alt={project.title}
-            fill
-            className="object-cover transition-transform duration-500 hover:scale-105"
-          />
+          {isLoading ? (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-800/50">
+              <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="w-8 h-8 rounded-full border-2 border-[#00ff9d] border-t-transparent"
+              />
+            </div>
+          ) : hasError ? (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-800/50">
+              <div className="text-gray-400">Image not available</div>
+            </div>
+          ) : (
+            <Image
+              src={project.imagePath}
+              alt={project.title}
+              fill
+              className="object-cover transition-transform duration-500 hover:scale-105"
+              onLoad={handleImageLoad}
+              onError={handleImageError}
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
             <div className="flex gap-2">
               {project.github && (
-                <a
+                <motion.a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 bg-black/50 rounded-full hover:bg-[#00ff9d]/20 transition-colors"
                   onClick={(e) => e.stopPropagation()}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <Github className="w-4 h-4 text-white" />
-                </a>
+                </motion.a>
               )}
-              <a
+              <motion.a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-black/50 rounded-full hover:bg-[#00ff9d]/20 transition-colors"
                 onClick={(e) => e.stopPropagation()}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <ExternalLink className="w-4 h-4 text-white" />
-              </a>
+              </motion.a>
             </div>
           </div>
         </div>
         <div className="p-6">
           <div className="flex justify-between items-start mb-2">
-            <h3 className="text-xl font-bold text-white">{project.title}</h3>
+            <motion.h3
+              className="text-xl font-bold text-white"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {project.title}
+            </motion.h3>
             <span className="text-sm text-gray-400">{project.date}</span>
           </div>
-          <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>
-          <div className="flex flex-wrap gap-2 mt-4">
+          <motion.p
+            className="text-gray-400 text-sm mb-4 line-clamp-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+          >
+            {project.description}
+          </motion.p>
+          <motion.div
+            className="flex flex-wrap gap-2 mt-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+          >
             {project.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
@@ -183,26 +253,44 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 +{project.tags.length - 3}
               </span>
             )}
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </motion.div>
   );
 };
 
-export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+const Projects: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory | 'all'>('all');
   
   const filteredProjects = activeCategory === 'all' 
     ? projects 
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 bg-[#050816] relative overflow-hidden">
+    <motion.section
+      id="projects"
+      className="py-20 bg-[#050816] relative overflow-hidden"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(0,255,157,0.1)_0%,transparent_50%)] animate-spin-slow"></div>
-      </div>
+      <motion.div
+        className="absolute inset-0 overflow-hidden opacity-20"
+        animate={{
+          rotate: [0, 360],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(0,255,157,0.1)_0%,transparent_50%)]"></div>
+      </motion.div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12">
@@ -220,7 +308,7 @@ export default function Projects() {
           {categories.map((category) => (
             <button
               key={category.id}
-              onClick={() => setActiveCategory(category.id as any)}
+              onClick={() => setActiveCategory(category.id)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 activeCategory === category.id
                   ? 'bg-[#00ff9d] text-gray-900'
@@ -236,7 +324,9 @@ export default function Projects() {
         {filteredProjects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
-              <ProjectCard key={`${project.title}-${index}`} project={project} />
+              <div key={`${project.title}-${index}`} className="h-full">
+                <ProjectCard project={project} />
+              </div>
             ))}
           </div>
         ) : (
@@ -259,6 +349,8 @@ export default function Projects() {
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
-}
+};
+
+export default Projects;
