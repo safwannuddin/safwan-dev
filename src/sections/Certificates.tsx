@@ -3,7 +3,6 @@
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
-import AnimatedText from '@/components/AnimatedText';
 
 interface Certificate {
   id: string;
@@ -280,7 +279,7 @@ const Certificates = () => {
           ].map((category) => (
             <motion.button
               key={category.id}
-              onClick={() => setFilter(category.id as any)}
+              onClick={() => setFilter(category.id as 'all' | 'certificate' | 'badge')}
               className={`px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                 filter === category.id 
                   ? 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-lg'

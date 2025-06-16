@@ -1,7 +1,7 @@
 'use client';
 
 import React, { ReactNode, useEffect } from 'react';
-import { LazyMotion, domAnimation, m, AnimatePresence } from 'framer-motion';
+import { LazyMotion, domAnimation, m } from 'framer-motion';
 
 interface SafeAnimationProviderProps {
   children: ReactNode;
@@ -16,9 +16,9 @@ export function SafeAnimationProvider({ children }: SafeAnimationProviderProps) 
     const originalError = console.error;
     
     // Override console.error to catch and handle Framer Motion errors
-    console.error = (...args: any[]) => {
+    console.error = (...args: unknown[]) => {
       // Check if this is a Framer Motion error we want to suppress
-      const errorMessage = args.join(' ');
+      const errorMessage = args.map(arg => String(arg)).join(' ');
       
       if (
         errorMessage.includes('positionalValues') ||
