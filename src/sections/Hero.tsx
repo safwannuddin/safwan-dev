@@ -85,8 +85,8 @@ export default function Hero() {
               background: `radial-gradient(circle, ${['#00ff9d', '#0066ff', '#ff6b35'][i % 3]}20 0%, transparent 70%)`,
               width: `${200 + i * 50}px`,
               height: `${200 + i * 50}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${(i * 16.67) % 100}%`,
+              top: `${(i * 13.33) % 100}%`,
             }}
             animate={{
               x: [0, 100, -50, 0],
@@ -135,7 +135,7 @@ export default function Hero() {
                 👋
               </motion.span>
               <span className="text-xl text-gray-400 font-medium">
-                Hello, I'm
+                Hello, I&apos;m
               </span>
             </motion.div>
 

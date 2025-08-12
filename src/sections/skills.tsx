@@ -276,14 +276,14 @@ export default function Skills() {
                 opacity: [0.1, 0.3, 0.1],
               }}
               transition={{
-                duration: 10 + Math.random() * 10,
+                duration: 10 + (i * 0.5),
                 repeat: Infinity,
                 delay: i * 0.5,
                 ease: "easeInOut"
               }}
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${(i * 5.26) % 100}%`,
+                top: `${(i * 7.89) % 100}%`,
                 color: ['#FFD700', '#61DAFB', '#FF6B35', '#4CAF50'][i % 4],
               }}
             >
