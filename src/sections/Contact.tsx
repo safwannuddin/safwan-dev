@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import AnimatedText from '@/components/AnimatedText';
+import { useClientMount } from '@/hooks/useClientMount';
 
 const socialLinks = [
   {
@@ -40,6 +41,7 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const isMounted = useClientMount();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,6 +64,34 @@ export default function Contact() {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
+
+  if (!isMounted) {
+    return (
+      <section id="contact" className="section-padding relative">
+        <div className="container-custom">
+          <div className="h-16 bg-gray-700 rounded mx-auto mb-16 animate-pulse max-w-md" />
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="glass-card p-8 animate-pulse">
+              <div className="h-8 bg-gray-700 rounded mb-6" />
+              <div className="space-y-6">
+                <div className="h-12 bg-gray-700 rounded" />
+                <div className="h-12 bg-gray-700 rounded" />
+                <div className="h-32 bg-gray-700 rounded" />
+                <div className="h-12 bg-gray-700 rounded" />
+              </div>
+            </div>
+            <div className="glass-card p-8 animate-pulse">
+              <div className="h-8 bg-gray-700 rounded mb-6" />
+              <div className="space-y-4">
+                <div className="h-4 bg-gray-700 rounded" />
+                <div className="h-4 bg-gray-700 rounded" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="contact" className="section-padding relative">
@@ -202,7 +232,7 @@ export default function Contact() {
             <div className="mt-12 p-6 glass-card-hover rounded-xl">
               <h4 className="text-xl font-semibold text-white mb-4">Location</h4>
               <p className="text-gray-400">
-                Based in <span className="text-primary-400">Your City, Country</span>
+                Based in <span className="text-[#00ff9d]">Hyderabad, India</span>
               </p>
               <p className="text-gray-400 mt-2">
                 Available for remote work and local opportunities

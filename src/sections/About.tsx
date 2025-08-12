@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { FaCode, FaRocket, FaBrain, FaGraduationCap, FaAward, FaGlobe, FaLaptopCode, FaHeart } from 'react-icons/fa';
+import { useClientMount } from '@/hooks/useClientMount';
 
 const achievements = [
   {
@@ -63,6 +64,31 @@ export default function About() {
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const isMounted = useClientMount();
+
+  if (!isMounted) {
+    return (
+      <section id="about" className="min-h-screen py-20 relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <div className="h-16 bg-gray-700 rounded mx-auto mb-4 animate-pulse max-w-md" />
+            <div className="w-24 h-1 bg-gray-700 mx-auto rounded-full animate-pulse" />
+          </div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="w-full max-w-md mx-auto aspect-square bg-gray-800 rounded-3xl animate-pulse" />
+            <div className="space-y-8">
+              <div className="h-12 bg-gray-700 rounded animate-pulse" />
+              <div className="space-y-4">
+                <div className="h-4 bg-gray-700 rounded animate-pulse" />
+                <div className="h-4 bg-gray-700 rounded animate-pulse" />
+                <div className="h-4 bg-gray-700 rounded animate-pulse" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section 

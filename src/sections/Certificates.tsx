@@ -4,6 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import { FaAward, FaMedal, FaCertificate, FaTrophy, FaStar, FaGraduationCap } from 'react-icons/fa';
+import { useClientMount } from '@/hooks/useClientMount';
 
 interface Certificate {
   id: string;
@@ -269,11 +270,7 @@ const CertificateFrame: React.FC<CertificateFrameProps> = ({ certificate, index 
 
 const Certificates = () => {
   const [filter, setFilter] = useState<'all' | 'development' | 'ai' | 'security' | 'design'>('all');
-  const [isMounted, setIsMounted] = useState(false);
-  
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = useClientMount();
 
   const filteredCertificates = certificates.filter(cert => 
     filter === 'all' || cert.category === filter
