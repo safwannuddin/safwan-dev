@@ -284,40 +284,7 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Floating Tech Icons */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(12)].map((_, i) => {
-            // Use deterministic values to avoid hydration mismatch
-            const leftPos = (i * 8.33) % 100;
-            const topPos = (i * 12.5) % 100;
-            const colors = ['#FFD700', '#61DAFB', '#FF6B35', '#4CAF50'];
-            const icons = ['⚛️', '🚀', '💻', '🔥', '⚡', '🎯'];
-            
-            return (
-              <motion.div
-                key={i}
-                className="absolute text-2xl opacity-10"
-                animate={{
-                  y: [0, -50, 0],
-                  opacity: [0.1, 0.3, 0.1],
-                }}
-                transition={{
-                  duration: 8 + (i * 0.3),
-                  repeat: Infinity,
-                  delay: i * 0.4,
-                  ease: "easeInOut"
-                }}
-                style={{
-                  left: `${leftPos}%`,
-                  top: `${topPos}%`,
-                  color: colors[i % 4],
-                }}
-              >
-                {icons[i % 6]}
-              </motion.div>
-            );
-          })}
-        </div>
+
       </div>
     </section>
   );
