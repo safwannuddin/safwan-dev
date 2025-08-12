@@ -17,21 +17,40 @@ const navItems = [
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const { scrollY } = useScroll();
-  const navY = useTransform(scrollY, [0, 100], [0, -10]);
   const isMounted = useClientMount();
 
   useEffect(() => {
     if (!isMounted) return;
     
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      // Update scrolled state for glassmorphism effect
+      setIsScrolled(currentScrollY > 50);
+      
+      // Show/hide navbar based on scroll direction
+      if (currentScrollY < 100) {
+        // Always show navbar at the top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide navbar
+        setIsVisible(false);
+        setIsMenuOpen(false); // Close mobile menu when hiding
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show navbar
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isMounted]);
+  }, [isMounted, lastScrollY]);
 
   if (!isMounted) {
     return (
@@ -63,21 +82,40 @@ const Navbar = () => {
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-      style={{ y: navY }}
-      className={`fixed w-full z-50 transition-all duration-700 ${
+      animate={{ 
+        y: isVisible ? 0 : -100, 
+        opacity: isVisible ? 1 : 0 
+      }}
+      transition={{ 
+        duration: 0.3, 
+        ease: "easeInOut",
+        type: "tween"
+      }}
+      className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? 'top-0 py-2' : 'top-4 py-0'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
-          className={`relative glass-card transition-all duration-700 ${
+          className={`relative transition-all duration-500 rounded-2xl ${
             isScrolled 
-              ? 'px-6 py-3 bg-black/90 border-white/20 shadow-2xl backdrop-blur-xl' 
-              : 'px-8 py-4 bg-black/70 border-white/10 backdrop-blur-lg'
+              ? 'px-6 py-3 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl' 
+              : 'px-8 py-4 bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl'
           }`}
-          whileHover={{ scale: 1.01 }}
+          style={{
+            backdropFilter: 'blur(20px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+            background: isScrolled 
+              ? 'rgba(255, 255, 255, 0.1)' 
+              : 'rgba(255, 255, 255, 0.05)',
+            boxShadow: isScrolled
+              ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+              : '0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+          }}
+          whileHover={{ 
+            scale: 1.01,
+            background: 'rgba(255, 255, 255, 0.15)'
+          }}
           transition={{ duration: 0.3 }}
         >
           
@@ -124,6 +162,16 @@ const Navbar = () => {
                   <Link 
                     href={item.href}
                     className="relative group px-5 py-2.5 text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 rounded-xl overflow-hidden"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        element.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }
+                    }}
                   >
                     <span className="relative z-10">{item.label}</span>
                     
@@ -158,9 +206,19 @@ const Navbar = () => {
             >
               <motion.a
                 href="#contact"
-                className="relative px-6 py-3 bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black font-semibold rounded-full overflow-hidden group"
+                className="relative px-6 py-3 bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black font-semibold rounded-full overflow-hidden group cursor-pointer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector('#contact');
+                  if (element) {
+                    element.scrollIntoView({ 
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }
+                }}
               >
                 <span className="relative z-10">Let's Talk</span>
                 <motion.div
@@ -201,13 +259,24 @@ const Navbar = () => {
               opacity: isMenuOpen ? 1 : 0,
               height: isMenuOpen ? 'auto' : 0
             }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
             className="md:hidden overflow-hidden"
           >
             <motion.div 
-              className="pt-6 pb-4 border-t border-white/10 mt-4"
-              initial={{ y: -20 }}
-              animate={{ y: isMenuOpen ? 0 : -20 }}
+              className="pt-6 pb-4 border-t border-white/20 mt-4"
+              style={{
+                background: 'rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                borderRadius: '12px',
+                marginTop: '16px',
+                padding: '24px 16px 16px 16px'
+              }}
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ 
+                y: isMenuOpen ? 0 : -20,
+                opacity: isMenuOpen ? 1 : 0
+              }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
               <div className="flex flex-col space-y-3">
@@ -223,12 +292,28 @@ const Navbar = () => {
                   >
                     <Link
                       href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="group block px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-300 relative overflow-hidden"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsMenuOpen(false);
+                        const element = document.querySelector(item.href);
+                        if (element) {
+                          element.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                          });
+                        }
+                      }}
+                      className="group block px-4 py-3 text-gray-300 hover:text-white rounded-xl transition-all duration-300 relative overflow-hidden"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.03)',
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)'
+                      }}
                     >
                       <span className="relative z-10">{item.label}</span>
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/10 to-transparent opacity-0 group-hover:opacity-100"
+                        className="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/20 to-[#0066ff]/20 opacity-0 group-hover:opacity-100 rounded-xl"
                         transition={{ duration: 0.3 }}
                       />
                     </Link>
@@ -247,25 +332,52 @@ const Navbar = () => {
                 >
                   <motion.a
                     href="#contact"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block w-full text-center px-6 py-3 bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black font-semibold rounded-full"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMenuOpen(false);
+                      const element = document.querySelector('#contact');
+                      if (element) {
+                        element.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }
+                    }}
+                    className="block w-full text-center px-6 py-3 bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black font-semibold rounded-full cursor-pointer"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Let's Talk
+                    Let&apos;s Talk
                   </motion.a>
                 </motion.div>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Animated Border */}
+          {/* Animated Border with Glow */}
           <motion.div
-            className="absolute inset-0 rounded-2xl border border-white/20"
-            animate={{
-              borderColor: isScrolled ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.1)',
+            className="absolute inset-0 rounded-2xl"
+            style={{
+              border: '1px solid rgba(255,255,255,0.2)',
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)'
             }}
-            transition={{ duration: 0.7 }}
+            animate={{
+              borderColor: isScrolled ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.15)',
+              boxShadow: isScrolled 
+                ? '0 0 20px rgba(0, 255, 157, 0.1), inset 0 1px 0 rgba(255,255,255,0.2)'
+                : '0 0 10px rgba(0, 255, 157, 0.05), inset 0 1px 0 rgba(255,255,255,0.1)'
+            }}
+            transition={{ duration: 0.5 }}
+          />
+
+          {/* Subtle Gradient Overlay */}
+          <div 
+            className="absolute inset-0 rounded-2xl pointer-events-none"
+            style={{
+              background: 'linear-gradient(135deg, rgba(0, 255, 157, 0.03) 0%, rgba(0, 102, 255, 0.03) 100%)',
+              opacity: isScrolled ? 1 : 0.5,
+              transition: 'opacity 0.5s ease'
+            }}
           />
         </motion.div>
       </div>
