@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaDownload, FaRocket } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+import { useClientMount } from '@/hooks/useClientMount';
 
 const socialLinks = [
   { icon: <FaGithub />, url: "https://github.com/safwannuddin", label: "GitHub" },
@@ -54,6 +55,31 @@ const TypingText = ({ texts, className }: { texts: string[]; className?: string 
 export default function Hero() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 300], [0, -50]);
+  const isMounted = useClientMount();
+
+  if (!isMounted) {
+    return (
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div className="h-8 bg-gray-700 rounded animate-pulse" />
+              <div className="h-16 bg-gray-700 rounded animate-pulse" />
+              <div className="h-12 bg-gray-700 rounded animate-pulse" />
+              <div className="h-6 bg-gray-700 rounded animate-pulse" />
+              <div className="flex gap-4">
+                <div className="h-12 w-32 bg-gray-700 rounded-full animate-pulse" />
+                <div className="h-12 w-32 bg-gray-700 rounded-full animate-pulse" />
+              </div>
+            </div>
+            <div className="hidden lg:block">
+              <div className="w-full h-[600px] bg-gray-800 rounded-3xl animate-pulse" />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]">
@@ -77,31 +103,37 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
         
         {/* Floating Orbs */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full blur-3xl"
-            style={{
-              background: `radial-gradient(circle, ${['#00ff9d', '#0066ff', '#ff6b35'][i % 3]}20 0%, transparent 70%)`,
-              width: `${200 + i * 50}px`,
-              height: `${200 + i * 50}px`,
-              left: `${(i * 16.67) % 100}%`,
-              top: `${(i * 13.33) % 100}%`,
-            }}
-            animate={{
-              x: [0, 100, -50, 0],
-              y: [0, -100, 50, 0],
-              scale: [1, 1.2, 0.8, 1],
-              opacity: [0.3, 0.6, 0.2, 0.3],
-            }}
-            transition={{
-              duration: 15 + i * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 2,
-            }}
-          />
-        ))}
+        {[...Array(6)].map((_, i) => {
+          const colors = ['#00ff9d', '#0066ff', '#ff6b35'];
+          const leftPos = (i * 16.67) % 100;
+          const topPos = (i * 13.33) % 100;
+          
+          return (
+            <motion.div
+              key={i}
+              className="absolute rounded-full blur-3xl"
+              style={{
+                background: `radial-gradient(circle, ${colors[i % 3]}20 0%, transparent 70%)`,
+                width: `${200 + i * 50}px`,
+                height: `${200 + i * 50}px`,
+                left: `${leftPos}%`,
+                top: `${topPos}%`,
+              }}
+              animate={{
+                x: [0, 100, -50, 0],
+                y: [0, -100, 50, 0],
+                scale: [1, 1.2, 0.8, 1],
+                opacity: [0.3, 0.6, 0.2, 0.3],
+              }}
+              transition={{
+                duration: 15 + i * 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 2,
+              }}
+            />
+          );
+        })}
       </div>
 
       <div className="container mx-auto px-6 relative z-10">

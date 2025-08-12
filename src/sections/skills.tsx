@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useClientMount } from '@/hooks/useClientMount';
 
 const techStacks = [
   {
@@ -93,6 +94,28 @@ const TypingAnimation = ({ text, color, className }: { text: string; color: stri
 };
 
 export default function Skills() {
+  const isMounted = useClientMount();
+
+  if (!isMounted) {
+    return (
+      <section id="skills" className="min-h-screen py-20 bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <div className="h-16 bg-gray-700 rounded mx-auto mb-16 animate-pulse max-w-md" />
+          </div>
+          <div className="space-y-16">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="relative">
+                <div className="h-8 bg-gray-700 rounded mb-8 max-w-sm mx-auto animate-pulse" />
+                <div className="h-32 bg-gray-800 rounded-2xl animate-pulse" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="skills" className="min-h-screen py-20 bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
       {/* Animated Background */}
@@ -242,12 +265,12 @@ export default function Skills() {
                     className="absolute w-2 h-2 bg-white/30 rounded-full"
                     animate={{
                       y: [0, -30, 0],
-                      x: [0, Math.sin(i) * 20, 0],
+                      x: [0, (i % 2 === 0 ? 1 : -1) * 20, 0], // Deterministic x movement
                       opacity: [0.3, 0.8, 0.3],
                       scale: [0.5, 1, 0.5],
                     }}
                     transition={{
-                      duration: 3 + Math.random() * 2,
+                      duration: 3 + (i * 0.4), // Deterministic duration
                       repeat: Infinity,
                       delay: i * 0.5,
                       ease: "easeInOut"
@@ -265,31 +288,39 @@ export default function Skills() {
 
         {/* Floating Tech Icons */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute text-2xl opacity-10"
-              animate={{
-                y: [0, -100, 0],
-                x: [0, Math.sin(i) * 50, 0],
-                rotate: [0, 360],
-                opacity: [0.1, 0.3, 0.1],
-              }}
-              transition={{
-                duration: 10 + (i * 0.5),
-                repeat: Infinity,
-                delay: i * 0.5,
-                ease: "easeInOut"
-              }}
-              style={{
-                left: `${(i * 5.26) % 100}%`,
-                top: `${(i * 7.89) % 100}%`,
-                color: ['#FFD700', '#61DAFB', '#FF6B35', '#4CAF50'][i % 4],
-              }}
-            >
-              {['⚛️', '🚀', '💻', '🔥', '⚡', '🎯'][i % 6]}
-            </motion.div>
-          ))}
+          {[...Array(20)].map((_, i) => {
+            // Use deterministic values to avoid hydration mismatch
+            const leftPos = (i * 5.26) % 100;
+            const topPos = (i * 7.89) % 100;
+            const colors = ['#FFD700', '#61DAFB', '#FF6B35', '#4CAF50'];
+            const icons = ['⚛️', '🚀', '💻', '🔥', '⚡', '🎯'];
+            
+            return (
+              <motion.div
+                key={i}
+                className="absolute text-2xl opacity-10"
+                animate={{
+                  y: [0, -100, 0],
+                  x: [0, (i % 2 === 0 ? 1 : -1) * 50, 0], // Deterministic x movement
+                  rotate: [0, 360],
+                  opacity: [0.1, 0.3, 0.1],
+                }}
+                transition={{
+                  duration: 10 + (i * 0.5),
+                  repeat: Infinity,
+                  delay: i * 0.5,
+                  ease: "easeInOut"
+                }}
+                style={{
+                  left: `${leftPos}%`,
+                  top: `${topPos}%`,
+                  color: colors[i % 4],
+                }}
+              >
+                {icons[i % 6]}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

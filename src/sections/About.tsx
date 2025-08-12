@@ -86,31 +86,37 @@ export default function About() {
         />
         
         {/* Floating Orbs */}
-        {[...Array(4)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full blur-3xl"
-            style={{
-              background: `radial-gradient(circle, ${['#00ff9d', '#0066ff', '#ff6b35', '#9333ea'][i]}15 0%, transparent 70%)`,
-              width: `${150 + i * 50}px`,
-              height: `${150 + i * 50}px`,
-              left: `${20 + i * 20}%`,
-              top: `${10 + i * 25}%`,
-            }}
-            animate={{
-              x: [0, 50, -30, 0],
-              y: [0, -30, 20, 0],
-              scale: [1, 1.1, 0.9, 1],
-              opacity: [0.3, 0.5, 0.2, 0.3],
-            }}
-            transition={{
-              duration: 8 + i * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 1.5,
-            }}
-          />
-        ))}
+        {[...Array(4)].map((_, i) => {
+          const colors = ['#00ff9d', '#0066ff', '#ff6b35', '#9333ea'];
+          const leftPos = 20 + i * 20;
+          const topPos = 10 + i * 25;
+          
+          return (
+            <motion.div
+              key={i}
+              className="absolute rounded-full blur-3xl"
+              style={{
+                background: `radial-gradient(circle, ${colors[i]}15 0%, transparent 70%)`,
+                width: `${150 + i * 50}px`,
+                height: `${150 + i * 50}px`,
+                left: `${leftPos}%`,
+                top: `${topPos}%`,
+              }}
+              animate={{
+                x: [0, 50, -30, 0],
+                y: [0, -30, 20, 0],
+                scale: [1, 1.1, 0.9, 1],
+                opacity: [0.3, 0.5, 0.2, 0.3],
+              }}
+              transition={{
+                duration: 8 + i * 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 1.5,
+              }}
+            />
+          );
+        })}
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -144,7 +150,7 @@ export default function About() {
             ].map((tab) => (
               <motion.button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => setActiveTab(tab.id as 'story' | 'skills' | 'achievements')}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
                   activeTab === tab.id
                     ? 'bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black shadow-lg'
@@ -207,7 +213,7 @@ export default function About() {
                     className="absolute w-3 h-3 bg-[#00ff9d] rounded-full"
                     animate={{
                       y: [0, -30, 0],
-                      x: [0, Math.sin(i) * 20, 0],
+                      x: [0, (i % 2 === 0 ? 1 : -1) * 20, 0], // Deterministic x movement
                       opacity: [0.3, 0.8, 0.3],
                       scale: [0.5, 1, 0.5],
                     }}
