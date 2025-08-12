@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { useClientMount } from '@/hooks/useClientMount';
 
 const navItems = [
   { href: "#about", label: "About" },
@@ -18,8 +19,11 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
   const navY = useTransform(scrollY, [0, 100], [0, -10]);
+  const isMounted = useClientMount();
 
   useEffect(() => {
+    if (!isMounted) return;
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -27,7 +31,34 @@ const Navbar = () => {
     handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMounted]);
+
+  if (!isMounted) {
+    return (
+      <nav className="fixed w-full z-50 top-4 py-0">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="glass-card px-8 py-4 bg-black/70 border-white/10 backdrop-blur-lg">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <div className="w-12 h-12 rounded-xl bg-gray-700 animate-pulse" />
+                <div className="hidden sm:block">
+                  <div className="h-6 w-32 bg-gray-700 rounded animate-pulse" />
+                </div>
+              </div>
+              <div className="hidden md:flex items-center space-x-2">
+                {[...Array(5)].map((_, i) => (
+                  <div key={i} className="h-8 w-16 bg-gray-700 rounded animate-pulse" />
+                ))}
+              </div>
+              <div className="hidden lg:block">
+                <div className="h-10 w-24 bg-gray-700 rounded-full animate-pulse" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <motion.nav
@@ -63,17 +94,7 @@ const Navbar = () => {
                 transition={{ duration: 0.8, ease: "easeInOut" }}
               >
                 <span className="text-black font-bold text-xl">MS</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                  animate={{
-                    x: ['-100%', '100%'],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
+
               </motion.div>
               <div className="hidden sm:block">
                 <motion.span 
@@ -148,17 +169,7 @@ const Navbar = () => {
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}
                 />
-                <motion.div
-                  className="absolute inset-0 bg-white/20"
-                  animate={{
-                    x: ['-100%', '100%'],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
+
               </motion.a>
             </motion.div>
 

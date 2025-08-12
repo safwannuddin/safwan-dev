@@ -233,25 +233,23 @@ export default function About() {
                 />
 
                 {/* Floating Elements */}
-                {[...Array(6)].map((_, i) => (
+                {[...Array(4)].map((_, i) => (
                   <motion.div
                     key={i}
                     className="absolute w-3 h-3 bg-[#00ff9d] rounded-full"
                     animate={{
-                      y: [0, -30, 0],
-                      x: [0, (i % 2 === 0 ? 1 : -1) * 20, 0], // Deterministic x movement
-                      opacity: [0.3, 0.8, 0.3],
-                      scale: [0.5, 1, 0.5],
+                      y: [0, -20, 0],
+                      opacity: [0.3, 0.6, 0.3],
                     }}
                     transition={{
-                      duration: 3 + i * 0.5,
+                      duration: 4 + i * 0.5,
                       repeat: Infinity,
-                      delay: i * 0.3,
+                      delay: i * 0.5,
                       ease: "easeInOut"
                     }}
                     style={{
-                      left: `${15 + i * 12}%`,
-                      top: `${20 + (i % 2) * 60}%`,
+                      left: `${20 + i * 20}%`,
+                      top: `${30 + (i % 2) * 40}%`,
                     }}
                   />
                 ))}

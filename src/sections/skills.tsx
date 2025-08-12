@@ -259,25 +259,23 @@ export default function Skills() {
                 </div>
 
                 {/* Floating Particles */}
-                {[...Array(5)].map((_, i) => (
+                {[...Array(3)].map((_, i) => (
                   <motion.div
                     key={i}
                     className="absolute w-2 h-2 bg-white/30 rounded-full"
                     animate={{
-                      y: [0, -30, 0],
-                      x: [0, (i % 2 === 0 ? 1 : -1) * 20, 0], // Deterministic x movement
-                      opacity: [0.3, 0.8, 0.3],
-                      scale: [0.5, 1, 0.5],
+                      y: [0, -20, 0],
+                      opacity: [0.3, 0.6, 0.3],
                     }}
                     transition={{
-                      duration: 3 + (i * 0.4), // Deterministic duration
+                      duration: 4 + (i * 0.5),
                       repeat: Infinity,
-                      delay: i * 0.5,
+                      delay: i * 0.7,
                       ease: "easeInOut"
                     }}
                     style={{
-                      left: `${20 + i * 15}%`,
-                      top: `${20 + (i % 2) * 60}%`,
+                      left: `${30 + i * 20}%`,
+                      top: `${30 + (i % 2) * 40}%`,
                     }}
                   />
                 ))}
@@ -288,10 +286,10 @@ export default function Skills() {
 
         {/* Floating Tech Icons */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(20)].map((_, i) => {
+          {[...Array(12)].map((_, i) => {
             // Use deterministic values to avoid hydration mismatch
-            const leftPos = (i * 5.26) % 100;
-            const topPos = (i * 7.89) % 100;
+            const leftPos = (i * 8.33) % 100;
+            const topPos = (i * 12.5) % 100;
             const colors = ['#FFD700', '#61DAFB', '#FF6B35', '#4CAF50'];
             const icons = ['⚛️', '🚀', '💻', '🔥', '⚡', '🎯'];
             
@@ -300,15 +298,13 @@ export default function Skills() {
                 key={i}
                 className="absolute text-2xl opacity-10"
                 animate={{
-                  y: [0, -100, 0],
-                  x: [0, (i % 2 === 0 ? 1 : -1) * 50, 0], // Deterministic x movement
-                  rotate: [0, 360],
+                  y: [0, -50, 0],
                   opacity: [0.1, 0.3, 0.1],
                 }}
                 transition={{
-                  duration: 10 + (i * 0.5),
+                  duration: 8 + (i * 0.3),
                   repeat: Infinity,
-                  delay: i * 0.5,
+                  delay: i * 0.4,
                   ease: "easeInOut"
                 }}
                 style={{

@@ -341,24 +341,23 @@ export default function Hero() {
               />
 
               {/* Floating Code Elements */}
-              {['{ }', '</>', '< />', 'fn()', '[]', '()'].map((symbol, i) => (
+              {['{ }', '</>', 'fn()', '[]'].map((symbol, i) => (
                 <motion.div
                   key={i}
                   className="absolute text-2xl font-mono text-[#00ff9d]/60"
                   style={{
-                    left: `${30 + (i % 3) * 30}%`,
-                    top: `${20 + Math.floor(i / 3) * 60}%`,
+                    left: `${30 + (i % 2) * 40}%`,
+                    top: `${30 + Math.floor(i / 2) * 40}%`,
                   }}
                   animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.4, 0.8, 0.4],
-                    rotate: [0, 10, -10, 0],
+                    y: [0, -15, 0],
+                    opacity: [0.4, 0.7, 0.4],
                   }}
                   transition={{
-                    duration: 3 + i * 0.5,
+                    duration: 4 + i * 0.5,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: i * 0.3,
+                    delay: i * 0.5,
                   }}
                 >
                   {symbol}

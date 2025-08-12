@@ -165,8 +165,7 @@ const CertificateFrame: React.FC<CertificateFrameProps> = ({ certificate, index 
       onMouseLeave={handleMouseLeave}
       animate={controls}
       style={{ 
-        perspective: '1000px',
-        transformStyle: 'preserve-3d'
+        perspective: '1000px'
       }}
     >
       <div className={`
