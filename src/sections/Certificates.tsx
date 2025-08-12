@@ -171,7 +171,7 @@ const CertificateFrame: React.FC<CertificateFrameProps> = ({ certificate, index 
             )}
             
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
         </div>
         
@@ -236,7 +236,7 @@ const Certificates = () => {
   return (
     <section id="certificates" className="section-padding relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
       <div className="absolute top-20 left-20 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl"></div>
       

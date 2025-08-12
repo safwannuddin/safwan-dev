@@ -141,7 +141,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       >
         <div className="relative h-48 overflow-hidden group">
           {isLoading ? (
-            <div className="absolute inset-0 flex items-center justify-center bg-dark-800/50">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/50">
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -149,7 +149,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               />
             </div>
           ) : hasError ? (
-            <div className="absolute inset-0 flex items-center justify-center bg-dark-800/50">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/50">
               <div className="text-gray-400">Image not available</div>
             </div>
           ) : (
@@ -162,7 +162,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               onError={() => setHasError(true)}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6">
             <div className="flex gap-3">
               {project.github && (
                 <motion.a
@@ -204,7 +204,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-sm bg-dark-800/50 text-primary-400 rounded-full border border-primary-500/20"
+                className="px-3 py-1 text-sm bg-black/50 text-primary-400 rounded-full border border-primary-500/20"
               >
                 {tag}
               </span>
@@ -264,7 +264,7 @@ const Projects: React.FC = () => {
               className={`px-6 py-2 rounded-full transition-all duration-300 ${
                 activeCategory === category.id
                   ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/20'
-                  : 'bg-dark-800/50 text-gray-400 hover:bg-dark-800 hover:text-white'
+                  : 'bg-black/50 text-gray-400 hover:bg-black/70 hover:text-white'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

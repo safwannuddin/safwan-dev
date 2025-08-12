@@ -140,6 +140,8 @@ module.exports = {
           'elegant': '0 4px 20px -2px rgba(0, 0, 0, 0.08)',
           'card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
           'card-hover': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+          '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+          '4xl': '0 45px 70px -20px rgba(0, 0, 0, 0.4)',
         },
         borderRadius: {
           'none': '0',
