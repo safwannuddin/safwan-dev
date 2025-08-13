@@ -127,22 +127,31 @@ const Navbar = () => {
               className="flex items-center space-x-3 cursor-pointer"
             >
               <motion.div 
-                className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-[#00ff9d] to-[#00cc7a] flex items-center justify-center overflow-hidden"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="relative w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)',
+                  boxShadow: '0 4px 14px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: '0 6px 20px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                }}
+                transition={{ duration: 0.3 }}
               >
-                <span className="text-black font-bold text-xl">MS</span>
-
+                <span className="text-white font-bold text-xl">MS</span>
               </motion.div>
               <div className="hidden sm:block">
                 <motion.span 
-                  className="text-2xl font-display font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+                  className="text-2xl font-display font-bold gradient-text"
                   whileHover={{ scale: 1.05 }}
                 >
                   Mohd Safwan
                 </motion.span>
                 <motion.div
-                  className="h-0.5 bg-gradient-to-r from-[#00ff9d] to-transparent"
+                  className="h-0.5 rounded-full"
+                  style={{
+                    background: 'linear-gradient(90deg, #3b82f6 0%, #06b6d4 50%, transparent 100%)'
+                  }}
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 1, delay: 0.5 }}
@@ -177,20 +186,20 @@ const Navbar = () => {
                     
                     {/* Hover Background */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/10 to-[#0066ff]/10 opacity-0 group-hover:opacity-100"
-                      initial={false}
+                      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100"
+                      style={{
+                        background: 'rgba(59, 130, 246, 0.1)',
+                        backdropFilter: 'blur(8px)'
+                      }}
                       transition={{ duration: 0.3 }}
                     />
                     
                     {/* Animated Border */}
                     <motion.div 
-                      className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-[#00ff9d] to-[#0066ff] group-hover:w-full group-hover:left-0 transition-all duration-500"
-                    />
-                    
-                    {/* Glow Effect */}
-                    <motion.div
-                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#00ff9d]/20 to-[#0066ff]/20 opacity-0 group-hover:opacity-100 blur-sm"
-                      transition={{ duration: 0.3 }}
+                      className="absolute bottom-0 left-1/2 w-0 h-0.5 rounded-full group-hover:w-full group-hover:left-0 transition-all duration-500"
+                      style={{
+                        background: 'linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%)'
+                      }}
                     />
                   </Link>
                 </motion.div>
@@ -206,7 +215,7 @@ const Navbar = () => {
             >
               <motion.a
                 href="#contact"
-                className="relative px-6 py-3 bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black font-semibold rounded-full overflow-hidden group cursor-pointer"
+                className="btn btn-primary cursor-pointer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={(e) => {
@@ -220,14 +229,7 @@ const Navbar = () => {
                   }
                 }}
               >
-                <span className="relative z-10">Let's Talk</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-[#00cc7a] to-[#009957]"
-                  initial={{ x: '100%' }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-
+                Let&apos;s Talk
               </motion.a>
             </motion.div>
 
@@ -244,9 +246,9 @@ const Navbar = () => {
                 transition={{ duration: 0.3 }}
               >
                 {isMenuOpen ? (
-                  <FaTimes className="w-6 h-6 text-[#00ff9d]" />
+                  <FaTimes className="w-6 h-6" style={{ color: '#3b82f6' }} />
                 ) : (
-                  <FaBars className="w-6 h-6 text-[#00ff9d]" />
+                  <FaBars className="w-6 h-6" style={{ color: '#3b82f6' }} />
                 )}
               </motion.div>
             </motion.button>
@@ -313,7 +315,11 @@ const Navbar = () => {
                     >
                       <span className="relative z-10">{item.label}</span>
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/20 to-[#0066ff]/20 opacity-0 group-hover:opacity-100 rounded-xl"
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl"
+                        style={{
+                          background: 'rgba(59, 130, 246, 0.15)',
+                          backdropFilter: 'blur(8px)'
+                        }}
                         transition={{ duration: 0.3 }}
                       />
                     </Link>
@@ -343,7 +349,7 @@ const Navbar = () => {
                         });
                       }
                     }}
-                    className="block w-full text-center px-6 py-3 bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black font-semibold rounded-full cursor-pointer"
+                    className="btn btn-primary w-full text-center cursor-pointer"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

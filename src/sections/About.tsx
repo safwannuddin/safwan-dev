@@ -91,15 +91,15 @@ export default function About() {
   }
 
   return (
-    <section 
-      id="about" 
+    <section
+      id="about"
       ref={containerRef}
       className="min-h-screen py-20 relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]"
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-grid opacity-10" />
-        <motion.div 
+        <motion.div
           className="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/5 via-transparent to-[#0066ff]/5"
           animate={{
             backgroundPosition: ['0% 0%', '100% 100%'],
@@ -110,13 +110,13 @@ export default function About() {
             ease: "linear"
           }}
         />
-        
+
         {/* Floating Orbs */}
         {[...Array(4)].map((_, i) => {
           const colors = ['#00ff9d', '#0066ff', '#ff6b35', '#9333ea'];
           const leftPos = 20 + i * 20;
           const topPos = 10 + i * 25;
-          
+
           return (
             <motion.div
               key={i}
@@ -154,10 +154,15 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-6xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent mb-4">
+          <h2 className="text-6xl font-bold gradient-text mb-4">
             About Me
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00ff9d] to-[#0066ff] mx-auto rounded-full" />
+          <div
+            className="w-24 h-1 mx-auto rounded-full"
+            style={{
+              background: 'linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%)'
+            }}
+          />
         </motion.div>
 
         {/* Tab Navigation */}
@@ -177,11 +182,10 @@ export default function About() {
               <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as 'story' | 'skills' | 'achievements')}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
-                  activeTab === tab.id
-                    ? 'bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black shadow-lg'
-                    : 'text-gray-400 hover:text-white hover:bg-white/5'
-                }`}
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${activeTab === tab.id
+                  ? 'bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black shadow-lg'
+                  : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -226,7 +230,7 @@ export default function About() {
                   className="object-cover"
                   priority
                 />
-                
+
                 {/* Overlay Effect */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"
@@ -290,26 +294,26 @@ export default function About() {
                 <h3 className="text-4xl font-bold bg-gradient-to-r from-[#00ff9d] to-[#0066ff] bg-clip-text text-transparent">
                   Passionate Developer & AI Enthusiast
                 </h3>
-                
+
                 <div className="space-y-4 text-gray-300 leading-relaxed">
                   <p className="text-lg">
-                    Hey there! I'm <span className="text-[#00ff9d] font-semibold">Mohd Safwan Uddin</span>, 
-                    a Computer Science student and full-stack developer who's passionate about creating 
+                    Hey there! I'm <span className="text-[#00ff9d] font-semibold">Mohd Safwan Uddin</span>,
+                    a Computer Science student and full-stack developer who's passionate about creating
                     innovative digital solutions that make a real impact.
                   </p>
-                  
+
                   <p>
-                    My journey in tech started with curiosity and has evolved into a deep love for 
-                    <span className="text-[#00ff9d] font-semibold"> modern web development</span> and 
-                    <span className="text-[#0066ff] font-semibold"> artificial intelligence</span>. 
-                    I specialize in React, Next.js, and Python, with a focus on building scalable, 
+                    My journey in tech started with curiosity and has evolved into a deep love for
+                    <span className="text-[#00ff9d] font-semibold"> modern web development</span> and
+                    <span className="text-[#0066ff] font-semibold"> artificial intelligence</span>.
+                    I specialize in React, Next.js, and Python, with a focus on building scalable,
                     user-centric applications.
                   </p>
-                  
+
                   <p>
-                    Currently, I'm working on exciting projects like <span className="text-[#00ff9d] font-semibold">NeuroNav</span> - 
-                    a 3D brain health visualizer using CNNs, and <span className="text-[#0066ff] font-semibold">HeartMate</span> - 
-                    a health monitoring platform. I believe in using technology to solve real-world problems 
+                    Currently, I'm working on exciting projects like <span className="text-[#00ff9d] font-semibold">NeuroNav</span> -
+                    a 3D brain health visualizer using CNNs, and <span className="text-[#0066ff] font-semibold">HeartMate</span> -
+                    a health monitoring platform. I believe in using technology to solve real-world problems
                     and improve people's lives.
                   </p>
                 </div>
@@ -321,11 +325,11 @@ export default function About() {
                   transition={{ duration: 0.3 }}
                 >
                   <p className="text-xl italic text-gray-300 leading-relaxed">
-                    "The only limits in life are the ones you make. Dream bigger, push harder, 
+                    "The only limits in life are the ones you make. Dream bigger, push harder,
                     and transform your vision into reality."
                   </p>
                   <div className="absolute -top-2 -left-2 w-8 h-8 bg-[#00ff9d] rounded-full flex items-center justify-center">
-                    <span className="text-black font-bold">"</span>
+                    <span className="text-black font-bold">&quot;</span>
                   </div>
                 </motion.div>
               </motion.div>
@@ -342,7 +346,7 @@ export default function About() {
                 <h3 className="text-4xl font-bold bg-gradient-to-r from-[#00ff9d] to-[#0066ff] bg-clip-text text-transparent">
                   Technical Expertise
                 </h3>
-                
+
                 <div className="space-y-4">
                   {skills.map((skill, index) => (
                     <motion.div
@@ -399,7 +403,7 @@ export default function About() {
                 <h3 className="text-4xl font-bold bg-gradient-to-r from-[#00ff9d] to-[#0066ff] bg-clip-text text-transparent">
                   Key Achievements
                 </h3>
-                
+
                 <div className="grid gap-4">
                   {achievements.map((achievement, index) => (
                     <motion.div

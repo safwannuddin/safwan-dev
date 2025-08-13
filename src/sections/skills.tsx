@@ -144,10 +144,10 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-6xl font-bold bg-gradient-to-r from-[#FFD700] via-[#FF6B35] to-[#61DAFB] bg-clip-text text-transparent mb-4">
+          <h2 className="text-6xl font-bold gradient-text mb-4">
             Tech Stack & Skills
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
             Crafting digital experiences with cutting-edge technologies and modern development practices
           </p>
         </motion.div>

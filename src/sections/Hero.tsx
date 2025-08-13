@@ -178,11 +178,11 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-5xl md:text-7xl font-bold leading-tight"
             >
-              <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+              <span className="gradient-text">
                 Mohd Safwan
               </span>
               <br />
-              <span className="bg-gradient-to-r from-[#00ff9d] via-[#00cc7a] to-[#009957] bg-clip-text text-transparent">
+              <span className="gradient-text-primary">
                 Uddin
               </span>
             </motion.h1>
@@ -209,11 +209,12 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-lg text-gray-400 leading-relaxed max-w-2xl"
+              className="text-lg leading-relaxed max-w-2xl"
+              style={{ color: 'var(--text-secondary)' }}
             >
               Passionate about creating innovative digital solutions that bridge the gap between 
-              <span className="text-[#00ff9d] font-semibold"> cutting-edge technology</span> and 
-              <span className="text-[#00ff9d] font-semibold"> user-centric design</span>. 
+              <span className="gradient-text-primary font-semibold"> cutting-edge technology</span> and 
+              <span className="gradient-text-accent font-semibold"> user-centric design</span>. 
               Specializing in modern web development with a focus on AI integration.
             </motion.p>
 
@@ -226,33 +227,23 @@ export default function Hero() {
             >
               <motion.a
                 href="#projects"
-                className="group relative px-8 py-4 bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,157,0.5)]"
+                className="btn btn-primary flex items-center gap-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  <FaRocket />
-                  View My Work
-                </span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-[#00cc7a] to-[#009957]"
-                  initial={{ x: '100%' }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
+                <FaRocket />
+                View My Work
               </motion.a>
 
               <motion.a
                 href="/resume.pdf"
                 download
-                className="group px-8 py-4 border-2 border-[#00ff9d] text-[#00ff9d] font-semibold rounded-full hover:bg-[#00ff9d] hover:text-black transition-all duration-300"
+                className="btn btn-secondary flex items-center gap-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="flex items-center gap-2">
-                  <FaDownload />
-                  Download CV
-                </span>
+                <FaDownload />
+                Download CV
               </motion.a>
             </motion.div>
 
