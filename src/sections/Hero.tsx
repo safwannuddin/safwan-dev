@@ -197,9 +197,9 @@ export default function Hero() {
               <TypingText 
                 texts={[
                   "Full-Stack Developer",
-                  "AI Enthusiast", 
-                  "Problem Solver",
-                  "Tech Innovator"
+                  "AI Platform Engineer", 
+                  "Blockchain Developer",
+                  "System Architect"
                 ]}
               />
             </motion.div>
@@ -212,10 +212,10 @@ export default function Hero() {
               className="text-lg leading-relaxed max-w-2xl"
               style={{ color: 'var(--text-secondary)' }}
             >
-              Passionate about creating innovative digital solutions that bridge the gap between 
-              <span className="gradient-text-primary font-semibold"> cutting-edge technology</span> and 
-              <span className="gradient-text-accent font-semibold"> user-centric design</span>. 
-              Specializing in modern web development with a focus on AI integration.
+              Experienced full-stack developer specializing in building scalable, robust systems from 
+              <span className="gradient-text-primary font-semibold"> high-throughput data pipelines</span> to 
+              <span className="gradient-text-accent font-semibold"> production-grade React applications</span>. 
+              Expert in Next.js, Python, Node.js, and AI-powered automation platforms.
             </motion.p>
 
             {/* CTA Buttons */}

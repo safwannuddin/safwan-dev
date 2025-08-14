@@ -148,7 +148,7 @@ export default function Skills() {
             Tech Stack & Skills
           </h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-            Crafting digital experiences with cutting-edge technologies and modern development practices
+            Building end-to-end systems with modern tech stack - from scalable backends to production-grade frontends, specializing in AI integration and decentralized applications
           </p>
         </motion.div>
 

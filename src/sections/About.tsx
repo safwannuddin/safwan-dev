@@ -8,39 +8,39 @@ import { useClientMount } from '@/hooks/useClientMount';
 
 const achievements = [
   {
-    icon: <FaGraduationCap className="text-3xl" />,
-    title: "Computer Science Student",
-    description: "3rd-year CS student with strong foundation in algorithms, data structures, and AI",
+    icon: <FaLaptopCode className="text-3xl" />,
+    title: "Full-Stack System Architect",
+    description: "Expert in building end-to-end systems with React, Next.js, Python, Node.js, and cloud infrastructure",
     color: "from-blue-500 to-cyan-500"
   },
   {
-    icon: <FaLaptopCode className="text-3xl" />,
-    title: "Full-Stack Developer",
-    description: "Expert in React, Next.js, Node.js, Python, and modern web technologies",
+    icon: <FaBrain className="text-3xl" />,
+    title: "AI Platform Engineer",
+    description: "Specialized in AI-powered automation platforms, decentralized AI applications, and ML integration",
     color: "from-green-500 to-emerald-500"
   },
   {
     icon: <FaRocket className="text-3xl" />,
-    title: "Hackathon Finalist",
-    description: "TechHack 3 & UI Hackathon finalist, currently building NeuroNav for Bolt 2025",
+    title: "Startup Experience",
+    description: "Built scalable systems at Blockable and Mindalike, experienced in super lean team environments",
     color: "from-purple-500 to-pink-500"
   },
   {
-    icon: <FaBrain className="text-3xl" />,
-    title: "AI Enthusiast",
-    description: "Building AI-driven solutions like NeuroNav - 3D brain health visualizer",
+    icon: <FaGlobe className="text-3xl" />,
+    title: "Blockchain Developer",
+    description: "Experience with Web3, decentralized applications, and blockchain-based authentication systems",
     color: "from-orange-500 to-red-500"
   },
   {
     icon: <FaAward className="text-3xl" />,
-    title: "Certified Professional",
-    description: "Multiple certifications in ML, Data Science, Cybersecurity & Development",
+    title: "Production Systems",
+    description: "Built high-throughput data ingestion pipelines and production-grade frontend components",
     color: "from-yellow-500 to-orange-500"
   },
   {
-    icon: <FaGlobe className="text-3xl" />,
-    title: "Open Source Contributor",
-    description: "Active GitHub contributor focused on public tech solutions",
+    icon: <FaGraduationCap className="text-3xl" />,
+    title: "Tech Mentor & Advocate",
+    description: "Passionate about empowering people with technology, mentoring developers, and open-source advocacy",
     color: "from-teal-500 to-blue-500"
   }
 ];
@@ -292,29 +292,28 @@ export default function About() {
                 className="space-y-6"
               >
                 <h3 className="text-4xl font-bold bg-gradient-to-r from-[#00ff9d] to-[#0066ff] bg-clip-text text-transparent">
-                  Passionate Developer & AI Enthusiast
+                  Full-Stack Engineer & System Architect
                 </h3>
 
                 <div className="space-y-4 text-gray-300 leading-relaxed">
                   <p className="text-lg">
-                    Hey there! I'm <span className="text-[#00ff9d] font-semibold">Mohd Safwan Uddin</span>,
-                    a Computer Science student and full-stack developer who's passionate about creating
-                    innovative digital solutions that make a real impact.
+                    I'm <span className="text-[#00ff9d] font-semibold">Mohd Safwan Uddin</span>, 
+                    a seasoned full-stack developer with expertise in building scalable, robust systems 
+                    across the entire technology stack - from backend services to production-grade frontends.
                   </p>
 
                   <p>
-                    My journey in tech started with curiosity and has evolved into a deep love for
-                    <span className="text-[#00ff9d] font-semibold"> modern web development</span> and
-                    <span className="text-[#0066ff] font-semibold"> artificial intelligence</span>.
-                    I specialize in React, Next.js, and Python, with a focus on building scalable,
-                    user-centric applications.
+                    As part of super lean teams at <span className="text-[#00ff9d] font-semibold">Blockable</span> and 
+                    <span className="text-[#0066ff] font-semibold"> Mindalike</span>, I've architected and built 
+                    several end-to-end systems involving complex workflows, AI-powered automation platforms, 
+                    and decentralized applications using React, Next.js, Python, Node.js, GraphQL, and AWS infrastructure.
                   </p>
 
                   <p>
-                    Currently, I'm working on exciting projects like <span className="text-[#00ff9d] font-semibold">NeuroNav</span> -
-                    a 3D brain health visualizer using CNNs, and <span className="text-[#0066ff] font-semibold">HeartMate</span> -
-                    a health monitoring platform. I believe in using technology to solve real-world problems
-                    and improve people's lives.
+                    I'm passionate about <span className="text-[#00ff9d] font-semibold">empowering people with technology</span>, 
+                    mentoring other developers, and advocating for open-source. Currently focused on 
+                    <span className="text-[#0066ff] font-semibold"> decentralized AI app platforms</span>, 
+                    productivity tech for networks, and AI-powered automation solutions.
                   </p>
                 </div>
 
@@ -325,8 +324,8 @@ export default function About() {
                   transition={{ duration: 0.3 }}
                 >
                   <p className="text-xl italic text-gray-300 leading-relaxed">
-                    "The only limits in life are the ones you make. Dream bigger, push harder,
-                    and transform your vision into reality."
+                    "Being part of super lean teams has taught me the ability to work across the entire stack - 
+                    from building scalable backends to high-throughput data pipelines to production-grade React components."
                   </p>
                   <div className="absolute -top-2 -left-2 w-8 h-8 bg-[#00ff9d] rounded-full flex items-center justify-center">
                     <span className="text-black font-bold">&quot;</span>

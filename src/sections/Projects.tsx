@@ -279,8 +279,8 @@ export default function Projects() {
             Featured Projects
           </h2>
           <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            A showcase of my latest work in web development, AI/ML, blockchain, and mobile applications. 
-            Each project represents a unique challenge solved with modern technologies and innovative approaches.
+            End-to-end systems built with React, Next.js, Python, and Node.js. From AI-powered automation platforms 
+            to decentralized applications - each project showcases scalable architecture and production-ready solutions.
           </p>
           <div 
             className="w-24 h-1 mx-auto rounded-full mt-6"
