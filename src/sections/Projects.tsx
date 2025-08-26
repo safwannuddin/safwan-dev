@@ -89,67 +89,82 @@ const projects: Project[] = [
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      className="glass-card group hover:scale-105 transition-all duration-500"
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="glass-card group"
+      whileHover={{ y: -8 }}
     >
       {/* Project Image */}
-      <div className="relative h-64 overflow-hidden rounded-t-2xl">
-        <Image
-          src={project.imagePath}
-          alt={project.title}
-          fill
-          className={`object-cover transition-all duration-700 group-hover:scale-110 ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={() => setImageLoaded(true)}
-        />
+      <div className="relative h-64 overflow-hidden rounded-t-2xl bg-gray-800">
+        {!imageError ? (
+          <Image
+            src={project.imagePath}
+            alt={project.title}
+            fill
+            className={`object-cover transition-opacity duration-500 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setImageError(true)}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
+                <span className="text-2xl">🚀</span>
+              </div>
+              <span className="text-sm text-gray-400">Project Preview</span>
+            </div>
+          </div>
+        )}
         
-        {!imageLoaded && (
+        {!imageLoaded && !imageError && (
           <div className="absolute inset-0 bg-gray-800 animate-pulse" />
         )}
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         {/* Category Badge */}
         <div className="absolute top-4 left-4">
-          <span className={`px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r ${project.color} text-white`}>
+          <span 
+            className="px-3 py-1 rounded-full text-xs font-semibold text-white"
+            style={{
+              background: 'linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)'
+            }}
+          >
             {project.category}
           </span>
         </div>
 
         {/* Links */}
-        <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           {project.github && (
-            <motion.a
+            <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:bg-black/70 transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              className="p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:bg-black/70 transition-colors duration-200"
             >
               <FaGithub className="w-4 h-4" />
-            </motion.a>
+            </a>
           )}
           
           {project.link && project.link !== '#' && (
-            <motion.a
+            <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:bg-black/70 transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              className="p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:bg-black/70 transition-colors duration-200"
             >
               <FaExternalLinkAlt className="w-4 h-4" />
-            </motion.a>
+            </a>
           )}
         </div>
       </div>
@@ -169,21 +184,18 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag, tagIndex) => (
-            <motion.span
+          {project.tags.map((tag) => (
+            <span
               key={tag}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 + tagIndex * 0.05, duration: 0.3 }}
-              className="px-3 py-1 rounded-full text-sm border"
+              className="px-3 py-1 rounded-full text-sm border transition-colors duration-200 hover:border-blue-400"
               style={{
                 background: 'rgba(59, 130, 246, 0.1)',
                 borderColor: 'rgba(59, 130, 246, 0.3)',
-                color: 'var(--text-primary)'
+                color: '#f8fafc'
               }}
             >
               {tag}
-            </motion.span>
+            </span>
           ))}
         </div>
       </div>
@@ -217,53 +229,25 @@ export default function Projects() {
 
   return (
     <section id="projects" className="min-h-screen py-20 relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]">
-      {/* Animated Background */}
+      {/* Static Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-grid opacity-10" />
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/5 via-transparent to-[#0066ff]/5"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-cyan-500/5" />
         
-        {/* Floating Orbs */}
-        {[...Array(4)].map((_, i) => {
-          const colors = ['#00ff9d', '#0066ff', '#ff6b35', '#9333ea'];
-          const leftPos = (i * 25) % 100;
-          const topPos = (i * 30 + 10) % 100;
-          
-          return (
-            <motion.div
-              key={i}
-              className="absolute rounded-full blur-3xl"
-              style={{
-                background: `radial-gradient(circle, ${colors[i]}15 0%, transparent 70%)`,
-                width: `${150 + i * 30}px`,
-                height: `${150 + i * 30}px`,
-                left: `${leftPos}%`,
-                top: `${topPos}%`,
-              }}
-              animate={{
-                x: [0, 100, -50, 0],
-                y: [0, -50, 30, 0],
-                scale: [1, 1.2, 0.8, 1],
-                opacity: [0.3, 0.5, 0.2, 0.3],
-              }}
-              transition={{
-                duration: 15 + i * 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 2,
-              }}
-            />
-          );
-        })}
+        {/* Static Orbs */}
+        {[...Array(3)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full blur-3xl opacity-20"
+            style={{
+              background: `radial-gradient(circle, ${['#3b82f6', '#06b6d4', '#8b5cf6'][i]}20 0%, transparent 70%)`,
+              width: `${200 + i * 50}px`,
+              height: `${200 + i * 50}px`,
+              left: `${20 + i * 30}%`,
+              top: `${10 + i * 35}%`,
+            }}
+          />
+        ))}
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
