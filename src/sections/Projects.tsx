@@ -107,11 +107,13 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             src={project.imagePath}
             alt={project.title}
             fill
+            unoptimized
             className={`object-contain transition-opacity duration-500 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoad={() => setImageLoaded(true)}
             onError={() => setImageError(true)}
+            priority={false}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
@@ -119,7 +121,8 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center">
                 <span className="text-2xl text-black">🚀</span>
               </div>
-              <span className="text-sm text-gray-400">Project Preview</span>
+              <span className="text-sm text-gray-400">{project.title}</span>
+              <span className="text-xs text-gray-500 block mt-1">Image Loading...</span>
             </div>
           </div>
         )}
