@@ -77,7 +77,7 @@ const projects: Project[] = [
   {
     title: "Zenix",
     description: "AI-powered multi-agent UI engine for generating animated components. Ranked 28th in Asian region during Lovable Startup Accelerator program with complete backend and cloud infrastructure.",
-    imagePath: "/projects/2.png",
+    imagePath: "/projects/Zenix.png",
     tags: ["Python", "Cloud Architecture", "Backend", "Startup MVP", "Lean Development"],
     link: "#",
     github: "https://github.com/safwannuddin/zenix",
@@ -101,13 +101,13 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       whileHover={{ y: -8 }}
     >
       {/* Project Image */}
-      <div className="relative h-64 overflow-hidden rounded-t-2xl bg-gray-800">
+      <div className="relative h-72 overflow-hidden rounded-t-2xl bg-gray-800">
         {!imageError ? (
           <Image
             src={project.imagePath}
             alt={project.title}
             fill
-            className={`object-cover transition-opacity duration-500 ${
+            className={`object-contain transition-opacity duration-500 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoad={() => setImageLoaded(true)}
@@ -115,9 +115,9 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
-                <span className="text-2xl">🚀</span>
+            <div className="text-center p-4">
+              <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center">
+                <span className="text-2xl text-black">🚀</span>
               </div>
               <span className="text-sm text-gray-400">Project Preview</span>
             </div>
