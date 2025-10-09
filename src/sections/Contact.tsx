@@ -228,16 +228,7 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* Location Info */}
-            <div className="mt-12 p-6 glass-card-hover rounded-xl">
-              <h4 className="text-xl font-semibold text-white mb-4">Location</h4>
-              <p className="text-gray-400">
-                Based in <span className="text-[#00ff9d]">Hyderabad, India</span>
-              </p>
-              <p className="text-gray-400 mt-2">
-                Available for remote work and local opportunities
-              </p>
-            </div>
+
           </motion.div>
         </div>
       </div>

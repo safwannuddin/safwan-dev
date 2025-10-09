@@ -19,6 +19,19 @@ export default function Home() {
         <Projects />
         <Certificates />
         <Contact />
+        
+        {/* Footer */}
+        <footer className="py-8 border-t border-white/10 mt-20">
+          <div className="max-w-7xl mx-auto px-6 text-center">
+            <p className="text-gray-400 text-lg">
+              Built with <span className="text-red-500 text-xl animate-pulse">❤️</span> by{' '}
+              <span className="text-white font-semibold">Safwan Uddin</span>
+            </p>
+            <p className="text-gray-500 text-sm mt-2">
+              © 2025 All rights reserved
+            </p>
+          </div>
+        </footer>
       </div>
     </main>
   );
