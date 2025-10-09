@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaDownload, FaRocket } from 'react-icons/fa';
-import { useState, useEffect } from 'react';
+
 import { useClientMount } from '@/hooks/useClientMount';
 
 const socialLinks = [
@@ -10,47 +10,7 @@ const socialLinks = [
   { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/mohd-safwan-uddin-299602257/", label: "LinkedIn" }
 ];
 
-const TypingText = ({ texts, className }: { texts: string[]; className?: string }) => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      const fullText = texts[currentTextIndex];
-      
-      if (!isDeleting) {
-        setCurrentText(fullText.substring(0, currentText.length + 1));
-        
-        if (currentText === fullText) {
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
-      } else {
-        setCurrentText(fullText.substring(0, currentText.length - 1));
-        
-        if (currentText === '') {
-          setIsDeleting(false);
-          setCurrentTextIndex((prev) => (prev + 1) % texts.length);
-        }
-      }
-    }, isDeleting ? 50 : 150);
-
-    return () => clearTimeout(timeout);
-  }, [currentText, isDeleting, currentTextIndex, texts]);
-
-  return (
-    <span className={className}>
-      {currentText}
-      <motion.span
-        animate={{ opacity: [0, 1, 0] }}
-        transition={{ duration: 1, repeat: Infinity }}
-        className="text-white"
-      >
-        |
-      </motion.span>
-    </span>
-  );
-};
 
 export default function Hero() {
   const isMounted = useClientMount();
@@ -120,21 +80,14 @@ export default function Hero() {
               </span>
             </motion.h1>
 
-            {/* Typing Animation */}
+            {/* Title */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-2xl md:text-3xl font-semibold text-white"
             >
-              <TypingText 
-                texts={[
-                  "Machine Learning Engineer",
-                  "AI Platform Developer", 
-                  "Data Science Specialist",
-                  "ML System Architect"
-                ]}
-              />
+              
             </motion.div>
 
             {/* Description */}

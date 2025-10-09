@@ -3,58 +3,64 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useClientMount } from '@/hooks/useClientMount';
-import Image from 'next/image';
+import { 
+  SiJavascript, SiTypescript, SiPython, SiOpenjdk, SiC,
+  SiHtml5, SiCss3, SiReact, SiNextdotjs, SiTailwindcss,
+  SiNodedotjs, SiExpress, SiFastapi, SiMongodb, SiPostgresql, SiSupabase,
+  SiTensorflow, SiPytorch, SiJupyter, SiDocker, SiGit
+} from 'react-icons/si';
+import { FaCode, FaPalette, FaDatabase, FaBrain } from 'react-icons/fa';
+import { VscCode } from 'react-icons/vsc';
 
 const techStacks = [
   {
     category: "Programming Languages",
     color: "#ffffff",
-    icon: "https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif",
+    icon: FaCode,
     skills: [
-      { name: "JavaScript", badge: "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&labelColor=F7DF1E" },
-      { name: "TypeScript", badge: "https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white&labelColor=3178C6" },
-      { name: "Python", badge: "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=3776AB" },
-      { name: "Java", badge: "https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white&labelColor=ED8B00" },
-      { name: "C", badge: "https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white&labelColor=00599C" }
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "Python", icon: SiPython, color: "#3776AB" },
+      { name: "Java", icon: SiOpenjdk, color: "#ED8B00" },
+      { name: "C", icon: SiC, color: "#00599C" }
     ]
   },
   {
     category: "Frontend Development",
     color: "#ffffff",
-    icon: "https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif",
+    icon: FaPalette,
     skills: [
-      { name: "HTML5", badge: "https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&labelColor=E34F26" },
-      { name: "CSS3", badge: "https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white&labelColor=1572B6" },
-      { name: "React", badge: "https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black&labelColor=61DAFB" },
-      { name: "Next.js", badge: "https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white&labelColor=000000" },
-      { name: "Tailwind CSS", badge: "https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white&labelColor=38B2AC" }
+      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+      { name: "CSS3", icon: SiCss3, color: "#1572B6" },
+      { name: "React", icon: SiReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38B2AC" }
     ]
   },
   {
     category: "Backend & Databases",
     color: "#ffffff",
-    icon: "https://user-images.githubusercontent.com/74038190/212257460-738ff738-247f-4445-a718-cdd0ca76e2db.gif",
+    icon: FaDatabase,
     skills: [
-      { name: "Node.js", badge: "https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white&labelColor=339933" },
-      { name: "Express.js", badge: "https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white&labelColor=000000" },
-      { name: "FastAPI", badge: "https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white&labelColor=009688" },
-      { name: "MongoDB", badge: "https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white&labelColor=47A248" },
-      { name: "PostgreSQL", badge: "https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white&labelColor=4169E1" },
-      { name: "Supabase", badge: "https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white&labelColor=3ECF8E" },
-      { name: "Neon", badge: "https://img.shields.io/badge/Neon-00E599?style=for-the-badge&logo=neon&logoColor=white&labelColor=00E599" }
+      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+      { name: "Express.js", icon: SiExpress, color: "#000000" },
+      { name: "FastAPI", icon: SiFastapi, color: "#009688" },
+      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+      { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" }
     ]
   },
   {
     category: "AI/ML & Development Tools",
     color: "#ffffff",
-    icon: "https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif",
+    icon: FaBrain,
     skills: [
-      { name: "TensorFlow", badge: "https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white&labelColor=FF6F00" },
-      { name: "PyTorch", badge: "https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white&labelColor=EE4C2C" },
-      { name: "Jupyter", badge: "https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white&labelColor=F37626" },
-      { name: "Docker", badge: "https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white&labelColor=2496ED" },
-      { name: "Git", badge: "https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white&labelColor=F05032" },
-      { name: "VS Code", badge: "https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white&labelColor=007ACC" }
+      { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
+      { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
+      { name: "Jupyter", icon: SiJupyter, color: "#F37626" },
+      { name: "Docker", icon: SiDocker, color: "#2496ED" },
+      { name: "Git", icon: SiGit, color: "#F05032" },
+      { name: "VS Code", icon: VscCode, color: "#007ACC" }
     ]
   }
 ];
@@ -132,24 +138,7 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        {/* GitHub Stats */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-16"
-        >
-          <div className="glass-card p-6 rounded-xl border border-white/20">
-            <Image
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=safwannuddin&layout=donut&theme=dark&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF"
-              alt="Most Used Languages"
-              width={400}
-              height={200}
-              className="rounded-lg"
-            />
-          </div>
-        </motion.div>
+
 
         {/* Tech Stack Categories */}
         <div className="space-y-16">
@@ -164,25 +153,13 @@ export default function Skills() {
             >
               {/* Category Header */}
               <div className="flex items-center justify-center mb-8">
-                <Image
-                  src={stack.icon}
-                  alt="Icon"
-                  width={35}
-                  height={35}
-                  className="mr-4"
-                />
+                <stack.icon className="w-8 h-8 mr-4 text-white" />
                 <TypingAnimation
                   text={stack.category}
                   color={stack.color}
                   className="text-2xl font-bold"
                 />
-                <Image
-                  src={stack.icon}
-                  alt="Icon"
-                  width={35}
-                  height={35}
-                  className="ml-4"
-                />
+                <stack.icon className="w-8 h-8 ml-4 text-white" />
               </div>
 
               {/* Skills Container */}
@@ -192,7 +169,7 @@ export default function Skills() {
                 transition={{ duration: 0.3 }}
               >
                 {/* Skills Grid */}
-                <div className="relative z-10 flex flex-wrap justify-center gap-4">
+                <div className="relative z-10 flex flex-wrap justify-center gap-6">
                   {stack.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
@@ -210,15 +187,13 @@ export default function Skills() {
                         rotate: [0, -5, 5, 0],
                         transition: { duration: 0.3 }
                       }}
-                      className="transform-gpu"
+                      className="transform-gpu flex flex-col items-center p-4 rounded-xl bg-white/5 border border-white/20 hover:bg-white/10 transition-all duration-300"
                     >
-                      <Image
-                        src={skill.badge}
-                        alt={skill.name}
-                        width={120}
-                        height={28}
-                        className="rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300"
+                      <skill.icon 
+                        className="w-12 h-12 mb-2" 
+                        style={{ color: skill.color }}
                       />
+                      <span className="text-sm font-medium text-white">{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>
