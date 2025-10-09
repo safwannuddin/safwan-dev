@@ -166,11 +166,10 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 
       {/* Project Info */}
       <div className="p-6">
-        <div className="flex items-center justify-between mb-3">
+        <div className="mb-3">
           <h3 className="text-xl font-bold text-white transition-colors duration-300">
             {project.title}
           </h3>
-          <span className="text-sm text-gray-400">{project.date}</span>
         </div>
         
         <p className="mb-4 leading-relaxed text-gray-300">
