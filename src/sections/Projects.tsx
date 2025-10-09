@@ -66,7 +66,7 @@ const projects: Project[] = [
   {
     title: "Portfolio Website",
     description: "Modern, responsive portfolio website showcasing projects and skills with smooth animations and interactive elements.",
-    imagePath: "/projects/1.jpeg",
+    imagePath: "/projects/portfolio.png",
     tags: ["Next.js", "Framer Motion", "TailwindCSS", "TypeScript"],
     link: "#",
     github: "https://github.com/safwannuddin/portfolio",
