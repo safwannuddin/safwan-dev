@@ -8,19 +8,19 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          // Executive color palette - inspired by Linear, Vercel, Stripe
+          // Clean minimal color palette - Pure Black & White
           'primary': {
-            50: '#eff6ff',
-            100: '#dbeafe', 
-            200: '#bfdbfe',
-            300: '#93c5fd',
-            400: '#60a5fa',
-            500: '#3b82f6',
-            600: '#2563eb', // Main brand color
-            700: '#1d4ed8',
-            800: '#1e40af',
-            900: '#1e3a8a',
-            950: '#172554',
+            50: '#ffffff',
+            100: '#ffffff', 
+            200: '#ffffff',
+            300: '#ffffff',
+            400: '#ffffff',
+            500: '#ffffff',
+            600: '#ffffff', // Main brand color
+            700: '#ffffff',
+            800: '#ffffff',
+            900: '#ffffff',
+            950: '#ffffff',
           },
           'neutral': {
             0: '#ffffff',

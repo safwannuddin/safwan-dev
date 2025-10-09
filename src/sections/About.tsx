@@ -68,7 +68,7 @@ export default function About() {
 
   if (!isMounted) {
     return (
-      <section id="about" className="min-h-screen py-20 relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]">
+      <section id="about" className="min-h-screen py-20 relative overflow-hidden bg-black">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <div className="h-16 bg-gray-700 rounded mx-auto mb-4 animate-pulse max-w-md" />
@@ -94,56 +94,9 @@ export default function About() {
     <section
       id="about"
       ref={containerRef}
-      className="min-h-screen py-20 relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]"
+      className="min-h-screen py-20 relative overflow-hidden bg-black"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-grid opacity-10" />
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/5 via-transparent to-[#0066ff]/5"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
 
-        {/* Floating Orbs */}
-        {[...Array(4)].map((_, i) => {
-          const colors = ['#00ff9d', '#0066ff', '#ff6b35', '#9333ea'];
-          const leftPos = 20 + i * 20;
-          const topPos = 10 + i * 25;
-
-          return (
-            <motion.div
-              key={i}
-              className="absolute rounded-full blur-3xl"
-              style={{
-                background: `radial-gradient(circle, ${colors[i]}15 0%, transparent 70%)`,
-                width: `${150 + i * 50}px`,
-                height: `${150 + i * 50}px`,
-                left: `${leftPos}%`,
-                top: `${topPos}%`,
-              }}
-              animate={{
-                x: [0, 50, -30, 0],
-                y: [0, -30, 20, 0],
-                scale: [1, 1.1, 0.9, 1],
-                opacity: [0.3, 0.5, 0.2, 0.3],
-              }}
-              transition={{
-                duration: 8 + i * 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 1.5,
-              }}
-            />
-          );
-        })}
-      </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Title */}
@@ -154,15 +107,10 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-6xl font-bold gradient-text mb-4">
+          <h2 className="text-6xl font-bold text-white mb-4">
             About Me
           </h2>
-          <div
-            className="w-24 h-1 mx-auto rounded-full"
-            style={{
-              background: 'linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%)'
-            }}
-          />
+          <div className="w-24 h-1 mx-auto rounded-full bg-white" />
         </motion.div>
 
         {/* Tab Navigation */}
@@ -182,9 +130,9 @@ export default function About() {
               <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as 'story' | 'skills' | 'achievements')}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${activeTab === tab.id
-                  ? 'bg-gradient-to-r from-[#00ff9d] to-[#00cc7a] text-black shadow-lg'
-                  : 'text-gray-400 hover:text-white hover:bg-white/5'
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 ${activeTab === tab.id
+                  ? 'bg-white text-black shadow-lg'
+                  : 'text-gray-400 hover:text-white hover:bg-white/10'
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -210,9 +158,7 @@ export default function About() {
             <div className="relative w-full max-w-md mx-auto">
               {/* Rotating Border */}
               <motion.div
-                className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#00ff9d] via-[#0066ff] to-[#00ff9d] p-1"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-3xl bg-white p-1"
               >
                 <div className="w-full h-full rounded-3xl bg-black" />
               </motion.div>
@@ -240,7 +186,7 @@ export default function About() {
                 {[...Array(4)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className="absolute w-3 h-3 bg-[#00ff9d] rounded-full"
+                    className="absolute w-3 h-3 bg-white rounded-full"
                     animate={{
                       y: [0, -20, 0],
                       opacity: [0.3, 0.6, 0.3],
@@ -267,7 +213,7 @@ export default function About() {
                 transition={{ delay: 1, type: "spring", stiffness: 200 }}
               >
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-[#00ff9d] rounded-full animate-pulse" />
+                  <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
                   <span className="text-sm font-medium text-white">Available for work</span>
                 </div>
               </motion.div>
@@ -291,35 +237,35 @@ export default function About() {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                <h3 className="text-4xl font-bold bg-gradient-to-r from-[#00ff9d] to-[#0066ff] bg-clip-text text-transparent">
+                <h3 className="text-4xl font-bold text-white">
                   Full-Stack Engineer & System Architect
                 </h3>
 
                 <div className="space-y-4 text-gray-300 leading-relaxed">
                   <p className="text-lg">
-                    I'm <span className="text-[#00ff9d] font-semibold">Mohd Safwan Uddin</span>, 
+                    I'm <span className="text-white font-semibold">Mohd Safwan Uddin</span>, 
                     a seasoned full-stack developer with expertise in building scalable, robust systems 
                     across the entire technology stack - from backend services to production-grade frontends.
                   </p>
 
                   <p>
-                    As part of super lean teams at <span className="text-[#00ff9d] font-semibold">Blockable</span> and 
-                    <span className="text-[#0066ff] font-semibold"> Mindalike</span>, I've architected and built 
+                    As part of super lean teams at <span className="text-white font-semibold">Blockable</span> and 
+                    <span className="text-white font-semibold"> Mindalike</span>, I've architected and built 
                     several end-to-end systems involving complex workflows, AI-powered automation platforms, 
                     and decentralized applications using React, Next.js, Python, Node.js, GraphQL, and AWS infrastructure.
                   </p>
 
                   <p>
-                    I'm passionate about <span className="text-[#00ff9d] font-semibold">empowering people with technology</span>, 
+                    I'm passionate about <span className="text-white font-semibold">empowering people with technology</span>, 
                     mentoring other developers, and advocating for open-source. Currently focused on 
-                    <span className="text-[#0066ff] font-semibold"> decentralized AI app platforms</span>, 
+                    <span className="text-white font-semibold"> decentralized AI app platforms</span>, 
                     productivity tech for networks, and AI-powered automation solutions.
                   </p>
                 </div>
 
                 {/* Quote */}
                 <motion.div
-                  className="relative p-6 glass-card rounded-2xl border-l-4 border-[#00ff9d]"
+                  className="relative p-6 glass-card rounded-2xl border-l-4 border-white"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -327,7 +273,7 @@ export default function About() {
                     "Being part of super lean teams has taught me the ability to work across the entire stack - 
                     from building scalable backends to high-throughput data pipelines to production-grade React components."
                   </p>
-                  <div className="absolute -top-2 -left-2 w-8 h-8 bg-[#00ff9d] rounded-full flex items-center justify-center">
+                  <div className="absolute -top-2 -left-2 w-8 h-8 bg-white rounded-full flex items-center justify-center">
                     <span className="text-black font-bold">&quot;</span>
                   </div>
                 </motion.div>
@@ -342,7 +288,7 @@ export default function About() {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                <h3 className="text-4xl font-bold bg-gradient-to-r from-[#00ff9d] to-[#0066ff] bg-clip-text text-transparent">
+                <h3 className="text-4xl font-bold text-white">
                   Technical Expertise
                 </h3>
 
@@ -357,11 +303,11 @@ export default function About() {
                     >
                       <div className="flex justify-between items-center">
                         <span className="text-white font-semibold">{skill.name}</span>
-                        <span className="text-[#00ff9d] font-bold">{skill.level}%</span>
+                        <span className="text-white font-bold">{skill.level}%</span>
                       </div>
                       <div className="h-3 bg-gray-800 rounded-full overflow-hidden">
                         <motion.div
-                          className="h-full bg-gradient-to-r from-[#00ff9d] to-[#0066ff] rounded-full"
+                          className="h-full bg-white rounded-full"
                           initial={{ width: 0 }}
                           animate={{ width: `${skill.level}%` }}
                           transition={{ delay: index * 0.1 + 0.3, duration: 1, ease: "easeOut" }}
@@ -381,7 +327,7 @@ export default function About() {
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.1, duration: 0.3 }}
-                        className="px-4 py-2 bg-gradient-to-r from-[#00ff9d]/20 to-[#0066ff]/20 border border-[#00ff9d]/30 rounded-full text-sm font-medium text-white"
+                        className="px-4 py-2 bg-white/10 border border-white/30 rounded-full text-sm font-medium text-white"
                       >
                         {tech}
                       </motion.span>
@@ -399,7 +345,7 @@ export default function About() {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                <h3 className="text-4xl font-bold bg-gradient-to-r from-[#00ff9d] to-[#0066ff] bg-clip-text text-transparent">
+                <h3 className="text-4xl font-bold text-white">
                   Key Achievements
                 </h3>
 

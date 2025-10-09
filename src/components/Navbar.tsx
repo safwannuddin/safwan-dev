@@ -97,24 +97,23 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
-          className={`relative transition-all duration-500 rounded-2xl ${
+          className={`relative transition-all duration-500 ${
             isScrolled 
-              ? 'px-6 py-3 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl' 
-              : 'px-8 py-4 bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl'
+              ? 'px-6 py-3 bg-black/90 backdrop-blur-lg border-b border-white/20' 
+              : 'px-8 py-4 bg-black/80 backdrop-blur-lg border-b border-white/10'
           }`}
           style={{
-            backdropFilter: 'blur(20px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
             background: isScrolled 
-              ? 'rgba(255, 255, 255, 0.1)' 
-              : 'rgba(255, 255, 255, 0.05)',
+              ? 'rgba(0, 0, 0, 0.95)' 
+              : 'rgba(0, 0, 0, 0.9)',
             boxShadow: isScrolled
-              ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-              : '0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+              ? '0 2px 8px rgba(0, 0, 0, 0.3)'
+              : '0 1px 4px rgba(0, 0, 0, 0.2)'
           }}
           whileHover={{ 
-            scale: 1.01,
-            background: 'rgba(255, 255, 255, 0.15)'
+            scale: 1.0
           }}
           transition={{ duration: 0.3 }}
         >
@@ -127,31 +126,29 @@ const Navbar = () => {
               className="flex items-center space-x-3 cursor-pointer"
             >
               <motion.div 
-                className="relative w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden"
+                className="relative w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden border border-white/20"
                 style={{
-                  background: 'linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)',
-                  boxShadow: '0 4px 14px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                  background: '#ffffff',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)'
                 }}
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: '0 6px 20px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                  background: '#000000',
+                  borderColor: '#ffffff'
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <span className="text-white font-bold text-xl">MS</span>
+                <span className="text-black hover:text-white font-bold text-xl transition-colors duration-300">MS</span>
               </motion.div>
               <div className="hidden sm:block">
                 <motion.span 
-                  className="text-2xl font-display font-bold gradient-text"
+                  className="text-2xl font-display font-bold text-white"
                   whileHover={{ scale: 1.05 }}
                 >
                   Mohd Safwan
                 </motion.span>
                 <motion.div
-                  className="h-0.5 rounded-full"
-                  style={{
-                    background: 'linear-gradient(90deg, #3b82f6 0%, #06b6d4 50%, transparent 100%)'
-                  }}
+                  className="h-0.5 rounded-full bg-white"
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 1, delay: 0.5 }}
@@ -186,20 +183,16 @@ const Navbar = () => {
                     
                     {/* Hover Background */}
                     <motion.div
-                      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100"
+                      className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100"
                       style={{
-                        background: 'rgba(59, 130, 246, 0.1)',
-                        backdropFilter: 'blur(8px)'
+                        background: 'rgba(255, 255, 255, 0.1)'
                       }}
                       transition={{ duration: 0.3 }}
                     />
                     
                     {/* Animated Border */}
                     <motion.div 
-                      className="absolute bottom-0 left-1/2 w-0 h-0.5 rounded-full group-hover:w-full group-hover:left-0 transition-all duration-500"
-                      style={{
-                        background: 'linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%)'
-                      }}
+                      className="absolute bottom-0 left-1/2 w-0 h-0.5 rounded-full bg-white group-hover:w-full group-hover:left-0 transition-all duration-500"
                     />
                   </Link>
                 </motion.div>
@@ -246,9 +239,9 @@ const Navbar = () => {
                 transition={{ duration: 0.3 }}
               >
                 {isMenuOpen ? (
-                  <FaTimes className="w-6 h-6" style={{ color: '#3b82f6' }} />
+                  <FaTimes className="w-6 h-6 text-white" />
                 ) : (
-                  <FaBars className="w-6 h-6" style={{ color: '#3b82f6' }} />
+                  <FaBars className="w-6 h-6 text-white" />
                 )}
               </motion.div>
             </motion.button>
@@ -267,12 +260,13 @@ const Navbar = () => {
             <motion.div 
               className="pt-6 pb-4 border-t border-white/20 mt-4"
               style={{
-                background: 'rgba(255, 255, 255, 0.05)',
+                background: 'rgba(0, 0, 0, 0.9)',
                 backdropFilter: 'blur(10px)',
                 WebkitBackdropFilter: 'blur(10px)',
-                borderRadius: '12px',
+                borderRadius: '8px',
                 marginTop: '16px',
-                padding: '24px 16px 16px 16px'
+                padding: '24px 16px 16px 16px',
+                border: '1px solid rgba(255, 255, 255, 0.1)'
               }}
               initial={{ y: -20, opacity: 0 }}
               animate={{ 
@@ -307,18 +301,15 @@ const Navbar = () => {
                       }}
                       className="group block px-4 py-3 text-gray-300 hover:text-white rounded-xl transition-all duration-300 relative overflow-hidden"
                       style={{
-                        background: 'rgba(255, 255, 255, 0.03)',
-                        backdropFilter: 'blur(8px)',
-                        WebkitBackdropFilter: 'blur(8px)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)'
+                        background: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.15)'
                       }}
                     >
                       <span className="relative z-10">{item.label}</span>
                       <motion.div
                         className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl"
                         style={{
-                          background: 'rgba(59, 130, 246, 0.15)',
-                          backdropFilter: 'blur(8px)'
+                          background: 'rgba(255, 255, 255, 0.1)'
                         }}
                         transition={{ duration: 0.3 }}
                       />
@@ -360,31 +351,7 @@ const Navbar = () => {
             </motion.div>
           </motion.div>
 
-          {/* Animated Border with Glow */}
-          <motion.div
-            className="absolute inset-0 rounded-2xl"
-            style={{
-              border: '1px solid rgba(255,255,255,0.2)',
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)'
-            }}
-            animate={{
-              borderColor: isScrolled ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.15)',
-              boxShadow: isScrolled 
-                ? '0 0 20px rgba(0, 255, 157, 0.1), inset 0 1px 0 rgba(255,255,255,0.2)'
-                : '0 0 10px rgba(0, 255, 157, 0.05), inset 0 1px 0 rgba(255,255,255,0.1)'
-            }}
-            transition={{ duration: 0.5 }}
-          />
 
-          {/* Subtle Gradient Overlay */}
-          <div 
-            className="absolute inset-0 rounded-2xl pointer-events-none"
-            style={{
-              background: 'linear-gradient(135deg, rgba(0, 255, 157, 0.03) 0%, rgba(0, 102, 255, 0.03) 100%)',
-              opacity: isScrolled ? 1 : 0.5,
-              transition: 'opacity 0.5s ease'
-            }}
-          />
         </motion.div>
       </div>
     </motion.nav>

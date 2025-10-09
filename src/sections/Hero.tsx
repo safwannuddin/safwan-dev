@@ -44,7 +44,7 @@ const TypingText = ({ texts, className }: { texts: string[]; className?: string 
       <motion.span
         animate={{ opacity: [0, 1, 0] }}
         transition={{ duration: 1, repeat: Infinity }}
-        className="text-[#00ff9d]"
+        className="text-white"
       >
         |
       </motion.span>
@@ -59,7 +59,7 @@ export default function Hero() {
 
   if (!isMounted) {
     return (
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]">
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
@@ -83,58 +83,7 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        {/* Grid Pattern */}
-        <motion.div 
-          className="absolute inset-0 bg-[linear-gradient(rgba(0,255,157,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,157,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"
-          animate={{
-            backgroundPosition: ['0px 0px', '50px 50px'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#00ff9d]/5 via-transparent to-[#0066ff]/5" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
-        
-        {/* Floating Orbs */}
-        {[...Array(6)].map((_, i) => {
-          const colors = ['#00ff9d', '#0066ff', '#ff6b35'];
-          const leftPos = (i * 16.67) % 100;
-          const topPos = (i * 13.33) % 100;
-          
-          return (
-            <motion.div
-              key={i}
-              className="absolute rounded-full blur-3xl"
-              style={{
-                background: `radial-gradient(circle, ${colors[i % 3]}20 0%, transparent 70%)`,
-                width: `${200 + i * 50}px`,
-                height: `${200 + i * 50}px`,
-                left: `${leftPos}%`,
-                top: `${topPos}%`,
-              }}
-              animate={{
-                x: [0, 100, -50, 0],
-                y: [0, -100, 50, 0],
-                scale: [1, 1.2, 0.8, 1],
-                opacity: [0.3, 0.6, 0.2, 0.3],
-              }}
-              transition={{
-                duration: 15 + i * 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 2,
-              }}
-            />
-          );
-        })}
-      </div>
+
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -176,13 +125,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-5xl md:text-7xl font-bold leading-tight"
+              className="text-5xl md:text-7xl font-bold leading-tight text-white"
             >
-              <span className="gradient-text">
+              <span className="text-white">
                 Mohd Safwan
               </span>
               <br />
-              <span className="gradient-text-primary">
+              <span className="text-white">
                 Uddin
               </span>
             </motion.h1>
@@ -192,7 +141,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-2xl md:text-3xl font-semibold text-gray-300"
+              className="text-2xl md:text-3xl font-semibold text-white"
             >
               <TypingText 
                 texts={[
@@ -209,12 +158,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-lg leading-relaxed max-w-2xl"
-              style={{ color: 'var(--text-secondary)' }}
+              className="text-lg leading-relaxed max-w-2xl text-gray-300"
             >
               Experienced full-stack developer specializing in building scalable, robust systems from 
-              <span className="gradient-text-primary font-semibold"> high-throughput data pipelines</span> to 
-              <span className="gradient-text-accent font-semibold"> production-grade React applications</span>. 
+              <span className="text-white font-semibold"> high-throughput data pipelines</span> to 
+              <span className="text-white font-semibold"> production-grade React applications</span>. 
               Expert in Next.js, Python, Node.js, and AI-powered automation platforms.
             </motion.p>
 
@@ -260,16 +208,16 @@ export default function Hero() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full hover:border-[#00ff9d]/50 transition-all duration-300"
+                  className="group relative p-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full hover:border-white/50 transition-all duration-300"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
                   title={link.label}
                 >
-                  <span className="text-2xl text-gray-400 group-hover:text-[#00ff9d] transition-colors duration-300">
+                  <span className="text-2xl text-gray-400 group-hover:text-white transition-colors duration-300">
                     {link.icon}
                   </span>
                   <motion.div
-                    className="absolute inset-0 rounded-full bg-[#00ff9d]/10"
+                    className="absolute inset-0 rounded-full bg-white/10"
                     initial={{ scale: 0, opacity: 0 }}
                     whileHover={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.3 }}
@@ -279,7 +227,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* 3D Visual Element */}
+          {/* Simple Clean Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -288,72 +236,11 @@ export default function Hero() {
             style={{ y: y1 }}
           >
             <div className="relative w-full h-[600px] flex items-center justify-center">
-              {/* Rotating Rings */}
-              {[...Array(4)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute border border-[#00ff9d]/20 rounded-full"
-                  style={{
-                    width: `${300 + i * 80}px`,
-                    height: `${300 + i * 80}px`,
-                  }}
-                  animate={{
-                    rotate: 360,
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    rotate: {
-                      duration: 20 + i * 5,
-                      repeat: Infinity,
-                      ease: "linear",
-                    },
-                    scale: {
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: i * 0.5,
-                    },
-                  }}
-                />
-              ))}
-
-              {/* Central Glow */}
-              <motion.div
-                className="absolute w-40 h-40 bg-gradient-to-r from-[#00ff9d] to-[#0066ff] rounded-full blur-3xl"
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-
-              {/* Floating Code Elements */}
-              {['{ }', '</>', 'fn()', '[]'].map((symbol, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute text-2xl font-mono text-[#00ff9d]/60"
-                  style={{
-                    left: `${30 + (i % 2) * 40}%`,
-                    top: `${30 + Math.floor(i / 2) * 40}%`,
-                  }}
-                  animate={{
-                    y: [0, -15, 0],
-                    opacity: [0.4, 0.7, 0.4],
-                  }}
-                  transition={{
-                    duration: 4 + i * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.5,
-                  }}
-                >
-                  {symbol}
-                </motion.div>
-              ))}
+              <div className="w-80 h-80 border-2 border-white/20 rounded-full flex items-center justify-center">
+                <div className="w-60 h-60 border border-white/10 rounded-full flex items-center justify-center">
+                  <div className="text-6xl text-white font-mono">{'{ }'}</div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -369,12 +256,12 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 border-2 border-[#00ff9d]/50 rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1 h-3 bg-[#00ff9d] rounded-full mt-2"
+            className="w-1 h-3 bg-white rounded-full mt-2"
           />
         </motion.div>
       </motion.div>
