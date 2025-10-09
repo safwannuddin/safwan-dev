@@ -2,45 +2,45 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useState, useRef } from 'react';
-import Image from 'next/image';
+
 import { FaCode, FaRocket, FaBrain, FaGraduationCap, FaAward, FaGlobe, FaLaptopCode, FaHeart } from 'react-icons/fa';
 import { useClientMount } from '@/hooks/useClientMount';
 
 const achievements = [
   {
-    icon: <FaLaptopCode className="text-3xl" />,
-    title: "Full-Stack System Architect",
-    description: "Expert in building end-to-end systems with React, Next.js, Python, Node.js, and cloud infrastructure",
+    icon: <FaBrain className="text-3xl" />,
+    title: "AI Multi-Agent Systems",
+    description: "Architected Zenix - an AI-powered multi-agent UI engine for generating animated components with high emotional value",
     color: "from-blue-500 to-cyan-500"
   },
   {
-    icon: <FaBrain className="text-3xl" />,
-    title: "AI Platform Engineer",
-    description: "Specialized in AI-powered automation platforms, decentralized AI applications, and ML integration",
+    icon: <FaRocket className="text-3xl" />,
+    title: "Startup Founder",
+    description: "Selected as solo founder for Lovable Shipped SI program, focusing on rapid prototyping and lean architecture",
     color: "from-green-500 to-emerald-500"
   },
   {
-    icon: <FaRocket className="text-3xl" />,
-    title: "Startup Experience",
-    description: "Built scalable systems at Blockable and Mindalike, experienced in super lean team environments",
+    icon: <FaLaptopCode className="text-3xl" />,
+    title: "Developer Tools & Automation",
+    description: "Created productivity tools like Kindle to Notion sync and Obsidian automation, emphasizing user-centric design",
     color: "from-purple-500 to-pink-500"
   },
   {
     icon: <FaGlobe className="text-3xl" />,
-    title: "Blockchain Developer",
-    description: "Experience with Web3, decentralized applications, and blockchain-based authentication systems",
+    title: "AI-Powered Applications",
+    description: "Specialized in bridging complex AI capabilities with intuitive user experiences and seamless data synchronization",
     color: "from-orange-500 to-red-500"
   },
   {
     icon: <FaAward className="text-3xl" />,
-    title: "Production Systems",
-    description: "Built high-throughput data ingestion pipelines and production-grade frontend components",
+    title: "Iterative Development",
+    description: "Guided by the 10% usage principle, building solutions that are functional and delightful to use",
     color: "from-yellow-500 to-orange-500"
   },
   {
     icon: <FaGraduationCap className="text-3xl" />,
-    title: "Tech Mentor & Advocate",
-    description: "Passionate about empowering people with technology, mentoring developers, and open-source advocacy",
+    title: "Multi-Hat Entrepreneur",
+    description: "From conceptualizing AI architectures to designing interfaces and validating products with real users",
     color: "from-teal-500 to-blue-500"
   }
 ];
@@ -145,89 +145,14 @@ export default function About() {
         </motion.div>
 
         {/* Content Area */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="relative"
-            style={{ y }}
-          >
-            <div className="relative w-full max-w-md mx-auto">
-              {/* Rotating Border */}
-              <motion.div
-                className="absolute inset-0 rounded-3xl bg-white p-1"
-              >
-                <div className="w-full h-full rounded-3xl bg-black" />
-              </motion.div>
-
-              {/* Profile Image Container */}
-              <motion.div
-                className="relative aspect-square rounded-3xl overflow-hidden glass-card m-1"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Image
-                  src="/projects/3.png"
-                  alt="Mohd Safwan Uddin"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-
-                {/* Overlay Effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"
-                />
-
-                {/* Floating Elements */}
-                {[...Array(4)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-3 h-3 bg-white rounded-full"
-                    animate={{
-                      y: [0, -20, 0],
-                      opacity: [0.3, 0.6, 0.3],
-                    }}
-                    transition={{
-                      duration: 4 + i * 0.5,
-                      repeat: Infinity,
-                      delay: i * 0.5,
-                      ease: "easeInOut"
-                    }}
-                    style={{
-                      left: `${20 + i * 20}%`,
-                      top: `${30 + (i % 2) * 40}%`,
-                    }}
-                  />
-                ))}
-              </motion.div>
-
-              {/* Status Indicator */}
-              <motion.div
-                className="absolute -bottom-2 -right-2 glass-card px-4 py-2 rounded-full"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ delay: 1, type: "spring", stiffness: 200 }}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
-                  <span className="text-sm font-medium text-white">Available for work</span>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-
+        <div className="max-w-4xl mx-auto">
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
             className="space-y-8"
-            style={{ opacity }}
           >
             {/* Story Tab */}
             {activeTab === 'story' && (
@@ -238,28 +163,36 @@ export default function About() {
                 className="space-y-6"
               >
                 <h3 className="text-4xl font-bold text-white">
-                  Full-Stack Engineer & System Architect
+                  AI-Focused Full-Stack Developer & Startup Founder
                 </h3>
 
                 <div className="space-y-4 text-gray-300 leading-relaxed">
                   <p className="text-lg">
                     I'm <span className="text-white font-semibold">Mohd Safwan Uddin</span>, 
-                    a seasoned full-stack developer with expertise in building scalable, robust systems 
-                    across the entire technology stack - from backend services to production-grade frontends.
+                    a passionate developer and entrepreneur with expertise in building AI-powered applications 
+                    and scalable systems. My journey spans from architecting multi-agent AI platforms to 
+                    developing practical productivity tools that solve real-world problems.
                   </p>
 
                   <p>
-                    As part of super lean teams at <span className="text-white font-semibold">Blockable</span> and 
-                    <span className="text-white font-semibold"> Mindalike</span>, I've architected and built 
-                    several end-to-end systems involving complex workflows, AI-powered automation platforms, 
-                    and decentralized applications using React, Next.js, Python, Node.js, GraphQL, and AWS infrastructure.
+                    As a solo founder selected for the <span className="text-white font-semibold">Lovable Shipped SI program</span>, 
+                    I conceptualized and launched <span className="text-white font-semibold">Zenix</span> - an AI-powered 
+                    multi-agent UI engine for generating animated components. This experience honed my skills in rapid 
+                    prototyping, lean architecture, and creating products with high emotional value.
                   </p>
 
                   <p>
-                    I'm passionate about <span className="text-white font-semibold">empowering people with technology</span>, 
-                    mentoring other developers, and advocating for open-source. Currently focused on 
-                    <span className="text-white font-semibold"> decentralized AI app platforms</span>, 
-                    productivity tech for networks, and AI-powered automation solutions.
+                    I'm deeply passionate about <span className="text-white font-semibold">AI-powered automation</span> and 
+                    <span className="text-white font-semibold"> developer tools</span> that enhance productivity. My work 
+                    focuses on bridging the gap between complex AI capabilities and intuitive user experiences, whether 
+                    through multi-agent systems, intelligent automation, or seamless data synchronization.
+                  </p>
+
+                  <p>
+                    My technical approach emphasizes <span className="text-white font-semibold">iterative development</span> and 
+                    <span className="text-white font-semibold"> user-centric design</span>, guided by principles like the 
+                    "10% usage principle" from product development philosophy. I believe in building solutions that are 
+                    not just functional but delightful to use.
                   </p>
                 </div>
 
@@ -270,8 +203,8 @@ export default function About() {
                   transition={{ duration: 0.3 }}
                 >
                   <p className="text-xl italic text-gray-300 leading-relaxed">
-                    "Being part of super lean teams has taught me the ability to work across the entire stack - 
-                    from building scalable backends to high-throughput data pipelines to production-grade React components."
+                    "Being selected as a solo founder for competitive programs has taught me to wear multiple hats - 
+                    from conceptualizing AI architectures to designing intuitive interfaces and validating products with real users."
                   </p>
                   <div className="absolute -top-2 -left-2 w-8 h-8 bg-white rounded-full flex items-center justify-center">
                     <span className="text-black font-bold">&quot;</span>
