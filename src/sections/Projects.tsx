@@ -90,6 +90,7 @@ const projects: Project[] = [
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [useImgTag, setUseImgTag] = useState(false);
 
   return (
     <motion.div
@@ -103,26 +104,42 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       {/* Project Image */}
       <div className="relative h-72 overflow-hidden rounded-t-2xl bg-gray-800">
         {!imageError ? (
-          <Image
-            src={project.imagePath}
-            alt={project.title}
-            fill
-            unoptimized
-            className={`object-contain transition-opacity duration-500 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            onLoad={() => setImageLoaded(true)}
-            onError={() => setImageError(true)}
-            priority={false}
-          />
+          useImgTag ? (
+            <img
+              src={project.imagePath}
+              alt={project.title}
+              className={`w-full h-full object-contain transition-opacity duration-500 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <Image
+              src={project.imagePath}
+              alt={project.title}
+              fill
+              unoptimized
+              className={`object-contain transition-opacity duration-500 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setImageLoaded(true)}
+              onError={() => {
+                setUseImgTag(true);
+                setImageError(false);
+                setImageLoaded(false);
+              }}
+              priority={false}
+            />
+          )
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
             <div className="text-center p-4">
               <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center">
                 <span className="text-2xl text-black">🚀</span>
               </div>
-              <span className="text-sm text-gray-400">{project.title}</span>
-              <span className="text-xs text-gray-500 block mt-1">Image Loading...</span>
+              <span className="text-sm text-gray-400 font-medium">{project.title}</span>
+              <span className="text-xs text-gray-500 block mt-1">Preview Available</span>
             </div>
           </div>
         )}

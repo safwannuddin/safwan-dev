@@ -28,7 +28,10 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       }
     ],
+    unoptimized: false,
   },
+  trailingSlash: true,
+  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
 };
 
 export default nextConfig;
