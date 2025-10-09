@@ -75,14 +75,14 @@ const projects: Project[] = [
     color: "from-teal-500 to-blue-500"
   },
   {
-    title: "AI Chat Assistant",
-    description: "Intelligent conversational AI with natural language processing, context awareness, and multi-modal capabilities.",
+    title: "Zenix",
+    description: "AI-powered multi-agent UI engine for generating animated components. Ranked 28th in Asian region during Lovable Startup Accelerator program with complete backend and cloud infrastructure.",
     imagePath: "/projects/2.png",
-    tags: ["Python", "FastAPI", "AI/ML", "WebSocket", "OpenAI"],
+    tags: ["Python", "Cloud Architecture", "Backend", "Startup MVP", "Lean Development"],
     link: "#",
-    github: "https://github.com/safwannuddin/ai-chat",
+    github: "https://github.com/safwannuddin/zenix",
     date: "March 2025",
-    category: "AI Application",
+    category: "Startup Accelerator",
     color: "from-yellow-500 to-orange-500"
   }
 ];
