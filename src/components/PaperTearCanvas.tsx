@@ -20,7 +20,7 @@ export default function PaperTearCanvas({
   jaggedness = 0.3 
 }: PaperTearCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [supportsAdvancedEffects, setSupportsAdvancedEffects] = useState(true);
 
