@@ -118,46 +118,11 @@ const Navbar = () => {
           transition={{ duration: 0.3 }}
         >
           
-          {/* Logo */}
-          <div className="flex items-center justify-between">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-3 cursor-pointer"
-            >
-              <motion.div 
-                className="relative w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden border border-white/20"
-                style={{
-                  background: '#ffffff',
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)'
-                }}
-                whileHover={{ 
-                  scale: 1.05,
-                  background: '#000000',
-                  borderColor: '#ffffff'
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <span className="text-black hover:text-white font-bold text-xl transition-colors duration-300">MS</span>
-              </motion.div>
-              <div className="hidden sm:block">
-                <motion.span 
-                  className="text-2xl font-display font-bold text-white"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  Mohd Safwan
-                </motion.span>
-                <motion.div
-                  className="h-0.5 rounded-full bg-white"
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                />
-              </div>
-            </motion.div>
+          {/* Navigation Container */}
+          <div className="flex items-center justify-center w-full">
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-2">
+            {/* Centered Desktop Navigation */}
+            <div className="hidden md:flex items-center justify-center space-x-8">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.href}
@@ -167,7 +132,7 @@ const Navbar = () => {
                 >
                   <Link 
                     href={item.href}
-                    className="relative group px-5 py-2.5 text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 rounded-xl overflow-hidden"
+                    className="relative group px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 rounded-lg overflow-hidden"
                     onClick={(e) => {
                       e.preventDefault();
                       const element = document.querySelector(item.href);
@@ -183,10 +148,7 @@ const Navbar = () => {
                     
                     {/* Hover Background */}
                     <motion.div
-                      className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100"
-                      style={{
-                        background: 'rgba(255, 255, 255, 0.1)'
-                      }}
+                      className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 bg-white/10"
                       transition={{ duration: 0.3 }}
                     />
                     
@@ -199,37 +161,10 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="hidden lg:block"
-            >
-              <motion.a
-                href="#contact"
-                className="btn btn-primary cursor-pointer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.querySelector('#contact');
-                  if (element) {
-                    element.scrollIntoView({ 
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
-                  }
-                }}
-              >
-                Let&apos;s Talk
-              </motion.a>
-            </motion.div>
-
             {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden relative z-10 p-3 rounded-xl hover:bg-white/10 transition-colors duration-300"
+              className="md:hidden absolute right-4 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-xl hover:bg-white/10 transition-colors duration-300"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle menu"

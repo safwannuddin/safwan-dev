@@ -7,8 +7,7 @@ import { useClientMount } from '@/hooks/useClientMount';
 const techStacks = [
   {
     category: "Programming Languages",
-    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    color: "#FFD700",
+    color: "#ffffff",
     icon: "https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif",
     skills: [
       { name: "JavaScript", badge: "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black&labelColor=F7DF1E" },
@@ -20,8 +19,7 @@ const techStacks = [
   },
   {
     category: "Frontend Development",
-    gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-    color: "#61DAFB",
+    color: "#ffffff",
     icon: "https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif",
     skills: [
       { name: "HTML5", badge: "https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&labelColor=E34F26" },
@@ -33,8 +31,7 @@ const techStacks = [
   },
   {
     category: "Backend & Databases",
-    gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-    color: "#4CAF50",
+    color: "#ffffff",
     icon: "https://user-images.githubusercontent.com/74038190/212257460-738ff738-247f-4445-a718-cdd0ca76e2db.gif",
     skills: [
       { name: "Node.js", badge: "https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white&labelColor=339933" },
@@ -48,8 +45,7 @@ const techStacks = [
   },
   {
     category: "AI/ML & Development Tools",
-    gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
-    color: "#FF6B35",
+    color: "#ffffff",
     icon: "https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif",
     skills: [
       { name: "TensorFlow", badge: "https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white&labelColor=FF6F00" },
@@ -88,7 +84,7 @@ const TypingAnimation = ({ text, color, className }: { text: string; color: stri
   return (
     <span className={className} style={{ color }}>
       {displayText}
-      <span className="animate-pulse">|</span>
+      <span className="animate-pulse text-white">|</span>
     </span>
   );
 };
@@ -98,7 +94,7 @@ export default function Skills() {
 
   if (!isMounted) {
     return (
-      <section id="skills" className="min-h-screen py-20 bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
+      <section id="skills" className="min-h-screen py-20 bg-black relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <div className="h-16 bg-gray-700 rounded mx-auto mb-16 animate-pulse max-w-md" />
@@ -117,24 +113,7 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" className="min-h-screen py-20 bg-gradient-to-br from-[#0D1117] via-[#161B22] to-[#21262D] relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(120,119,198,0.15),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(255,107,53,0.15),transparent_50%)]" />
-        <motion.div 
-          className="absolute inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(255,255,255,0.02)_50%,transparent_70%)]"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-      </div>
-
+    <section id="skills" className="min-h-screen py-20 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Main Title */}
         <motion.div
@@ -144,10 +123,10 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-6xl font-bold gradient-text mb-4">
+          <h2 className="text-6xl font-bold text-white mb-4">
             Tech Stack & Skills
           </h2>
-          <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+          <p className="text-xl max-w-3xl mx-auto text-gray-300">
             Building end-to-end systems with modern tech stack - from scalable backends to production-grade frontends, specializing in AI integration and decentralized applications
           </p>
         </motion.div>
@@ -160,9 +139,9 @@ export default function Skills() {
           viewport={{ once: true }}
           className="flex justify-center mb-16"
         >
-          <div className="glass-card p-6 rounded-2xl">
+          <div className="glass-card p-6 rounded-xl border border-white/20">
             <img
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=safwannuddin&layout=donut&theme=radical&hide_border=true&bg_color=0D1117&title_color=F85D7F&text_color=FFFFFF&icon_color=F8D866"
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=safwannuddin&layout=donut&theme=dark&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF"
               alt="Most Used Languages"
               width={400}
               height={200}
@@ -207,25 +186,10 @@ export default function Skills() {
 
               {/* Skills Container */}
               <motion.div
-                className="relative p-8 rounded-2xl overflow-hidden"
-                style={{ background: stack.gradient }}
+                className="relative p-8 rounded-xl overflow-hidden bg-white/5 border border-white/20"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Animated Background Effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"
-                  animate={{
-                    x: ['-100%', '100%'],
-                    opacity: [0, 0.5, 0],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-
                 {/* Skills Grid */}
                 <div className="relative z-10 flex flex-wrap justify-center gap-4">
                   {stack.skills.map((skill, skillIndex) => (
@@ -257,34 +221,10 @@ export default function Skills() {
                     </motion.div>
                   ))}
                 </div>
-
-                {/* Floating Particles */}
-                {[...Array(3)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-2 h-2 bg-white/30 rounded-full"
-                    animate={{
-                      y: [0, -20, 0],
-                      opacity: [0.3, 0.6, 0.3],
-                    }}
-                    transition={{
-                      duration: 4 + (i * 0.5),
-                      repeat: Infinity,
-                      delay: i * 0.7,
-                      ease: "easeInOut"
-                    }}
-                    style={{
-                      left: `${30 + i * 20}%`,
-                      top: `${30 + (i % 2) * 40}%`,
-                    }}
-                  />
-                ))}
               </motion.div>
             </motion.div>
           ))}
         </div>
-
-
       </div>
     </section>
   );

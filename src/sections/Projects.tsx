@@ -33,7 +33,7 @@ const projects: Project[] = [
   {
     title: "FinOva Capital Flow",
     description: "Comprehensive financial management platform with real-time analytics, portfolio tracking, and investment insights.",
-    imagePath: "/projects/5.png",
+    imagePath: "/projects/finova.png",
     tags: ["Next.js", "Tailwind", "Framer Motion", "Finance", "Charts"],
     link: "https://capital-flow.vercel.app",
     github: "https://github.com/safwannuddin/finova",
@@ -44,7 +44,7 @@ const projects: Project[] = [
   {
     title: "NeuroNav",
     description: "AI-powered 3D brain health visualizer using advanced CNNs for medical diagnostics and neurological insights.",
-    imagePath: "/projects/6.png",
+    imagePath: "/projects/NeuroNav.png",
     tags: ["Next.js", "TypeScript", "AI/ML", "3D", "TensorFlow"],
     link: "#",
     github: "https://github.com/safwannuddin/neuronav",
@@ -55,7 +55,7 @@ const projects: Project[] = [
   {
     title: "HeartMate",
     description: "Comprehensive health monitoring mobile app with real-time vitals tracking and personalized wellness recommendations.",
-    imagePath: "/projects/7.png",
+    imagePath: "/projects/HeartMate.png",
     tags: ["React Native", "HealthKit", "Firebase", "ML"],
     link: "#",
     github: "https://github.com/safwannuddin/heartmate",
@@ -133,12 +133,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         
         {/* Category Badge */}
         <div className="absolute top-4 left-4">
-          <span 
-            className="px-3 py-1 rounded-full text-xs font-semibold text-white"
-            style={{
-              background: 'linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)'
-            }}
-          >
+          <span className="px-3 py-1 rounded-full text-xs font-semibold text-black bg-white">
             {project.category}
           </span>
         </div>
@@ -172,13 +167,13 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       {/* Project Info */}
       <div className="p-6">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl font-bold transition-colors duration-300 group-hover:gradient-text-primary" style={{ color: 'var(--text-primary)' }}>
+          <h3 className="text-xl font-bold text-white transition-colors duration-300">
             {project.title}
           </h3>
-          <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{project.date}</span>
+          <span className="text-sm text-gray-400">{project.date}</span>
         </div>
         
-        <p className="mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+        <p className="mb-4 leading-relaxed text-gray-300">
           {project.description}
         </p>
 
@@ -187,12 +182,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 rounded-full text-sm border transition-colors duration-200 hover:border-blue-400"
-              style={{
-                background: 'rgba(59, 130, 246, 0.1)',
-                borderColor: 'rgba(59, 130, 246, 0.3)',
-                color: '#f8fafc'
-              }}
+              className="px-3 py-1 rounded-full text-sm border border-white/30 bg-white/10 text-white transition-colors duration-200 hover:border-white/50 hover:bg-white/20"
             >
               {tag}
             </span>
@@ -208,7 +198,7 @@ export default function Projects() {
 
   if (!isMounted) {
     return (
-      <section id="projects" className="min-h-screen py-20 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]">
+      <section id="projects" className="min-h-screen py-20 bg-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="h-16 bg-gray-700 rounded mx-auto mb-16 animate-pulse max-w-md" />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -228,27 +218,8 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="min-h-screen py-20 relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]">
-      {/* Static Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-grid opacity-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-cyan-500/5" />
-        
-        {/* Static Orbs */}
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full blur-3xl opacity-20"
-            style={{
-              background: `radial-gradient(circle, ${['#3b82f6', '#06b6d4', '#8b5cf6'][i]}20 0%, transparent 70%)`,
-              width: `${200 + i * 50}px`,
-              height: `${200 + i * 50}px`,
-              left: `${20 + i * 30}%`,
-              top: `${10 + i * 35}%`,
-            }}
-          />
-        ))}
-      </div>
+    <section id="projects" className="min-h-screen py-20 relative overflow-hidden bg-black">
+
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Title */}
@@ -259,19 +230,14 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-6xl font-bold gradient-text mb-4">
+          <h2 className="text-6xl font-bold text-white mb-4">
             Featured Projects
           </h2>
-          <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed text-gray-300">
             End-to-end systems built with React, Next.js, Python, and Node.js. From AI-powered automation platforms 
             to decentralized applications - each project showcases scalable architecture and production-ready solutions.
           </p>
-          <div 
-            className="w-24 h-1 mx-auto rounded-full mt-6"
-            style={{
-              background: 'linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%)'
-            }}
-          />
+          <div className="w-24 h-1 mx-auto rounded-full mt-6 bg-white" />
         </motion.div>
 
         {/* Projects Grid */}
@@ -289,7 +255,7 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>
+          <p className="mb-6 text-gray-300">
             Interested in seeing more of my work or collaborating on a project?
           </p>
           <motion.a

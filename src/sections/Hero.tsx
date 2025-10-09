@@ -86,11 +86,11 @@ export default function Hero() {
 
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
             className="space-y-8"
           >
@@ -227,22 +227,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Simple Clean Visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="relative hidden lg:block"
-            style={{ y: y1 }}
-          >
-            <div className="relative w-full h-[600px] flex items-center justify-center">
-              <div className="w-80 h-80 border-2 border-white/20 rounded-full flex items-center justify-center">
-                <div className="w-60 h-60 border border-white/10 rounded-full flex items-center justify-center">
-                  <div className="text-6xl text-white font-mono">{'{ }'}</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+
         </div>
       </div>
 
