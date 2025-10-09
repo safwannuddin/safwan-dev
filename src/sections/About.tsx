@@ -162,49 +162,36 @@ export default function About() {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                <h3 className="text-4xl font-bold text-white">
+                <h3 className="text-4xl font-bold text-white text-center mb-8">
                   AI-Focused Full-Stack Developer & Startup Founder
                 </h3>
 
-                <div className="space-y-4 text-gray-300 leading-relaxed">
-                  <p className="text-lg">
-                    I'm <span className="text-white font-semibold">Mohd Safwan Uddin</span>, 
-                    a passionate developer and entrepreneur with expertise in building AI-powered applications 
-                    and scalable systems. My journey spans from architecting multi-agent AI platforms to 
-                    developing practical productivity tools that solve real-world problems.
+                <div className="space-y-6 text-gray-300 leading-relaxed text-left max-w-4xl">
+                  <p className="text-lg text-center mb-6">
+                    I'm <span className="text-white font-semibold">Mohd Safwan Uddin</span>, a passionate developer and entrepreneur with expertise in building AI-powered applications and scalable systems. My journey spans from architecting multi-agent AI platforms to developing practical productivity tools that solve real-world problems.
                   </p>
 
-                  <p>
-                    As a solo founder selected for the <span className="text-white font-semibold">Lovable Shipped SI program</span>, 
-                    I conceptualized and launched <span className="text-white font-semibold">Zenix</span> - an AI-powered 
-                    multi-agent UI engine for generating animated components. This experience honed my skills in rapid 
-                    prototyping, lean architecture, and creating products with high emotional value.
+                  <p className="text-justify">
+                    As a solo founder selected for the <span className="text-white font-semibold">Lovable Shipped SI program</span>, I conceptualized and launched <span className="text-white font-semibold">Zenix</span> - an AI-powered multi-agent UI engine for generating animated components. This experience honed my skills in rapid prototyping, lean architecture, and creating products with high emotional value.
                   </p>
 
-                  <p>
-                    I'm deeply passionate about <span className="text-white font-semibold">AI-powered automation</span> and 
-                    <span className="text-white font-semibold"> developer tools</span> that enhance productivity. My work 
-                    focuses on bridging the gap between complex AI capabilities and intuitive user experiences, whether 
-                    through multi-agent systems, intelligent automation, or seamless data synchronization.
+                  <p className="text-justify">
+                    I'm deeply passionate about <span className="text-white font-semibold">AI-powered automation</span> and <span className="text-white font-semibold">developer tools</span> that enhance productivity. My work focuses on bridging the gap between complex AI capabilities and intuitive user experiences, whether through multi-agent systems, intelligent automation, or seamless data synchronization.
                   </p>
 
-                  <p>
-                    My technical approach emphasizes <span className="text-white font-semibold">iterative development</span> and 
-                    <span className="text-white font-semibold"> user-centric design</span>, guided by principles like the 
-                    "10% usage principle" from product development philosophy. I believe in building solutions that are 
-                    not just functional but delightful to use.
+                  <p className="text-justify">
+                    My technical approach emphasizes <span className="text-white font-semibold">iterative development</span> and <span className="text-white font-semibold">user-centric design</span>, guided by principles like the "10% usage principle" from product development philosophy. I believe in building solutions that are not just functional but delightful to use.
                   </p>
                 </div>
 
                 {/* Quote */}
                 <motion.div
-                  className="relative p-6 glass-card rounded-2xl border-l-4 border-white"
+                  className="relative p-8 glass-card rounded-2xl border-l-4 border-white mt-8"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-xl italic text-gray-300 leading-relaxed">
-                    "Being selected as a solo founder for competitive programs has taught me to wear multiple hats - 
-                    from conceptualizing AI architectures to designing intuitive interfaces and validating products with real users."
+                  <p className="text-xl italic text-gray-300 leading-relaxed text-center">
+                    "Being selected as a solo founder for competitive programs has taught me to wear multiple hats - from conceptualizing AI architectures to designing intuitive interfaces and validating products with real users."
                   </p>
                   <div className="absolute -top-2 -left-2 w-8 h-8 bg-white rounded-full flex items-center justify-center">
                     <span className="text-black font-bold">&quot;</span>
@@ -221,7 +208,7 @@ export default function About() {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                <h3 className="text-4xl font-bold text-white">
+                <h3 className="text-4xl font-bold text-white text-center mb-8">
                   Technical Expertise
                 </h3>
 
@@ -278,7 +265,7 @@ export default function About() {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                <h3 className="text-4xl font-bold text-white">
+                <h3 className="text-4xl font-bold text-white text-center mb-8">
                   Key Achievements
                 </h3>
 

@@ -82,7 +82,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a]">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
 
 
       <div className="container mx-auto px-6 relative z-10">
@@ -99,22 +99,8 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="flex items-center gap-3"
+              className="text-center"
             >
-              <motion.span 
-                className="text-3xl"
-                animate={{ 
-                  rotate: [0, 20, -20, 0],
-                  scale: [1, 1.2, 1]
-                }}
-                transition={{ 
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                👋
-              </motion.span>
               <span className="text-xl text-gray-400 font-medium">
                 Hello, I&apos;m
               </span>
@@ -145,10 +131,10 @@ export default function Hero() {
             >
               <TypingText 
                 texts={[
-                  "Full-Stack Developer",
-                  "AI Platform Engineer", 
-                  "Blockchain Developer",
-                  "System Architect"
+                  "Machine Learning Engineer",
+                  "AI Platform Developer", 
+                  "Data Science Specialist",
+                  "ML System Architect"
                 ]}
               />
             </motion.div>
@@ -158,12 +144,14 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-lg leading-relaxed max-w-2xl text-gray-300"
+              className="text-lg leading-relaxed max-w-3xl mx-auto text-gray-300 text-center"
             >
-              Experienced full-stack developer specializing in building scalable, robust systems from 
-              <span className="text-white font-semibold"> high-throughput data pipelines</span> to 
-              <span className="text-white font-semibold"> production-grade React applications</span>. 
-              Expert in Next.js, Python, Node.js, and AI-powered automation platforms.
+              AI-focused developer and entrepreneur specializing in 
+              <span className="text-white font-semibold">machine learning systems</span>, 
+              <span className="text-white font-semibold">multi-agent AI platforms</span>, and 
+              <span className="text-white font-semibold">intelligent automation tools</span>. 
+              Expert in Python, TensorFlow, PyTorch, and building scalable ML infrastructure that bridges 
+              complex AI capabilities with intuitive user experiences.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -171,7 +159,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 justify-center"
             >
               <motion.a
                 href="#projects"
@@ -200,7 +188,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="flex gap-6"
+              className="flex gap-6 justify-center"
             >
               {socialLinks.map((link, index) => (
                 <motion.a
