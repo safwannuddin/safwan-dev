@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useClientMount } from '@/hooks/useClientMount';
+import Image from 'next/image';
 
 const techStacks = [
   {
@@ -140,7 +141,7 @@ export default function Skills() {
           className="flex justify-center mb-16"
         >
           <div className="glass-card p-6 rounded-xl border border-white/20">
-            <img
+            <Image
               src="https://github-readme-stats.vercel.app/api/top-langs/?username=safwannuddin&layout=donut&theme=dark&hide_border=true&bg_color=000000&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF"
               alt="Most Used Languages"
               width={400}
@@ -163,7 +164,7 @@ export default function Skills() {
             >
               {/* Category Header */}
               <div className="flex items-center justify-center mb-8">
-                <img
+                <Image
                   src={stack.icon}
                   alt="Icon"
                   width={35}
@@ -175,7 +176,7 @@ export default function Skills() {
                   color={stack.color}
                   className="text-2xl font-bold"
                 />
-                <img
+                <Image
                   src={stack.icon}
                   alt="Icon"
                   width={35}
@@ -211,7 +212,7 @@ export default function Skills() {
                       }}
                       className="transform-gpu"
                     >
-                      <img
+                      <Image
                         src={skill.badge}
                         alt={skill.name}
                         width={120}

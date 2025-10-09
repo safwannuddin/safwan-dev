@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaHome, FaArrowLeft, FaSearch, FaExclamationTriangle } from 'react-icons/fa';
+import { FaHome, FaArrowLeft, FaExclamationTriangle } from 'react-icons/fa';
 import { useClientMount } from '@/hooks/useClientMount';
 
 const NotFound = () => {
@@ -96,11 +96,11 @@ const NotFound = () => {
           </h2>
           
           <p className="text-lg mb-2" style={{ color: 'var(--text-secondary)' }}>
-            Oops! The page you're looking for seems to have wandered off into the digital void.
+            Oops! The page you&apos;re looking for seems to have wandered off into the digital void.
           </p>
           
           <p className="text-base" style={{ color: 'var(--text-muted)' }}>
-            Don't worry, even the best developers encounter 404s. Let's get you back on track!
+            Don&apos;t worry, even the best developers encounter 404s. Let&apos;s get you back on track!
           </p>
         </motion.div>
 
@@ -119,7 +119,7 @@ const NotFound = () => {
             }}
           >
             <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>
-              Here's what you can try:
+              Here&apos;s what you can try:
             </h3>
             
             <ul className="text-left space-y-2" style={{ color: 'var(--text-secondary)' }}>

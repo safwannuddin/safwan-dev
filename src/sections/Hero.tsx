@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaDownload, FaRocket } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { useClientMount } from '@/hooks/useClientMount';
@@ -53,8 +53,6 @@ const TypingText = ({ texts, className }: { texts: string[]; className?: string 
 };
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 300], [0, -50]);
   const isMounted = useClientMount();
 
   if (!isMounted) {

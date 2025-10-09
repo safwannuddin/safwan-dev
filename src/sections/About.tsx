@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState, useRef } from 'react';
 
 import { FaCode, FaRocket, FaBrain, FaGraduationCap, FaAward, FaGlobe, FaLaptopCode, FaHeart } from 'react-icons/fa';
@@ -57,13 +57,6 @@ const skills = [
 export default function About() {
   const [activeTab, setActiveTab] = useState<'story' | 'skills' | 'achievements'>('story');
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
   const isMounted = useClientMount();
 
   if (!isMounted) {
@@ -168,7 +161,7 @@ export default function About() {
 
                 <div className="space-y-6 text-gray-300 leading-relaxed text-left max-w-4xl">
                   <p className="text-lg text-center mb-6">
-                    I'm <span className="text-white font-semibold">Mohd Safwan Uddin</span>, a passionate developer and entrepreneur with expertise in building AI-powered applications and scalable systems. My journey spans from architecting multi-agent AI platforms to developing practical productivity tools that solve real-world problems.
+                    I&apos;m <span className="text-white font-semibold">Mohd Safwan Uddin</span>, a passionate developer and entrepreneur with expertise in building AI-powered applications and scalable systems. My journey spans from architecting multi-agent AI platforms to developing practical productivity tools that solve real-world problems.
                   </p>
 
                   <p className="text-justify">
@@ -176,11 +169,11 @@ export default function About() {
                   </p>
 
                   <p className="text-justify">
-                    I'm deeply passionate about <span className="text-white font-semibold">AI-powered automation</span> and <span className="text-white font-semibold">developer tools</span> that enhance productivity. My work focuses on bridging the gap between complex AI capabilities and intuitive user experiences, whether through multi-agent systems, intelligent automation, or seamless data synchronization.
+                    I&apos;m deeply passionate about <span className="text-white font-semibold">AI-powered automation</span> and <span className="text-white font-semibold">developer tools</span> that enhance productivity. My work focuses on bridging the gap between complex AI capabilities and intuitive user experiences, whether through multi-agent systems, intelligent automation, or seamless data synchronization.
                   </p>
 
                   <p className="text-justify">
-                    My technical approach emphasizes <span className="text-white font-semibold">iterative development</span> and <span className="text-white font-semibold">user-centric design</span>, guided by principles like the "10% usage principle" from product development philosophy. I believe in building solutions that are not just functional but delightful to use.
+                    My technical approach emphasizes <span className="text-white font-semibold">iterative development</span> and <span className="text-white font-semibold">user-centric design</span>, guided by principles like the &quot;10% usage principle&quot; from product development philosophy. I believe in building solutions that are not just functional but delightful to use.
                   </p>
                 </div>
 
@@ -191,7 +184,7 @@ export default function About() {
                   transition={{ duration: 0.3 }}
                 >
                   <p className="text-xl italic text-gray-300 leading-relaxed text-center">
-                    "Being selected as a solo founder for competitive programs has taught me to wear multiple hats - from conceptualizing AI architectures to designing intuitive interfaces and validating products with real users."
+                    &quot;Being selected as a solo founder for competitive programs has taught me to wear multiple hats - from conceptualizing AI architectures to designing intuitive interfaces and validating products with real users.&quot;
                   </p>
                   <div className="absolute -top-2 -left-2 w-8 h-8 bg-white rounded-full flex items-center justify-center">
                     <span className="text-black font-bold">&quot;</span>

@@ -367,7 +367,7 @@ const Certificates = () => {
           {categories.map((category, index) => (
             <motion.button
               key={category.id}
-              onClick={() => setFilter(category.id as any)}
+              onClick={() => setFilter(category.id as 'all' | 'development' | 'ai' | 'security' | 'design')}
               className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 flex items-center gap-2 ${
                 filter === category.id 
                   ? `bg-gradient-to-r ${category.color} text-white shadow-lg`

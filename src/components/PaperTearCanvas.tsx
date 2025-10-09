@@ -1,14 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 import FallbackTransition from './FallbackTransition';
 
 interface PaperTearCanvasProps {
   isActive: boolean;
   tearProgress: number;
   onTearComplete?: () => void;
-  tearSpeed?: number;
   jaggedness?: number;
 }
 
@@ -16,7 +14,6 @@ export default function PaperTearCanvas({
   isActive, 
   tearProgress, 
   onTearComplete,
-  tearSpeed = 1,
   jaggedness = 0.3 
 }: PaperTearCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
