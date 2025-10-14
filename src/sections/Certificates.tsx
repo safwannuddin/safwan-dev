@@ -215,7 +215,8 @@ const CertificateFrame: React.FC<CertificateFrameProps> = ({ certificate, index 
                   <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-[#00ff9d] to-[#0066ff] rounded-2xl flex items-center justify-center">
                     <FaGraduationCap className="w-8 h-8 text-white" />
                   </div>
-                  <span className="text-sm">Certificate Preview</span>
+                  <span className="text-sm font-medium text-white">{certificate.title}</span>
+                  <span className="text-xs text-gray-400 block mt-1">{certificate.issuer}</span>
                 </div>
               </div>
             ) : (
@@ -223,12 +224,14 @@ const CertificateFrame: React.FC<CertificateFrameProps> = ({ certificate, index 
                 src={certificate.imagePath}
                 alt={certificate.title}
                 fill
+                unoptimized
                 className={`object-cover transition-all duration-700 group-hover:scale-110 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                 onLoad={() => setIsLoading(false)}
                 onError={() => {
                   setHasError(true);
                   setIsLoading(false);
                 }}
+                priority={false}
               />
             )}
             
