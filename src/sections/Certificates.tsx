@@ -407,44 +407,6 @@ const Certificates = () => {
             />
           ))}
         </motion.div>
-        
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-20"
-        >
-          <div className="glass-card p-8 rounded-3xl">
-            <h3 className="text-3xl font-bold bg-gradient-to-r from-[#00ff9d] to-[#0066ff] bg-clip-text text-transparent text-center mb-8">
-              Achievement Statistics
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { label: 'Total Certificates', value: certificates.filter(c => c.type === 'certificate').length, icon: <FaCertificate /> },
-                { label: 'Badges Earned', value: certificates.filter(c => c.type === 'badge').length, icon: <FaMedal /> },
-                { label: 'Institutions', value: new Set(certificates.map(c => c.issuer)).size, icon: <FaGraduationCap /> },
-                { label: 'This Year', value: certificates.filter(c => c.date.includes('2025')).length, icon: <FaTrophy /> }
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                  viewport={{ once: true }}
-                  className="text-center p-6 glass-card rounded-2xl hover:scale-105 transition-transform duration-300"
-                >
-                  <div className="text-4xl mb-3 text-[#00ff9d]">{stat.icon}</div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-[#00ff9d] to-[#0066ff] bg-clip-text text-transparent mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-400 text-sm font-medium">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
