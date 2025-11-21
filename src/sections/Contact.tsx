@@ -10,25 +10,25 @@ const socialLinks = [
   {
     name: 'GitHub',
     icon: <FaGithub className="w-6 h-6" />,
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/safwannuddin',
     color: 'hover:text-[#333]'
   },
   {
     name: 'LinkedIn',
     icon: <FaLinkedin className="w-6 h-6" />,
-    url: 'https://linkedin.com/in/yourusername',
+    url: 'https://www.linkedin.com/in/mohd-safwan-uddin-299602257/',
     color: 'hover:text-[#0077b5]'
   },
   {
-    name: 'Twitter',
+    name: 'X',
     icon: <FaTwitter className="w-6 h-6" />,
-    url: 'https://twitter.com/yourusername',
+    url: 'https://x.com/safwannuddin',
     color: 'hover:text-[#1da1f2]'
   },
   {
     name: 'Email',
     icon: <FaEnvelope className="w-6 h-6" />,
-    url: 'mailto:your.email@example.com',
+    url: 'mailto:safwanuddin405@gmail.com',
     color: 'hover:text-[#ea4335]'
   }
 ];
@@ -136,7 +136,8 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="form-input"
-                  placeholder="your.email@example.com"
+                  placeholder="safwanuddin405@gmail.com"
+                
                 />
               </div>
 
