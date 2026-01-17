@@ -3,6 +3,7 @@ import About from '@/sections/About';
 import Projects from '@/sections/Projects';
 import Contact from '@/sections/Contact';
 import Skills from '@/sections/skills';
+import Experience from '@/sections/Experience';
 import Certificates from '@/sections/Certificates';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
+        <Experience />
         <Projects />
         <Certificates />
         <Contact />
@@ -28,7 +30,7 @@ export default function Home() {
               <span className="text-white font-semibold">Safwan Uddin</span>
             </p>
             <p className="text-gray-500 text-sm mt-2">
-              © 2025 All rights reserved
+              © 2026 All rights reserved
             </p>
           </div>
         </footer>

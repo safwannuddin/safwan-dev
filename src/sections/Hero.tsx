@@ -2,13 +2,78 @@
 
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaDownload, FaRocket } from 'react-icons/fa';
-
 import { useClientMount } from '@/hooks/useClientMount';
 
 const socialLinks = [
   { icon: <FaGithub />, url: "https://github.com/safwannuddin", label: "GitHub" },
   { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/mohd-safwan-uddin-299602257/", label: "LinkedIn" }
 ];
+
+// Letter-by-letter reveal animation
+const AnimatedName = () => {
+  const name = "Mohd Safwan Uddin";
+  const letters = name.split("");
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 0.8
+      }
+    }
+  };
+
+  const child = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      rotateX: -90,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+        duration: 0.6
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      className="text-5xl md:text-7xl font-bold leading-tight text-white"
+    >
+      {letters.map((letter, index) => (
+        <motion.span
+          key={index}
+          variants={child}
+          className="inline-block"
+          style={{ 
+            transformOrigin: "50% 50%",
+            perspective: "1000px"
+          }}
+          whileHover={{
+            scale: 1.1,
+            color: "#60a5fa",
+            transition: { duration: 0.2 }
+          }}
+        >
+          {letter === " " ? "\u00A0" : letter}
+        </motion.span>
+      ))}
+    </motion.div>
+  );
+};
 
 
 
@@ -64,30 +129,13 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* Name */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-5xl md:text-7xl font-bold leading-tight text-white"
-            >
-              <span className="text-white">
-                Mohd Safwan
-              </span>
-              <br />
-              <span className="text-white">
-                Uddin
-              </span>
-            </motion.h1>
-
-            {/* Title */}
+            {/* Name with Letter Animation */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-2xl md:text-3xl font-semibold text-white"
+              transition={{ delay: 0.4, duration: 0.8 }}
             >
-              
+              <AnimatedName />
             </motion.div>
 
             {/* Description */}
@@ -104,6 +152,18 @@ export default function Hero() {
               Expert in Python, TensorFlow, PyTorch, and building scalable ML infrastructure that bridges 
               complex AI capabilities with intuitive user experiences.
             </motion.p>
+
+            {/* Achievements */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.8 }}
+              className="text-center"
+            >
+              <p className="text-sm text-gray-400 font-medium">
+                Tech Hack 3 Winner 🏆 |  Lovable Shipped S1 Alumni | Top 28 in Asia (Weekly Challenge) 
+              </p>
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div

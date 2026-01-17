@@ -63,7 +63,7 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            © {new Date().getFullYear()} Safwan Khan. All rights reserved.
+            © {new Date().getFullYear()} Safwan Uddin. All rights reserved.
           </motion.p>
         </div>
       </div>

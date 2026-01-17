@@ -60,53 +60,43 @@ export default function About() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            {/* Motivational Story */}
+            {/* About Me Content */}
             <div className="space-y-8">
               <h3 className="text-4xl font-bold text-white text-center mb-8">
-                Turning Ideas Into Reality
+                Turning ideas into real, usable systems
               </h3>
 
               <div className="space-y-6 text-gray-300 leading-relaxed">
                 <p className="text-xl text-center mb-8">
-                  Hey there! I&apos;m <span className="text-white font-semibold">Mohd Safwan Uddin</span> - a passionate developer who believes that 
-                  <span className="text-white font-semibold"> code is poetry, and every line tells a story</span>.
+                  Hi, I'm <span className="text-white font-semibold">Mohd Safwan Uddin</span> — a developer who enjoys building things that actually work in the real world.
                 </p>
 
                 <p className="text-lg">
-                  My journey started with a simple curiosity: <span className="text-white font-semibold">What if we could make technology more human?</span> 
-                  This question has driven me through countless late nights, failed attempts, and breakthrough moments that made it all worthwhile.
+                  I'm driven by curiosity and a strong belief that good technology should feel intuitive, even when the systems behind it are complex. Over time, that mindset has pushed me to work across AI, backend systems, and product-focused development — always starting with the problem before jumping to solutions.
                 </p>
 
                 <p className="text-lg">
-                  I don&apos;t just write code - I craft experiences. Whether it&apos;s building an AI-powered platform or creating a simple automation tool, 
-                  I believe that <span className="text-white font-semibold">great software should feel like magic to the user, even when it&apos;s built on complex engineering underneath</span>.
+                  I enjoy building AI-powered tools, automations, and data-driven systems that solve practical problems for real users. Whether it's working on machine learning pipelines, backend APIs, or refining the user flow of a product, I care deeply about clarity, structure, and usability.
                 </p>
 
                 <p className="text-lg">
-                  Every project I take on is a chance to solve real problems for real people. From machine learning systems that predict user needs to 
-                  intuitive interfaces that make complex tasks feel simple, I&apos;m always asking: 
-                  <span className="text-white font-semibold">&quot;How can this make someone&apos;s day better?&quot;</span>
+                  I've learned that the best results come from slowing down enough to understand why a problem exists, not just how to code a solution. That's why I like combining modern technologies like AI and ML with strong fundamentals in system design and user experience.
                 </p>
 
                 <p className="text-lg">
-                  The tech world moves fast, but I&apos;ve learned that the best solutions come from taking time to truly understand the problem first. 
-                  That&apos;s why I love combining cutting-edge technologies like AI and machine learning with timeless principles of good design and user experience.
+                  Right now, I'm focused on learning deeply, building intentionally, and collaborating with people who care about craftsmanship and long-term impact.
                 </p>
               </div>
 
-              {/* Motivational Quote */}
+              {/* Quote */}
               <motion.div
                 className="relative p-8 glass-card rounded-2xl border-l-4 border-white mt-12"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-2xl italic text-white leading-relaxed text-center">
-                  &quot;I don&apos;t just build applications - I build bridges between human dreams and digital reality. 
-                  Every line of code is a step toward making the impossible, possible.&quot;
+                <p className="text-xl italic text-gray-300 leading-relaxed text-center">
+                  "Clarity comes before speed. Build with intention, and the rest follows."
                 </p>
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                  <FaHeart className="text-black text-xl" />
-                </div>
               </motion.div>
 
               {/* Call to Action */}
@@ -118,7 +108,7 @@ export default function About() {
                 viewport={{ once: true }}
               >
                 <p className="text-lg text-gray-300 mb-6">
-                  Ready to turn your ideas into something amazing? Let&apos;s create something extraordinary together.
+                  Ready to turn your ideas into something amazing? Let's create something extraordinary together.
                 </p>
                 <motion.a
                   href="#contact"
