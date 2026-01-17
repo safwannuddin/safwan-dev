@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useClientMount } from '@/hooks/useClientMount';
-import { FaBriefcase, FaMapMarkerAlt, FaCalendarAlt, FaBuilding, FaRocket, FaLightbulb, FaBolt } from 'react-icons/fa';
+import { FaBuilding, FaRocket, FaLightbulb, FaBolt } from 'react-icons/fa';
 
 const experiences = [
   {

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
-import { FaRocket, FaHeart } from 'react-icons/fa';
+import { FaRocket } from 'react-icons/fa';
 import { useClientMount } from '@/hooks/useClientMount';
 
 export default function About() {
@@ -68,23 +68,23 @@ export default function About() {
 
               <div className="space-y-6 text-gray-300 leading-relaxed">
                 <p className="text-xl text-center mb-8">
-                  Hi, I'm <span className="text-white font-semibold">Mohd Safwan Uddin</span> — a developer who enjoys building things that actually work in the real world.
+                  Hi, I&apos;m <span className="text-white font-semibold">Mohd Safwan Uddin</span> — a developer who enjoys building things that actually work in the real world.
                 </p>
 
                 <p className="text-lg">
-                  I'm driven by curiosity and a strong belief that good technology should feel intuitive, even when the systems behind it are complex. Over time, that mindset has pushed me to work across AI, backend systems, and product-focused development — always starting with the problem before jumping to solutions.
+                  I&apos;m driven by curiosity and a strong belief that good technology should feel intuitive, even when the systems behind it are complex. Over time, that mindset has pushed me to work across AI, backend systems, and product-focused development — always starting with the problem before jumping to solutions.
                 </p>
 
                 <p className="text-lg">
-                  I enjoy building AI-powered tools, automations, and data-driven systems that solve practical problems for real users. Whether it's working on machine learning pipelines, backend APIs, or refining the user flow of a product, I care deeply about clarity, structure, and usability.
+                  I enjoy building AI-powered tools, automations, and data-driven systems that solve practical problems for real users. Whether it&apos;s working on machine learning pipelines, backend APIs, or refining the user flow of a product, I care deeply about clarity, structure, and usability.
                 </p>
 
                 <p className="text-lg">
-                  I've learned that the best results come from slowing down enough to understand why a problem exists, not just how to code a solution. That's why I like combining modern technologies like AI and ML with strong fundamentals in system design and user experience.
+                  I&apos;ve learned that the best results come from slowing down enough to understand why a problem exists, not just how to code a solution. That&apos;s why I like combining modern technologies like AI and ML with strong fundamentals in system design and user experience.
                 </p>
 
                 <p className="text-lg">
-                  Right now, I'm focused on learning deeply, building intentionally, and collaborating with people who care about craftsmanship and long-term impact.
+                  Right now, I&apos;m focused on learning deeply, building intentionally, and collaborating with people who care about craftsmanship and long-term impact.
                 </p>
               </div>
 
@@ -95,7 +95,7 @@ export default function About() {
                 transition={{ duration: 0.3 }}
               >
                 <p className="text-xl italic text-gray-300 leading-relaxed text-center">
-                  "Clarity comes before speed. Build with intention, and the rest follows."
+                  &quot;Clarity comes before speed. Build with intention, and the rest follows.&quot;
                 </p>
               </motion.div>
 
@@ -108,7 +108,7 @@ export default function About() {
                 viewport={{ once: true }}
               >
                 <p className="text-lg text-gray-300 mb-6">
-                  Ready to turn your ideas into something amazing? Let's create something extraordinary together.
+                  Ready to turn your ideas into something amazing? Let&apos;s create something extraordinary together.
                 </p>
                 <motion.a
                   href="#contact"
