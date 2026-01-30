@@ -145,11 +145,11 @@ export default function Hero() {
               transition={{ delay: 0.8, duration: 0.8 }}
               className="text-lg leading-relaxed max-w-3xl mx-auto text-gray-300 text-center"
             >
-              AI-focused developer and entrepreneur specializing in 
-              <span className="text-white font-semibold">machine learning systems</span>, 
-              <span className="text-white font-semibold">multi-agent AI platforms</span>, and 
-              <span className="text-white font-semibold">intelligent automation tools</span>. 
-              Expert in Python, TensorFlow, PyTorch, and building scalable ML infrastructure that bridges 
+              AI-focused developer and entrepreneur specializing in{' '}
+              <span className="text-white font-semibold">machine learning systems</span>{', '}
+              <span className="text-white font-semibold">multiagent AI platforms</span>{', and '}
+              <span className="text-white font-semibold">intelligent automation tools</span>{'. '}
+              Expert in Python, TensorFlow, PyTorch, and building scalable ML infrastructure that bridges{' '}
               complex AI capabilities with intuitive user experiences.
             </motion.p>
 
@@ -161,7 +161,7 @@ export default function Hero() {
               className="text-center"
             >
               <p className="text-sm text-gray-400 font-medium">
-                Tech Hack 3 Winner 🏆 |  Lovable Shipped S1 Alumni | Top 28 in Asia (Weekly Challenge) 
+                Tech Hack 3 Winner 🏆 | Lovable Shipped S1 Alumni  <span className="whitespace-nowrap">Top 28 in Asia (Weekly Challenge) |</span>
               </p>
             </motion.div>
 
