@@ -5,6 +5,11 @@ const config = [
   ...nextVitals,
   ...nextTs,
   { ignores: [".next/**", "out/**", "scripts/**", "next-env.d.ts"] },
+  {
+    // Static site: plain <a> links do full navigations on purpose so the
+    // browser runs cross-document view transitions between pages.
+    rules: { "@next/next/no-html-link-for-pages": "off" },
+  },
 ];
 
 export default config;

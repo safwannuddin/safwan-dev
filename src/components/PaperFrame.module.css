@@ -1,0 +1,222 @@
+.frame {
+  display: grid;
+  gap: var(--s-6);
+  padding-block: var(--s-7);
+  border-top: 1px solid var(--c-line);
+}
+
+.frame:last-child {
+  border-bottom: 1px solid var(--c-line);
+}
+
+/* ---- The miniature first page ---- */
+.sheetLink {
+  display: block;
+  width: min(100%, 15rem);
+  text-decoration: none;
+  color: inherit;
+}
+
+.sheet {
+  position: relative;
+  aspect-ratio: 8.5 / 11;
+  padding: 11% 10% 8% 15%;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-1);
+  box-shadow: var(--c-shadow);
+  overflow: hidden;
+  transition: transform var(--d-base) var(--ease), box-shadow var(--d-base) var(--ease);
+}
+
+/* a second sheet peeking behind: it is a document, not a card */
+.sheetLink {
+  position: relative;
+}
+
+.sheetLink::before {
+  content: "";
+  position: absolute;
+  inset: 6px -6px -6px 6px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-1);
+  z-index: -1;
+}
+
+.sheetLink {
+  isolation: isolate;
+  align-self: start;
+}
+
+.frame:hover .sheet {
+  transform: translateY(-3px);
+  box-shadow: var(--c-shadow-lift);
+}
+
+.stamp {
+  position: absolute;
+  left: 5%;
+  bottom: 8%;
+  transform-origin: left bottom;
+  transform: rotate(-90deg) translateY(100%);
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.04em;
+  color: var(--c-ink-3);
+  white-space: nowrap;
+}
+
+.sTitle {
+  font-size: 10px;
+  line-height: 1.3;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: var(--c-ink);
+  text-wrap: balance;
+}
+
+.sAuthors {
+  margin-top: 7%;
+  font-size: 6.5px;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--c-ink-2);
+}
+
+.sHead {
+  margin-top: 9%;
+  margin-bottom: 4%;
+  font-size: 7px;
+  font-weight: 700;
+  color: var(--c-ink);
+}
+
+.sAuthors + .sHead {
+  text-align: center;
+}
+
+.lines {
+  display: grid;
+  gap: 5px;
+}
+
+.lines i {
+  display: block;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--c-line-strong);
+}
+
+/* ---- Facts ---- */
+.meta {
+  display: grid;
+  gap: var(--s-4);
+  align-content: start;
+  min-width: 0;
+}
+
+.kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  color: var(--c-ink-3);
+}
+
+.title {
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  line-height: 1.25;
+  max-width: 40ch;
+}
+
+.title a {
+  text-decoration: none;
+  transition: color var(--d-fast) var(--ease);
+}
+
+.title a:hover {
+  color: var(--c-accent);
+}
+
+.authors {
+  color: var(--c-ink-3);
+  font-size: var(--fs-small);
+}
+
+.authors strong {
+  color: var(--c-ink);
+  font-weight: var(--fw-medium);
+}
+
+.finding {
+  max-width: var(--measure);
+  color: var(--c-ink-2);
+}
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid var(--c-line);
+  margin-top: var(--s-2);
+}
+
+.figures > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: var(--s-1);
+  padding: var(--s-4) var(--s-3) var(--s-4) 0;
+}
+
+.figures > div + div {
+  padding-left: var(--s-4);
+  border-left: 1px solid var(--c-line);
+}
+
+.figures dd {
+  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.75rem);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tr-heading);
+  line-height: 1.1;
+}
+
+.figures dt {
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--c-ink-3);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+@media (max-width: 479px) {
+  .sheetLink {
+    width: 11rem;
+  }
+}
+
+@media (min-width: 720px) {
+  .frame {
+    grid-template-columns: 13rem minmax(0, 1fr);
+    column-gap: var(--s-7);
+  }
+}
+
+@media (min-width: 1100px) {
+  .frame {
+    grid-template-columns: 15rem minmax(0, 1fr);
+    column-gap: var(--s-8);
+  }
+}
