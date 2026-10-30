@@ -3,7 +3,7 @@
 }
 
 .inner {
-  max-width: 60rem;
+  max-width: 68rem;
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
@@ -45,10 +45,10 @@
 }
 
 .title {
-  font-size: clamp(2.5rem, 1.6rem + 4vw, 4.5rem);
-  font-weight: var(--fw-display);
+  font-size: var(--fs-display);
+  font-weight: 600;
   letter-spacing: var(--tr-display);
-  line-height: 1.02;
+  line-height: 0.98;
   width: fit-content;
 }
 
@@ -84,6 +84,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--s-4);
+}
+
+.cover {
+  margin-top: var(--s-7);
+  aspect-ratio: 800 / 520;
+  border-radius: var(--r-4);
+  overflow: hidden;
+  outline: 1px solid color-mix(in srgb, var(--c-ink) 8%, transparent);
+  outline-offset: -1px;
 }
 
 .shot {

@@ -163,3 +163,10 @@
     box-shadow: 0 0 0 4px var(--c-accent-soft);
   }
 }
+
+/* phones and tablets only; wide screens get the loss-curve story */
+@media (min-width: 1000px) {
+  .timeline {
+    display: none;
+  }
+}

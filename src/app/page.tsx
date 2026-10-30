@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import WorkList from "@/components/WorkList";
 import PaperFrame from "@/components/PaperFrame";
+import StoryCurve from "@/components/StoryCurve";
 import Timeline from "@/components/Timeline";
 import Certificates from "@/components/Certificates";
 import NotebookList from "@/components/NotebookList";
@@ -18,8 +19,12 @@ export default function Home() {
         id="work"
         index="01"
         label="Work"
-        title="Selected work"
-        intro="What I have built, what I have published, and what I am building next. Each label says honestly where the project stands."
+        title={
+          <>
+            Things I have <em>built</em> and published.
+          </>
+        }
+        intro="A founder project, two research systems, and what I am building next. Every label says honestly where the project stands."
       >
         <WorkList />
       </Section>
@@ -28,8 +33,13 @@ export default function Home() {
         id="research"
         index="02"
         label="Research"
-        title="Research on AI agent security"
-        intro="Two papers on arXiv, both about what goes wrong when AI agents act on our behalf: the interfaces they generate, and the money they spend."
+        tone="band"
+        title={
+          <>
+            What goes wrong when <em>agents act</em> for us.
+          </>
+        }
+        intro="Two papers on arXiv: the interfaces AI agents generate, and the money they spend."
       >
         <div>
           {papers.map((p) => (
@@ -42,9 +52,14 @@ export default function Home() {
         id="experience"
         index="03"
         label="Experience"
-        title="How I got here"
-        intro="From a computer science degree to founding, research and an MSc in London. What I did at each step, and what it taught me."
+        title={
+          <>
+            Every step lowered the <em>loss</em>.
+          </>
+        }
+        intro="My path so far, plotted the way I would plot a model learning: each role a checkpoint, each checkpoint a little less I did not know."
       >
+        <StoryCurve />
         <Timeline />
       </Section>
 
@@ -52,7 +67,11 @@ export default function Home() {
         id="certificates"
         index="04"
         label="Certificates"
-        title="Recognition and certificates"
+        title={
+          <>
+            Recognition and <em>certificates</em>.
+          </>
+        }
         intro="Awards first, then the courses and hackathons behind them. Select any certificate to see it in full."
       >
         <Certificates />
@@ -62,23 +81,26 @@ export default function Home() {
         id="notebook"
         index="05"
         label="Notebook"
-        title="Notebook"
-        intro={
+        title={
           <>
-            Small interactive explainers of what I learn from first principles. The first entries are being written
-            now. <a className="link" href="/notebook/">Open the notebook</a>
+            Learning in public, from <em>first principles</em>.
           </>
         }
+        intro="Small interactive explainers of what I study on the MSc. Change a number, see what happens."
       >
-        <NotebookList limit={1} />
+        <NotebookList />
       </Section>
 
       <Section
         id="contact"
         index="06"
         label="Contact"
-        title="Get in touch"
-        intro={`I am looking for ${person.lookingFor}. If you are hiring, or want to talk about agent security, email me.`}
+        title={
+          <>
+            Write to <em>me</em>.
+          </>
+        }
+        intro={`I am looking for ${person.lookingFor}. If you are hiring, or want to talk about agent security, email is fastest.`}
       >
         <Contact />
       </Section>

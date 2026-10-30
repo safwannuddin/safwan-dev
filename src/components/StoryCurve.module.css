@@ -1,0 +1,211 @@
+.host {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .host {
+    display: block;
+    position: relative;
+  }
+}
+
+.sticky {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.host[data-enhanced] .sticky {
+  position: sticky;
+  top: var(--header-h);
+  height: calc(100vh - var(--header-h));
+  align-content: center;
+  overflow: hidden;
+}
+
+.hud {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  color: var(--c-ink-3);
+}
+
+.meter {
+  position: relative;
+  width: 160px;
+  height: 2px;
+  background: var(--c-line);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.meter > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--c-accent);
+  transition: width var(--d-base) var(--ease-out);
+}
+
+.track {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  padding-bottom: var(--s-4);
+}
+
+.host[data-enhanced] .track {
+  overflow: visible;
+  --shift: 0px;
+}
+
+.host[data-enhanced] .canvas {
+  transform: translateX(var(--shift));
+  will-change: transform;
+}
+
+.canvas {
+  position: relative;
+  height: 560px;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+}
+
+.axis {
+  stroke: var(--c-line-strong);
+  stroke-width: 1;
+}
+
+.axisLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  fill: var(--c-ink-3);
+  text-transform: uppercase;
+}
+
+.ghost {
+  fill: none;
+  stroke: var(--c-line-strong);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 6;
+}
+
+.curve {
+  fill: none;
+  stroke: var(--c-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.points {
+  position: absolute;
+  inset: 0;
+}
+
+.point {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.dot {
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--c-bg);
+  border: 2px solid var(--c-line-strong);
+  transition: border-color var(--d-base) var(--ease), background var(--d-base) var(--ease), transform var(--d-base) var(--ease-out);
+}
+
+.point[data-on] .dot {
+  border-color: var(--c-accent);
+  background: var(--c-surface);
+}
+
+.point[data-on][data-last] .dot {
+  background: var(--c-accent);
+  box-shadow: 0 0 0 6px var(--c-accent-soft);
+  transform: scale(1.2);
+}
+
+.stem {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  background: var(--c-line-strong);
+  top: 14px;
+  height: 36px;
+}
+
+.point[data-above] .stem {
+  top: auto;
+  bottom: 14px;
+}
+
+.card {
+  position: absolute;
+  left: -24px;
+  top: 56px;
+  width: 300px;
+  display: grid;
+  gap: 4px;
+  opacity: 0.35;
+  transform: translateY(8px);
+  transition: opacity var(--d-slow) var(--ease-out), transform var(--d-slow) var(--ease-out);
+}
+
+.point[data-above] .card {
+  top: auto;
+  bottom: 56px;
+}
+
+.point[data-on] .card {
+  opacity: 1;
+  transform: none;
+}
+
+.when {
+  display: flex;
+  gap: var(--s-3);
+  color: var(--c-ink-3);
+}
+
+.when span:first-child {
+  color: var(--c-accent);
+}
+
+.title {
+  font-size: 1.375rem;
+  letter-spacing: var(--tr-heading);
+  line-height: 1.15;
+}
+
+.title a {
+  text-decoration: none;
+}
+
+.title a:hover {
+  color: var(--c-accent);
+}
+
+.org {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+}
+
+.text {
+  margin-top: 4px;
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--c-ink-2);
+}
+
+.hint {
+  color: var(--c-ink-3);
+  justify-self: end;
+}

@@ -1,51 +1,72 @@
 /*
-  Design tokens. Every component reads from these variables; nothing else
-  hard-codes a colour, size, space, radius or duration.
-  Palette continues the contact card (safwannuddin.github.io/Card).
+  Design tokens. Every component reads from these variables.
+  Brand continues the contact card (safwannuddin.github.io/Card):
+  navy #142042, ink blue #2447d6 / #7f98ff.
+  Theme: follows the device, or the toggle (html[data-theme]).
 */
 
 :root {
-  /* Colour: light */
-  --c-bg: #f5f7fa;          /* cool off-white page */
-  --c-surface: #ffffff;     /* raised surfaces: paper sheets, frames */
-  --c-surface-2: #eceff4;   /* quiet fills: hover rows, chips */
-  --c-ink: #0e1424;         /* primary text, slight blue bias */
-  --c-ink-2: #4a5468;       /* secondary text */
-  --c-ink-3: #636c7e;       /* metadata: 4.9:1 on bg, AA for small text */
-  --c-line: #e0e4ec;        /* hairlines */
-  --c-line-strong: #c9cfdb;
-  --c-accent: #2447d6;      /* ink blue: links, current section, one mark per screen */
+  /* Colour: light (default) */
+  --c-bg: #f3f5f9;
+  --c-bg-grid: rgba(36, 71, 214, 0.055);
+  --c-surface: #ffffff;
+  --c-surface-2: #e9edf5;
+  --c-ink: #0d1322;
+  --c-ink-2: #465065;
+  --c-ink-3: #5f687b;
+  --c-line: #dde2ec;
+  --c-line-strong: #c3cad8;
+  --c-accent: #2447d6;
   --c-accent-ink: #ffffff;
-  --c-accent-soft: rgba(36, 71, 214, 0.08);
-  --c-navy: #142042;        /* brand mark, OG image */
+  --c-accent-soft: rgba(36, 71, 214, 0.09);
+  --c-navy: #142042;
   --c-focus: #2447d6;
-  --c-shadow: 0 1px 2px rgba(14, 20, 36, 0.05), 0 8px 24px rgba(14, 20, 36, 0.06);
-  --c-shadow-lift: 0 2px 4px rgba(14, 20, 36, 0.06), 0 18px 40px rgba(14, 20, 36, 0.10);
+  --c-shadow: 0 1px 2px rgba(13, 19, 34, 0.05), 0 10px 30px rgba(13, 19, 34, 0.07);
+  --c-shadow-lift: 0 2px 4px rgba(13, 19, 34, 0.06), 0 24px 48px rgba(13, 19, 34, 0.12);
+
+  /* Cover worlds: each project owns one muted colour world */
+  --w-zenix-bg: #ece6f7;
+  --w-zenix-ink: #3b2a73;
+  --w-zenix-hi: #7b5cf0;
+  --w-aegis-bg: #f6e9e2;
+  --w-aegis-ink: #5a2414;
+  --w-aegis-hi: #e2552a;
+  --w-apex-bg: #e3f0e8;
+  --w-apex-ink: #17402c;
+  --w-apex-hi: #1f9d5c;
+  --w-fair-bg: #efe9dc;
+  --w-fair-ink: #3d3420;
+  --w-fair-hi: #b9861c;
+  --w-inject-bg: #142042;
+  --w-inject-ink: #dfe6ff;
+  --w-inject-hi: #ff8a5c;
 
   /* Type */
+  --font-display: var(--font-bricolage), var(--font-schibsted), "Helvetica Neue", Arial, sans-serif;
   --font-sans: var(--font-schibsted), "Helvetica Neue", Arial, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-  --fs-display: clamp(2.75rem, 1.55rem + 5.4vw, 5.5rem);
-  --fs-h2: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
-  --fs-h3: 1.25rem;
+  --fs-hero: clamp(3rem, 1.2rem + 7.6vw, 8.25rem);
+  --fs-display: clamp(2.5rem, 1.4rem + 4.6vw, 5.5rem);
+  --fs-h2: clamp(2rem, 1.3rem + 3vw, 3.75rem);
+  --fs-h3: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
   --fs-lead: clamp(1.125rem, 1.04rem + 0.4vw, 1.375rem);
   --fs-body: 1.0625rem;
   --fs-small: 0.9375rem;
   --fs-mono: 0.75rem;
 
-  --lh-tight: 1.02;
-  --lh-heading: 1.15;
+  --lh-tight: 0.95;
+  --lh-heading: 1.05;
   --lh-body: 1.65;
 
-  --tr-display: -0.035em;
+  --tr-display: -0.032em;
   --tr-heading: -0.02em;
   --tr-mono: 0.08em;
 
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
-  --fw-display: 650;
+  --fw-display: 600;
 
   --measure: 64ch;
 
@@ -61,46 +82,98 @@
   --s-9: 6rem;
   --s-10: 8rem;
 
-  --gutter: clamp(1rem, 0.6rem + 2.2vw, 3rem);
-  --page-max: 77.5rem;
-  --rail: 12.5rem;
-  --header-h: 3.75rem;
-  --section-gap: clamp(4.5rem, 3rem + 6vw, 8rem);
+  --gutter: clamp(1rem, 0.5rem + 2.6vw, 3.5rem);
+  --page-max: 86rem;
+  --header-h: 4rem;
+  --section-gap: clamp(6rem, 3.5rem + 9vw, 12rem);
 
   /* Radius */
   --r-1: 4px;
   --r-2: 8px;
-  --r-3: 14px;
+  --r-3: 16px;
+  --r-4: 24px;
   --r-round: 999px;
 
   /* Motion */
-  --d-fast: 160ms;
-  --d-base: 320ms;
-  --d-slow: 640ms;
+  --d-fast: 180ms;
+  --d-base: 360ms;
+  --d-slow: 700ms;
   --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --c-bg: #0b0e14;
-    --c-surface: #121722;
-    --c-surface-2: #171d2a;
-    --c-ink: #e9edf5;
-    --c-ink-2: #a3acbd;
-    --c-ink-3: #8a94a7;
-    --c-line: #232a37;
-    --c-line-strong: #333c4c;
+  :root:not([data-theme="light"]) {
+    --c-bg: #0a0d14;
+    --c-bg-grid: rgba(127, 152, 255, 0.05);
+    --c-surface: #111622;
+    --c-surface-2: #182033;
+    --c-ink: #ebeff7;
+    --c-ink-2: #a6afc2;
+    --c-ink-3: #8b95a9;
+    --c-line: #222a3a;
+    --c-line-strong: #344057;
     --c-accent: #7f98ff;
-    --c-accent-ink: #0b0e14;
-    --c-accent-soft: rgba(127, 152, 255, 0.10);
-    --c-navy: #18264f;
+    --c-accent-ink: #0a0d14;
+    --c-accent-soft: rgba(127, 152, 255, 0.12);
+    --c-navy: #1a2a5c;
     --c-focus: #7f98ff;
-    --c-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
-    --c-shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.45), 0 18px 40px rgba(0, 0, 0, 0.4);
+    --c-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.35);
+    --c-shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.45), 0 24px 48px rgba(0, 0, 0, 0.5);
+    --w-zenix-bg: #1d1736;
+    --w-zenix-ink: #d9cffc;
+    --w-zenix-hi: #9b82ff;
+    --w-aegis-bg: #2a1712;
+    --w-aegis-ink: #f6d6c8;
+    --w-aegis-hi: #ff7a4d;
+    --w-apex-bg: #10261b;
+    --w-apex-ink: #cdeedb;
+    --w-apex-hi: #3ccf86;
+    --w-fair-bg: #241f14;
+    --w-fair-ink: #efe2c2;
+    --w-fair-hi: #e3ad3c;
+    --w-inject-bg: #0e1733;
+    --w-inject-ink: #dfe6ff;
+    --w-inject-hi: #ff8a5c;
     color-scheme: dark;
   }
+}
+
+:root[data-theme="dark"] {
+  --c-bg: #0a0d14;
+  --c-bg-grid: rgba(127, 152, 255, 0.05);
+  --c-surface: #111622;
+  --c-surface-2: #182033;
+  --c-ink: #ebeff7;
+  --c-ink-2: #a6afc2;
+  --c-ink-3: #8b95a9;
+  --c-line: #222a3a;
+  --c-line-strong: #344057;
+  --c-accent: #7f98ff;
+  --c-accent-ink: #0a0d14;
+  --c-accent-soft: rgba(127, 152, 255, 0.12);
+  --c-navy: #1a2a5c;
+  --c-focus: #7f98ff;
+  --c-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.35);
+  --c-shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.45), 0 24px 48px rgba(0, 0, 0, 0.5);
+  --w-zenix-bg: #1d1736;
+  --w-zenix-ink: #d9cffc;
+  --w-zenix-hi: #9b82ff;
+  --w-aegis-bg: #2a1712;
+  --w-aegis-ink: #f6d6c8;
+  --w-aegis-hi: #ff7a4d;
+  --w-apex-bg: #10261b;
+  --w-apex-ink: #cdeedb;
+  --w-apex-hi: #3ccf86;
+  --w-fair-bg: #241f14;
+  --w-fair-ink: #efe2c2;
+  --w-fair-hi: #e3ad3c;
+  --w-inject-bg: #0e1733;
+  --w-inject-ink: #dfe6ff;
+  --w-inject-hi: #ff8a5c;
+  color-scheme: dark;
 }
 
 @media (prefers-reduced-motion: reduce) {

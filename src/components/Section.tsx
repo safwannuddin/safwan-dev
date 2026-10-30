@@ -8,29 +8,27 @@ type Props = {
   title: ReactNode;
   intro?: ReactNode;
   children: ReactNode;
+  tone?: "plain" | "band";
 };
 
-/** Shared section shell: mono rail label on the left, content on the right. */
-export default function Section({ id, index, label, title, intro, children }: Props) {
+/** Section shell: mono index, a large display heading, intro set beside it. */
+export default function Section({ id, index, label, title, intro, children, tone = "plain" }: Props) {
   const headingId = `${id}-title`;
   return (
-    <section id={id} data-section className={s.section} aria-labelledby={headingId}>
+    <section id={id} data-section data-tone={tone} className={s.section} aria-labelledby={headingId}>
       <div className={s.inner}>
-        <div className={s.rail} aria-hidden="true">
-          <p className={`mono ${s.railLabel}`}>
+        <header className={s.head}>
+          <p className={`mono ${s.label}`} aria-hidden="true">
             <span className={s.index}>{index}</span>
+            <span className={s.bar} />
             <span>{label}</span>
           </p>
-        </div>
-        <div className={s.body}>
-          <header className={s.head}>
-            <h2 id={headingId} className={s.title}>
-              {title}
-            </h2>
-            {intro ? <p className={s.intro}>{intro}</p> : null}
-          </header>
-          {children}
-        </div>
+          <h2 id={headingId} className={s.title}>
+            {title}
+          </h2>
+          {intro ? <p className={s.intro}>{intro}</p> : null}
+        </header>
+        {children}
       </div>
     </section>
   );

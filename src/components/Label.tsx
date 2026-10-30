@@ -4,6 +4,7 @@ const state: Record<string, "done" | "progress" | "planned"> = {
   "IN PROGRESS": "progress",
   PLANNED: "planned",
   "COMING SOON": "planned",
+  INTERACTIVE: "done",
 };
 
 /**

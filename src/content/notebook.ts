@@ -15,7 +15,7 @@ export const notebook: NotebookEntry[] = [
     slug: "gradient-descent",
     title: "Gradient descent, one step at a time",
     question: "How does a model find the bottom of a loss surface it cannot see?",
-    status: "COMING SOON",
+    status: "PUBLISHED",
   },
   {
     slug: "train-vs-test-error",

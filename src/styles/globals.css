@@ -20,7 +20,13 @@ html {
 
 body {
   margin: 0;
-  background: var(--c-bg);
+  background-color: var(--c-bg);
+  /* engineering paper: a faint ink-blue grid */
+  background-image:
+    linear-gradient(var(--c-bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-bg-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
   color: var(--c-ink);
   font-family: var(--font-sans);
   font-size: var(--fs-body);
@@ -49,6 +55,8 @@ dd {
 h1,
 h2,
 h3 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
   font-weight: var(--fw-semibold);
   line-height: var(--lh-heading);
   letter-spacing: var(--tr-heading);
@@ -134,6 +142,18 @@ button {
   letter-spacing: var(--tr-mono);
   text-transform: uppercase;
   line-height: 1.4;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: var(--fw-display);
+  letter-spacing: var(--tr-display);
+  line-height: var(--lh-tight);
+}
+
+.accent {
+  color: var(--c-accent);
 }
 
 .link {

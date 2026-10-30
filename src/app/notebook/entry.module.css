@@ -1,0 +1,94 @@
+.page {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding: var(--s-7) var(--gutter) 0;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  font-size: var(--fs-small);
+  color: var(--c-ink-2);
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--c-accent);
+}
+
+.header {
+  display: grid;
+  gap: var(--s-5);
+  margin: var(--s-7) 0;
+  color: var(--c-ink-3);
+}
+
+.title {
+  color: var(--c-ink);
+  font-size: var(--fs-display);
+  letter-spacing: var(--tr-display);
+  line-height: 0.98;
+  max-width: 14ch;
+}
+
+.title em {
+  font-style: normal;
+  color: var(--c-accent);
+}
+
+.lead {
+  color: var(--c-ink-2);
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  max-width: 48ch;
+}
+
+.lab {
+  margin-block: var(--s-6) var(--s-8);
+}
+
+.prose {
+  max-width: 44rem;
+  display: grid;
+  gap: var(--s-4);
+}
+
+.prose h2 {
+  margin-top: var(--s-6);
+  font-size: var(--fs-h3);
+}
+
+.prose p {
+  color: var(--c-ink-2);
+}
+
+.math {
+  margin: 0;
+  padding: var(--s-4) var(--s-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-2);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  overflow-x: auto;
+}
+
+.tries {
+  display: grid;
+  gap: var(--s-4);
+  padding-left: 1.25rem;
+  color: var(--c-ink-2);
+}
+
+.tries strong {
+  color: var(--c-ink);
+  font-weight: var(--fw-semibold);
+}
+
+.note {
+  font-size: var(--fs-small);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--c-line);
+}

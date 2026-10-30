@@ -20,6 +20,16 @@ const sans = localFont({
   preload: false,
 });
 
+const display = localFont({
+  src: "../fonts/BricolageGrotesque-Variable.woff2",
+  weight: "200 800",
+  display: "swap",
+  variable: "--font-bricolage",
+  fallback: ["Helvetica Neue", "Arial", "sans-serif"],
+  adjustFontFallback: "Arial",
+  preload: true,
+});
+
 const mono = localFont({
   src: "../fonts/IBMPlexMono-Medium.woff2",
   weight: "500",
@@ -147,7 +157,15 @@ const personLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={`${sans.variable} ${mono.variable}`}>
+    <html lang="en-GB" className={`${sans.variable} ${display.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Apply a saved theme before first paint, so there is no flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`,
+          }}
+        />
+      </head>
       <body>
         <a className="skip-link" href="#main">
           Skip to content

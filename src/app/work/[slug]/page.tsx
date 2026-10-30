@@ -7,6 +7,7 @@ import { person } from "@/content/site";
 import Diagram from "@/components/Diagram";
 import Label from "@/components/Label";
 import PaperFrame from "@/components/PaperFrame";
+import ProjectCover from "@/components/ProjectCover";
 import { Txt, hasText, visible } from "@/lib/todo";
 import s from "./page.module.css";
 
@@ -93,6 +94,10 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
             </div>
           ) : null}
         </dl>
+
+        <div className={`${s.cover} coverHost`} style={{ viewTransitionName: `cover-${p.slug}` }}>
+          <ProjectCover slug={p.slug} title={p.title} />
+        </div>
 
         {p.image ? (
           <figure className={s.shot}>
