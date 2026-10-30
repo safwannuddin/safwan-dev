@@ -3,6 +3,7 @@ import s from "./Label.module.css";
 const state: Record<string, "done" | "progress" | "planned"> = {
   "IN PROGRESS": "progress",
   PLANNED: "planned",
+  "COMING SOON": "planned",
 };
 
 /**

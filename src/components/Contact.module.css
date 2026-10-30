@@ -1,0 +1,139 @@
+.contact {
+  display: grid;
+  gap: var(--s-7);
+}
+
+.small {
+  color: var(--c-ink-3);
+}
+
+.emailBlock {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.emailRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3) var(--s-5);
+}
+
+.email {
+  font-size: clamp(1.375rem, 0.9rem + 2.4vw, 2.5rem);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tr-heading);
+  line-height: 1.15;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--c-line-strong);
+  overflow-wrap: anywhere;
+  transition: color var(--d-fast) var(--ease), text-decoration-color var(--d-fast) var(--ease);
+}
+
+.email:hover {
+  color: var(--c-accent);
+  text-decoration-color: currentColor;
+}
+
+.copy {
+  min-height: 40px;
+  min-width: 5.5rem;
+  padding: 0 var(--s-4);
+  border-radius: var(--r-round);
+  border: 1px solid var(--c-line-strong);
+  background: var(--c-surface);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  color: var(--c-accent);
+  cursor: pointer;
+  transition: border-color var(--d-fast) var(--ease), background var(--d-fast) var(--ease);
+}
+
+.copy:hover {
+  border-color: var(--c-accent);
+}
+
+.copy[data-copied] {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: var(--c-accent-ink);
+}
+
+.channels {
+  border-top: 1px solid var(--c-line);
+}
+
+.channels > li {
+  border-bottom: 1px solid var(--c-line);
+}
+
+.channel {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-4);
+  min-height: 56px;
+  text-decoration: none;
+  color: var(--c-ink-3);
+}
+
+.handle {
+  color: var(--c-ink);
+  font-size: var(--fs-small);
+  overflow-wrap: anywhere;
+  transition: color var(--d-fast) var(--ease);
+}
+
+.channel svg {
+  transition: transform var(--d-fast) var(--ease), color var(--d-fast) var(--ease);
+}
+
+.channel:hover .handle,
+.channel:hover svg {
+  color: var(--c-accent);
+}
+
+.channel:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.sign {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--c-line);
+}
+
+.sign p {
+  display: grid;
+}
+
+.signName {
+  font-weight: var(--fw-semibold);
+}
+
+.signMeta {
+  color: var(--c-ink-3);
+  font-size: var(--fs-small);
+}
+
+@media (max-width: 479px) {
+  .channel {
+    grid-template-columns: 6.5rem minmax(0, 1fr) auto;
+  }
+}
+
+@media (min-width: 960px) {
+  .channels {
+    max-width: 40rem;
+  }
+}
