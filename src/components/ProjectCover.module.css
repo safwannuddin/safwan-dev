@@ -52,17 +52,7 @@
 
 /* a lighter "paper" inside the world */
 .cover .paper {
-  fill: color-mix(in srgb, var(--bg) 55%, white);
-}
-
-:global([data-theme="dark"]) .cover .paper {
-  fill: color-mix(in srgb, var(--bg) 80%, white);
-}
-
-@media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme="light"])) .cover .paper {
-    fill: color-mix(in srgb, var(--bg) 80%, white);
-  }
+  fill: color-mix(in srgb, var(--bg) 82%, white);
 }
 
 .rule { stroke: var(--ink); stroke-opacity: 0.3; stroke-width: 1.5; }

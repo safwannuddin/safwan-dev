@@ -1,0 +1,110 @@
+.deck {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.slot {
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-4) + var(--i) * 14px);
+}
+
+.card {
+  position: relative;
+  min-height: clamp(360px, 58vh, 520px);
+  padding: clamp(1.5rem, 1rem + 2.5vw, 3.5rem);
+  border-radius: var(--r-4);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--s-6);
+  overflow: hidden;
+  transform-origin: 50% 0;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.35);
+  --ink: #f2f4fb;
+  --ink2: rgba(242, 244, 251, 0.75);
+  color: var(--ink);
+}
+
+.card[data-tone="slate"] { background: linear-gradient(140deg, #1b2236, #10141f); }
+.card[data-tone="blue"] { background: linear-gradient(140deg, #3d5cff, #1e2fa8); }
+.card[data-tone="coral"] { background: linear-gradient(140deg, #ff7a4d, #e2462a); }
+.card[data-tone="green"] { background: linear-gradient(140deg, #1fb978, #0e6e4a); }
+.card[data-tone="violet"] { background: linear-gradient(140deg, #8b6cff, #4b2fc9); }
+.card[data-tone="amber"] { background: linear-gradient(140deg, #ffc24a, #e08a12); --ink: #1a1306; --ink2: rgba(26, 19, 6, 0.75); }
+.card[data-tone="light"] { background: linear-gradient(140deg, #f4f6fd, #d9e0f7); --ink: #0d1322; --ink2: rgba(13, 19, 34, 0.72); }
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+
+.kind,
+.period {
+  color: var(--ink2);
+}
+
+.kind {
+  padding: 6px 12px;
+  border-radius: var(--r-round);
+  border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+}
+
+.body {
+  align-self: end;
+  display: grid;
+  gap: var(--s-3);
+  max-width: 44rem;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: clamp(2rem, 1.2rem + 3.4vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.title a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0 3px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 500ms var(--ease-out);
+}
+
+.title a:hover {
+  background-size: 100% 3px;
+}
+
+.org {
+  font-weight: 600;
+  font-size: var(--fs-lead);
+}
+
+.text {
+  color: var(--ink2);
+  font-size: var(--fs-lead);
+  line-height: 1.45;
+  max-width: 40ch;
+}
+
+.big {
+  position: absolute;
+  right: -0.04em;
+  bottom: -0.2em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(9rem, 4rem + 18vw, 22rem);
+  letter-spacing: -0.07em;
+  line-height: 1;
+  color: color-mix(in srgb, var(--ink) 12%, transparent);
+  pointer-events: none;
+}
+
+.card :global(.todo) {
+  color: var(--ink);
+  border-color: currentColor;
+}

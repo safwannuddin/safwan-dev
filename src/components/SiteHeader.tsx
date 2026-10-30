@@ -1,12 +1,11 @@
 import { nav, person } from "@/content/site";
-import ThemeToggle from "./ThemeToggle";
 import s from "./SiteHeader.module.css";
 
 export default function SiteHeader() {
   return (
     <header className={s.header}>
       <div className={s.inner}>
-        <a href="/" className={s.brand} aria-label={`safwan.dev, ${person.name}, home`}>
+        <a href="/" className={s.brand} aria-label={`safwan.dev, ${person.name}, home`} data-magnetic="0.25">
           <span className={s.word} aria-hidden="true">
             safwan<span className={s.tld}>.dev</span>
           </span>
@@ -25,7 +24,9 @@ export default function SiteHeader() {
         </nav>
 
         <div className={s.tools}>
-          <ThemeToggle />
+          <a href="#contact" className={s.hi} data-magnetic="0.35">
+            Say hi
+          </a>
           <details className={s.mobile}>
             <summary className={s.toggle}>
               <span>Menu</span>

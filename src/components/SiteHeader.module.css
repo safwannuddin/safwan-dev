@@ -3,7 +3,7 @@
   top: 0;
   z-index: 50;
   height: var(--header-h);
-  background: color-mix(in srgb, var(--c-bg) 92%, transparent);
+  background: transparent;
   border-bottom: 1px solid transparent;
 }
 
@@ -17,6 +17,8 @@
   @keyframes hairline {
     to {
       border-bottom-color: var(--c-line);
+      background: rgba(7, 9, 15, 0.72);
+      backdrop-filter: blur(14px);
     }
   }
 }
@@ -24,6 +26,7 @@
 @supports not (animation-timeline: scroll()) {
   .header {
     border-bottom-color: var(--c-line);
+    background: rgba(7, 9, 15, 0.85);
   }
 }
 
@@ -211,4 +214,23 @@
 
 .brand:hover .tld {
   transform: translateX(2px);
+}
+
+.hi {
+  display: inline-grid;
+  place-items: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: var(--r-round);
+  background: var(--c-ink);
+  color: var(--c-bg);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  text-decoration: none;
+  transition: background var(--d-fast) var(--ease), color var(--d-fast) var(--ease);
+}
+
+.hi:hover {
+  background: var(--c-pop);
+  color: #fff;
 }

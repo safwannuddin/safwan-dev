@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import NavSpy from "@/components/NavSpy";
+import Motion from "@/components/fx/Motion";
 import JsonLd from "@/components/JsonLd";
 import { SITE_URL, person, links } from "@/content/site";
 import { papers, arxivAbs } from "@/content/papers";
@@ -96,10 +97,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f7fa" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b0e14" },
-  ],
+  themeColor: "#07090f",
 };
 
 const sameAs = [links.linkedin, links.github, links.card, links.x].filter(Boolean);
@@ -158,14 +156,6 @@ const personLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" className={`${sans.variable} ${display.variable} ${mono.variable}`} suppressHydrationWarning>
-      <head>
-        {/* Apply a saved theme before first paint, so there is no flash. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`,
-          }}
-        />
-      </head>
       <body>
         <a className="skip-link" href="#main">
           Skip to content
@@ -174,6 +164,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <SiteFooter />
         <NavSpy />
+        <Motion />
         <JsonLd data={personLd} />
       </body>
     </html>

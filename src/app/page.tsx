@@ -1,39 +1,27 @@
-import Hero from "@/components/Hero";
+import Hero from "@/components/hero/Hero";
+import Marquee from "@/components/sections/Marquee";
+import Statement from "@/components/sections/Statement";
+import WorkJourney from "@/components/sections/WorkJourney";
+import StackCards from "@/components/sections/StackCards";
+import BigContact from "@/components/sections/BigContact";
 import Section from "@/components/Section";
-import WorkList from "@/components/WorkList";
 import PaperFrame from "@/components/PaperFrame";
-import StoryCurve from "@/components/StoryCurve";
-import Timeline from "@/components/Timeline";
 import Certificates from "@/components/Certificates";
 import NotebookList from "@/components/NotebookList";
-import Contact from "@/components/Contact";
 import { papers } from "@/content/papers";
-import { person } from "@/content/site";
 
 export default function Home() {
   return (
     <>
       <Hero />
-
-      <Section
-        id="work"
-        index="01"
-        label="Work"
-        title={
-          <>
-            Things I have <em>built</em> and published.
-          </>
-        }
-        intro="A founder project, two research systems, and what I am building next. Every label says honestly where the project stands."
-      >
-        <WorkList />
-      </Section>
+      <Marquee />
+      <Statement />
+      <WorkJourney />
 
       <Section
         id="research"
         index="02"
         label="Research"
-        tone="band"
         title={
           <>
             What goes wrong when <em>agents act</em> for us.
@@ -54,13 +42,12 @@ export default function Home() {
         label="Experience"
         title={
           <>
-            Every step lowered the <em>loss</em>.
+            How I got <em>here</em>.
           </>
         }
-        intro="My path so far, plotted the way I would plot a model learning: each role a checkpoint, each checkpoint a little less I did not know."
+        intro="From a computer science degree to founding, research and an MSc in London. Keep scrolling, the cards stack."
       >
-        <StoryCurve />
-        <Timeline />
+        <StackCards />
       </Section>
 
       <Section
@@ -73,7 +60,7 @@ export default function Home() {
             Recognition and <em>certificates</em>.
           </>
         }
-        intro="Awards first, then the courses and hackathons behind them. Swipe the gallery and select any certificate to see it in full."
+        intro="Awards first, then the courses and hackathons behind them. Swipe the gallery and open any certificate."
       >
         <Certificates />
       </Section>
@@ -92,19 +79,7 @@ export default function Home() {
         <NotebookList />
       </Section>
 
-      <Section
-        id="contact"
-        index="06"
-        label="Contact"
-        title={
-          <>
-            Write to <em>me</em>.
-          </>
-        }
-        intro={`I am looking for ${person.lookingFor}. If you are hiring, or want to talk about agent security, email is fastest.`}
-      >
-        <Contact />
-      </Section>
+      <BigContact />
     </>
   );
 }
