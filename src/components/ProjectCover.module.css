@@ -9,6 +9,8 @@
 .cover[data-world="aegis"] { --bg: var(--w-aegis-bg); --ink: var(--w-aegis-ink); --hi: var(--w-aegis-hi); }
 .cover[data-world="apex"] { --bg: var(--w-apex-bg); --ink: var(--w-apex-ink); --hi: var(--w-apex-hi); }
 .cover[data-world="fair"] { --bg: var(--w-fair-bg); --ink: var(--w-fair-ink); --hi: var(--w-fair-hi); }
+.cover[data-world="neuro"] { --bg: var(--w-neuro-bg); --ink: var(--w-neuro-ink); --hi: var(--w-neuro-hi); }
+.cover[data-world="mira"] { --bg: var(--w-mira-bg); --ink: var(--w-mira-ink); --hi: var(--w-mira-hi); }
 .cover[data-world="inject"] { --bg: var(--w-inject-bg); --ink: var(--w-inject-ink); --hi: var(--w-inject-hi); }
 
 .bg { fill: var(--bg); }
@@ -163,3 +165,25 @@
 @media (prefers-reduced-motion: reduce) {
   .float, .token, .lens, .fit, .scan, .arcs { transition: none; }
 }
+
+/* NeuroNav */
+.brain { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.gyri { fill: none; stroke: var(--ink); stroke-opacity: 0.45; stroke-width: 2; stroke-linecap: round; }
+.heat { mix-blend-mode: screen; transform-box: fill-box; transform-origin: center; transition: transform 700ms var(--ease-out); }
+.scanBar { fill: var(--hi); fill-opacity: 0.18; transform-box: fill-box; transition: transform 1200ms var(--ease-out); }
+:global(.coverHost:hover) .heat { transform: scale(1.25); }
+:global(.coverHost:hover) .scanBar { transform: translateY(170px); }
+
+/* MIRA */
+.robot { fill: color-mix(in srgb, var(--bg) 70%, white); stroke: var(--ink); stroke-width: 3; }
+.face { fill: #120812; }
+.eye { fill: var(--hi); transform-box: fill-box; transform-origin: center; }
+.waves path { fill: none; stroke: var(--hi); stroke-width: 3; stroke-linecap: round; transform-box: fill-box; transform-origin: left center; transition: transform 600ms var(--ease-out), opacity 600ms; }
+.bubble { fill: color-mix(in srgb, var(--bg) 80%, white); stroke: var(--ink); stroke-width: 2; }
+.bubbleHi { fill: var(--hi); }
+.btnTextDark { font-family: var(--font-mono); font-size: 16px; fill: #1a0718; }
+:global(.coverHost:hover) .waves path { transform: scaleX(1.3); }
+@media (prefers-reduced-motion: no-preference) {
+  .eye { animation: blink 4s infinite; }
+}
+@keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }

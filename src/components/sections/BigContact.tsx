@@ -9,6 +9,7 @@ export default function BigContact() {
     { label: "GitHub", href: links.github },
     ...(links.x ? [{ label: "X", href: links.x }] : []),
     { label: "Contact card", href: links.card },
+    { label: "CV (PDF)", href: person.cv },
   ];
 
   return (

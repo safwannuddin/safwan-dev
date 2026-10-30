@@ -1,1 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#142042"/><text x="16" y="21.5" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="13" fill="#fff" text-anchor="middle">SU</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="b" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#c9d4ff"/>
+      <stop offset="0.35" stop-color="#5b78ff"/>
+      <stop offset="1" stop-color="#1f2f9c"/>
+    </radialGradient>
+    <radialGradient id="c" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#ffd2c2"/>
+      <stop offset="0.4" stop-color="#ff6a3d"/>
+      <stop offset="1" stop-color="#b93212"/>
+    </radialGradient>
+    <radialGradient id="w" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.6" stop-color="#e3e8f7"/>
+      <stop offset="1" stop-color="#9aa6c7"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#07090f"/>
+  <circle cx="27" cy="36" r="18" fill="url(#b)"/>
+  <circle cx="45" cy="22" r="11" fill="url(#c)"/>
+  <circle cx="47" cy="45" r="7.5" fill="url(#w)"/>
+</svg>

@@ -1,4 +1,4 @@
-import { links, person } from "@/content/site";
+import { person } from "@/content/site";
 import Balls from "./Balls";
 import RotatingWord from "./RotatingWord";
 import s from "./Hero.module.css";
@@ -56,8 +56,8 @@ export default function Hero() {
             <a className={s.ghost} href={`mailto:${person.email}`} data-magnetic="0.3">
               Say hi
             </a>
-            <a className={s.ghost} href={links.github} data-magnetic="0.3" rel="me noopener">
-              GitHub
+            <a className={s.ghost} href={person.cv} data-magnetic="0.3" data-cursor="PDF">
+              Download CV
             </a>
           </div>
         </div>

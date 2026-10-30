@@ -34,7 +34,7 @@ export const recognition: Certificate[] = [
   {
     big: "Top 28",
     title: "Zenix ranked in the top 28 in Asia",
-    issuer: "Lovable weekly challenge",
+    issuer: "Lovable weekly challenge, 3,000+ participants",
     date: "2025-08",
     kind: "AWARD",
     detail: "Multi-agent UI engine, built solo.",
@@ -47,9 +47,9 @@ export const recognition: Certificate[] = [
     kind: "PROGRAMME",
   },
   {
-    // TODO(safwan): confirm Runner-up (LinkedIn) vs Winner (old site), and the year.
-    big: "2nd",
-    title: "Tech Hack 3, Runner-up",
+    // Resume (Oct 2026) says Winner; LinkedIn said Runner-up. Using the resume.
+    big: "1st",
+    title: "Tech Hack 3, Winner",
     issuer: "Tech Hack",
     date: "",
     kind: "AWARD",

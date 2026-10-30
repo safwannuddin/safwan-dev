@@ -20,6 +20,7 @@ export const person = {
   location: "London, UK",
   lookingFor: "AI/ML engineering placements and roles in the UK",
   photo: "/safwan-uddin-mohammed.jpg",
+  cv: "/Safwan-Uddin-Mohammed-CV.pdf",
   email: "safwanuddin.work@gmail.com",
   // TODO(safwan): second email address. Shown in Contact when filled in.
   email2: "",
@@ -29,8 +30,7 @@ export const links = {
   linkedin: "https://www.linkedin.com/in/safwan-uddin-mohammed-299602257/",
   github: "https://github.com/safwannuddin",
   card: "https://safwannuddin.github.io/Card/",
-  // TODO(safwan): full URL of your new X account, e.g. https://x.com/handle
-  x: "",
+  x: "https://x.com/SafwanUddin_dev",
 };
 
 /** The "Now" panel in the hero: plain facts, no buzzwords. */

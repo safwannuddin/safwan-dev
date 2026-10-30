@@ -229,7 +229,87 @@ function Inject() {
   );
 }
 
+function Neuro() {
+  return (
+    <Frame world="neuro" kicker="MRI → classify → explain → explore">
+      <defs>
+        <radialGradient id="neuroHeat">
+          <stop offset="0" stopColor="#ff5a3c" stopOpacity="0.95" />
+          <stop offset="0.45" stopColor="#ffc24a" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#2ed3c6" stopOpacity="0" />
+        </radialGradient>
+        <clipPath id="neuroClip">
+          <rect x="200" y="90" width="400" height="320" rx="18" />
+        </clipPath>
+      </defs>
+      <rect x="200" y="90" width="400" height="320" rx="18" className={s.paper} style={{ fill: "#071416" }} />
+      <g clipPath="url(#neuroClip)">
+        <rect x="200" y="90" width="400" height="24" className={s.scanBar} />
+      </g>
+      <path
+        className={s.brain}
+        d="M300 330 C 240 330 222 272 252 242 C 232 192 282 150 322 166 C 342 122 412 116 432 152 C 472 130 524 160 518 202 C 562 218 560 282 522 300 C 522 342 472 362 442 340 C 420 372 360 372 345 346 C 330 356 310 346 300 330 Z"
+      />
+      <path className={s.gyri} d="M400 160 C 392 200 410 240 398 300 C 394 330 402 350 400 360" />
+      <path className={s.gyri} d="M280 230 C 310 220 330 250 360 236 M300 290 C 330 300 350 270 372 286 M430 200 C 452 220 480 206 500 222 M440 270 C 460 260 482 284 506 270" />
+      <circle cx="455" cy="232" r="70" fill="url(#neuroHeat)" className={s.heat} />
+      <path d="M210 112 h22 M210 112 v22 M590 112 h-22 M590 112 v22 M210 388 h22 M210 388 v-22 M590 388 h-22 M590 388 v-22" className={s.bracket} style={{ stroke: "var(--hi)" }} />
+      <g transform="translate(530 150)">
+        <rect width="230" height="74" rx="12" className={s.tag} />
+        <text x="16" y="31" className={s.monoTag}>Grad-CAM</text>
+        <text x="16" y="56" className={s.monoTagHi}>region of interest</text>
+      </g>
+      <text x="36" y="470" className={s.word}>
+        NeuroNav
+      </text>
+    </Frame>
+  );
+}
+
+function Mira() {
+  return (
+    <Frame world="mira" kicker="speak → whisper → gemini → voice">
+      <g transform="translate(70 120)">
+        <rect width="260" height="66" rx="20" className={s.bubble} />
+        <text x="22" y="41" className={s.monoInk}>
+          “why is the sky blue?”
+        </text>
+      </g>
+      <g className={s.waves} transform="translate(250 230)">
+        <path d="M0 40 q 14 -40 0 -80" transform="translate(40 40)" />
+        <path d="M0 60 q 22 -60 0 -120" transform="translate(64 50)" />
+      </g>
+      <g transform="translate(360 150)">
+        <line x1="90" y1="0" x2="90" y2="-34" stroke="var(--ink)" strokeWidth="3" />
+        <circle cx="90" cy="-40" r="9" className={s.hiFill} />
+        <rect width="180" height="170" rx="44" className={s.robot} />
+        <rect x="22" y="26" width="136" height="88" rx="28" className={s.face} />
+        <rect x="52" y="52" width="18" height="34" rx="9" className={s.eye} />
+        <rect x="110" y="52" width="18" height="34" rx="9" className={s.eye} />
+        <path d="M66 136 q 24 16 48 0" fill="none" stroke="var(--ink)" strokeWidth="4" strokeLinecap="round" />
+      </g>
+      <g transform="translate(560 300)">
+        <rect width="200" height="66" rx="20" className={s.bubbleHi} />
+        <text x="22" y="41" className={s.btnTextDark}>
+          sunlight scatters…
+        </text>
+      </g>
+      <g transform="translate(600 110)">
+        <rect width="120" height="48" rx="24" className={s.tag} />
+        <text x="60" y="31" textAnchor="middle" className={s.monoTag}>
+          {"< 2 s"}
+        </text>
+      </g>
+      <text x="36" y="470" className={s.word}>
+        MIRA
+      </text>
+    </Frame>
+  );
+}
+
 const MAP: Record<string, () => React.JSX.Element> = {
+  neuronav: Neuro,
+  mira: Mira,
   zenix: Zenix,
   aegisui: Aegis,
   apex: Apex,

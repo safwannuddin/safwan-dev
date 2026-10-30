@@ -9,6 +9,8 @@
 
 export type ProjectLabel =
   | "FOUNDER PROJECT"
+  | "LIVE PRODUCT"
+  | "HARDWARE PROTOTYPE"
   | "RESEARCH"
   | "IN PROGRESS"
   | "PLANNED"
@@ -39,25 +41,31 @@ export const projects: Project[] = [
   {
     slug: "zenix",
     title: "Zenix",
-    idea: "Describe a UI component and a team of AI agents builds it, animated.",
+    idea: "Describe a UI component and three AI agents design, style and code it, animated.",
     label: "FOUNDER PROJECT",
     year: "2025",
     role: "Solo founder. Built during Lovable Shipped Season 1.",
-    stack: ["React", "Tailwind CSS", "Motion", "TODO(safwan): models and backend"],
+    stack: ["Python", "FastAPI", "Multi-agent orchestration", "React", "Tailwind CSS", "Motion"],
     problem:
-      "Hand-writing animated interface components is slow, and most generated UI looks the same. Zenix takes a short description and returns a working component with motion already in it.",
+      "Hand-writing animated interface components is slow, and most generated UI looks the same. Zenix takes a short description and returns a working component with layout, styling and motion already in it.",
     built:
-      "A multi-agent engine that turns a prompt into an animated React component, plus the product around it: a component library, themes and a waitlist. TODO(safwan): what each agent does and how they hand work to each other.",
+      "A three-agent pipeline: one agent plans the layout, one decides the styling, and one writes the code. The agents run behind a FastAPI service tuned for low-latency hand-offs, and the product around them has a component library, themes and a waitlist.",
     diagram: {
       caption: "How a request moves through Zenix",
       nodes: [
         { label: "Prompt", sub: "describe the component" },
-        { label: "Agent team", sub: "multi-agent engine" },
-        { label: "Component", sub: "React · Tailwind · Motion" },
+        { label: "Layout agent", sub: "structure" },
+        { label: "Style agent", sub: "look and motion" },
+        { label: "Code agent", sub: "React · Tailwind" },
+        { label: "Component", sub: "animated, ready" },
       ],
     },
-    results: [{ value: "Top 28", label: "in Asia, Lovable weekly challenge" }],
-    resultsNote: "TODO(safwan): users, waitlist size or generation numbers, if you have them.",
+    results: [
+      { value: "Top 28", label: "in Asia, Lovable weekly challenge" },
+      { value: "3,000+", label: "participants in the challenge" },
+      { value: "3", label: "agents in the pipeline" },
+    ],
+    resultsNote: "Ranked in the top 1% globally of that challenge.",
     changes: "TODO(safwan): what failed or what you would build differently.",
     links: [{ label: "Live demo", href: "https://zenixx.netlify.app" }],
     image: {
@@ -66,6 +74,40 @@ export const projects: Project[] = [
       width: 1600,
       height: 860,
     },
+  },
+  {
+    slug: "neuronav",
+    title: "NeuroNav",
+    idea: "Upload a brain MRI and see what the model found, why, and where, in 3D.",
+    label: "LIVE PRODUCT",
+    year: "2025",
+    role: "Built end to end during my incubation at SU Knowledge Hub.",
+    stack: ["Python", "FastAPI", "TensorFlow", "scikit-learn", "OpenCV", "Grad-CAM", "React", "Three.js", "Supabase"],
+    problem:
+      "Reading brain MRIs takes specialist time, and a classifier that only outputs a label is hard for a clinician to trust. Doctors need to see why a model flagged a scan before they believe it.",
+    built:
+      "A full-stack platform: upload a scan, a multi-model engine (CNN, SVM and Random Forest) classifies it, Grad-CAM shows which regions drove the prediction, and an interactive 3D brain lets you explore the result. Image preprocessing and augmentation make the models more robust.",
+    diagram: {
+      caption: "NeuroNav request flow",
+      nodes: [
+        { label: "Upload", sub: "MRI scan" },
+        { label: "Preprocess", sub: "clean and augment" },
+        { label: "Classify", sub: "CNN · SVM · RF" },
+        { label: "Explain", sub: "Grad-CAM heatmap" },
+        { label: "Explore", sub: "3D brain viewer" },
+      ],
+    },
+    results: [
+      { value: "3", label: "models compared: CNN, SVM, Random Forest" },
+      { value: "Grad-CAM", label: "visual evidence for every prediction" },
+      { value: "Live", label: "deployed web app" },
+    ],
+    resultsNote: "TODO(safwan): test accuracy per model and the dataset you trained on.",
+    changes: "TODO(safwan): what you would change.",
+    links: [
+      { label: "Live app", href: "https://neuro-naav.netlify.app/" },
+      { label: "Code on GitHub", href: "https://github.com/safwannuddin/Neuro-Nav" },
+    ],
   },
   {
     slug: "aegisui",
@@ -90,9 +132,9 @@ export const projects: Project[] = [
       ],
     },
     results: [
+      { value: "93.1%", label: "accuracy, Random Forest" },
+      { value: "0.952", label: "ROC-AUC" },
       { value: "4,000", label: "labelled payloads, 1,000 malicious" },
-      { value: "18", label: "behavioural features" },
-      { value: "RF", label: "best overall detector" },
     ],
     resultsNote:
       "A benign-only autoencoder was a workable option when no attack labels exist. Layout abuse was the easiest attack to detect; manipulative UI was the hardest.",
@@ -140,6 +182,37 @@ export const projects: Project[] = [
       { label: "PDF", href: "https://arxiv.org/pdf/2604.02023" },
     ],
     paperId: "2604.02023",
+  },
+  {
+    slug: "mira",
+    title: "MIRA",
+    idea: "A screen-free AI learning buddy for kids that listens, thinks and talks back in under two seconds.",
+    label: "HARDWARE PROTOTYPE",
+    year: "2025",
+    role: "Solo build: hardware, backend and app.",
+    stack: ["Python", "FastAPI", "Gemini", "Whisper", "Neural TTS", "ESP32", "React", "SQLite"],
+    problem:
+      "Most learning apps for children mean more screen time. MIRA tries the opposite: a small device a child can simply talk to, which answers with a voice instead of a screen.",
+    built:
+      "An ESP32 records the child's voice and streams it to a FastAPI backend. Whisper turns speech into text, Gemini writes the answer, neural text-to-speech speaks it, and the audio goes back to the device's speaker. A web dashboard lets parents see sessions and control the robot.",
+    diagram: {
+      caption: "MIRA voice loop",
+      nodes: [
+        { label: "ESP32", sub: "mic in" },
+        { label: "Whisper", sub: "speech to text" },
+        { label: "Gemini", sub: "the answer" },
+        { label: "Neural TTS", sub: "text to speech" },
+        { label: "ESP32", sub: "speaker out" },
+      ],
+    },
+    results: [
+      { value: "< 2 s", label: "end-to-end voice response" },
+      { value: "ESP32", label: "audio loop optimised on-device" },
+      { value: "0", label: "screens needed by the child" },
+    ],
+    resultsNote: "",
+    changes: "TODO(safwan): what you would change.",
+    links: [{ label: "Code on GitHub", href: "https://github.com/safwannuddin/mira-companion-ai" }],
   },
   {
     slug: "fair-price",

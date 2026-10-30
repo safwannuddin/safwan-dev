@@ -15,8 +15,8 @@ export type Step = {
 
 export const story: Step[] = [
   {
-    period: "TODO(safwan): years",
-    title: "Computer science degree",
+    period: "2022 – 2026",
+    title: "B.E. Computer Science",
     org: "Muffakham Jah College of Engineering and Technology",
     kind: "Degree",
     place: "Hyderabad",
@@ -32,28 +32,29 @@ export const story: Step[] = [
   },
   {
     period: "Jun – Aug 2025",
-    title: "Solo founder, Shipped Season 1",
-    org: "Lovable",
+    title: "Founder, Zenix",
+    org: "Lovable Shipped Season 1",
     kind: "Selected founder",
     place: "Remote",
-    text: "Selected as a solo founder to build and ship startup MVPs end to end. Built Zenix, which ranked in the top 28 in Asia in a Lovable weekly challenge.",
+    text: "Selected as a solo founder. Built Zenix, a three-agent UI generator, which ranked in the top 28 in Asia among 3,000+ participants in a weekly challenge.",
     href: "/work/zenix/",
   },
   {
-    period: "Jun – Oct 2025",
+    period: "Aug 2025 – Jan 2026",
     title: "Incubatee",
     org: "SU Knowledge Hub Foundation",
     kind: "Incubation",
     place: "Hyderabad",
-    text: "Worked on AI products and early-stage startup ideas with structured mentorship.",
+    text: "Built NeuroNav, a brain MRI classification pipeline with CNN, SVM and Random Forest, and used Grad-CAM heatmaps so doctors can check why the model decided what it did.",
+    href: "/work/neuronav/",
   },
   {
-    period: "Oct – Nov 2025",
-    title: "Intern",
+    period: "Dec 2025 – Feb 2026",
+    title: "Machine Learning Intern",
     org: "Mindalike",
     kind: "Internship",
     place: "Hyderabad",
-    text: "TODO(safwan): what you worked on and shipped at Mindalike.",
+    text: "Built a user-matching system with TF-IDF features and cosine similarity, wired into the live product's REST APIs. Owned the ML work end to end in a three-person startup team.",
   },
   {
     period: "Mar – Apr 2026",
