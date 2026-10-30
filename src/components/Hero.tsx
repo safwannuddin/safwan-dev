@@ -1,5 +1,5 @@
 import { links, person } from "@/content/site";
-import GradientFigure from "./GradientFigure";
+import IdCard from "./IdCard";
 import s from "./Hero.module.css";
 
 const results = [
@@ -71,8 +71,7 @@ export default function Hero() {
         </div>
 
         <div className={s.figure}>
-          <GradientFigure />
-          <p className={`mono ${s.caption}`}>Live: click the surface. This is how a model learns.</p>
+          <IdCard />
         </div>
       </div>
 

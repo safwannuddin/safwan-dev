@@ -9,6 +9,29 @@
   border-block: 1px solid var(--c-line);
 }
 
+/* deep navy band: tokens are redefined locally so every child adapts */
+.section[data-tone="ink"] {
+  --c-ink: #eef2ff;
+  --c-ink-2: #b7c1de;
+  --c-ink-3: #8e9abd;
+  --c-line: rgba(255, 255, 255, 0.1);
+  --c-line-strong: rgba(255, 255, 255, 0.2);
+  --c-surface: #131d42;
+  --c-surface-2: #1b2753;
+  --c-accent: #8ea4ff;
+  --c-accent-soft: rgba(142, 164, 255, 0.14);
+  --c-focus: #8ea4ff;
+  margin-top: var(--section-gap);
+  padding-block: var(--section-gap);
+  color: var(--c-ink);
+  background:
+    radial-gradient(60% 50% at 85% 0%, rgba(80, 110, 255, 0.22), transparent 70%),
+    radial-gradient(50% 40% at 0% 100%, rgba(80, 110, 255, 0.12), transparent 70%),
+    radial-gradient(rgba(140, 170, 255, 0.13) 1px, transparent 1.4px) 0 0 / 22px 22px,
+    #0b1330;
+  overflow: hidden;
+}
+
 .inner {
   max-width: var(--page-max);
   margin-inline: auto;

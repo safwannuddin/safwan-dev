@@ -8,7 +8,7 @@ type Props = {
   title: ReactNode;
   intro?: ReactNode;
   children: ReactNode;
-  tone?: "plain" | "band";
+  tone?: "plain" | "band" | "ink";
 };
 
 /** Section shell: mono index, a large display heading, intro set beside it. */

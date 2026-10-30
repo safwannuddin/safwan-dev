@@ -67,12 +67,13 @@ export default function Home() {
         id="certificates"
         index="04"
         label="Certificates"
+        tone="ink"
         title={
           <>
             Recognition and <em>certificates</em>.
           </>
         }
-        intro="Awards first, then the courses and hackathons behind them. Select any certificate to see it in full."
+        intro="Awards first, then the courses and hackathons behind them. Swipe the gallery and select any certificate to see it in full."
       >
         <Certificates />
       </Section>

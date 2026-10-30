@@ -1,5 +1,4 @@
 import { nav, person } from "@/content/site";
-import Mark from "./Mark";
 import ThemeToggle from "./ThemeToggle";
 import s from "./SiteHeader.module.css";
 
@@ -7,9 +6,10 @@ export default function SiteHeader() {
   return (
     <header className={s.header}>
       <div className={s.inner}>
-        <a href="/" className={s.brand}>
-          <Mark size={30} />
-          <span className={s.name}>{person.name}</span>
+        <a href="/" className={s.brand} aria-label={`safwan.dev, ${person.name}, home`}>
+          <span className={s.word} aria-hidden="true">
+            safwan<span className={s.tld}>.dev</span>
+          </span>
         </a>
 
         <nav aria-label="Sections" className={s.desktop}>

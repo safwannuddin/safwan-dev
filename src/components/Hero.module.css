@@ -1,5 +1,6 @@
 .hero {
   padding-top: clamp(2.5rem, 1rem + 7vh, 6.5rem);
+  overflow-x: clip;
 }
 
 .inner {
@@ -138,6 +139,7 @@
   display: grid;
   gap: var(--s-3);
   min-width: 0;
+  align-self: start;
 }
 
 .caption {
@@ -251,9 +253,6 @@
   }
   .line:nth-child(3) > span {
     animation-delay: 140ms;
-  }
-  .figure {
-    animation: settle 700ms var(--ease-out) 200ms both;
   }
 }
 

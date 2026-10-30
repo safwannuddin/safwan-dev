@@ -25,11 +25,14 @@ export type Certificate = {
   detail?: string;
   image?: { src: string; width: number; height: number };
   verify?: string;
+  /** recognition only: the large figure on the award tile */
+  big?: string;
 };
 
 /** Things I achieved, shown above the certificates. */
 export const recognition: Certificate[] = [
   {
+    big: "Top 28",
     title: "Zenix ranked in the top 28 in Asia",
     issuer: "Lovable weekly challenge",
     date: "2025-08",
@@ -37,6 +40,7 @@ export const recognition: Certificate[] = [
     detail: "Multi-agent UI engine, built solo.",
   },
   {
+    big: "S1",
     title: "Selected as a solo founder, Shipped Season 1",
     issuer: "Lovable",
     date: "2025-06",
@@ -44,6 +48,7 @@ export const recognition: Certificate[] = [
   },
   {
     // TODO(safwan): confirm Runner-up (LinkedIn) vs Winner (old site), and the year.
+    big: "2nd",
     title: "Tech Hack 3, Runner-up",
     issuer: "Tech Hack",
     date: "",

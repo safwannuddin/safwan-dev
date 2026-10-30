@@ -21,13 +21,15 @@ export const person = {
   lookingFor: "AI/ML engineering placements and roles in the UK",
   photo: "/safwan-uddin-mohammed.jpg",
   email: "safwanuddin.work@gmail.com",
+  // TODO(safwan): second email address. Shown in Contact when filled in.
+  email2: "",
 };
 
 export const links = {
   linkedin: "https://www.linkedin.com/in/safwan-uddin-mohammed-299602257/",
   github: "https://github.com/safwannuddin",
   card: "https://safwannuddin.github.io/Card/",
-  // TODO(safwan): add your X handle when you confirm it.
+  // TODO(safwan): full URL of your new X account, e.g. https://x.com/handle
   x: "",
 };
 
