@@ -1,0 +1,17 @@
+.page {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding: var(--s-10) var(--gutter) var(--s-8);
+  display: grid;
+  gap: var(--s-4);
+  color: var(--c-ink-3);
+}
+
+.title {
+  color: var(--c-ink);
+  font-size: var(--fs-h2);
+}
+
+.text {
+  color: var(--c-ink-2);
+}
