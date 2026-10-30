@@ -11,7 +11,7 @@
   --c-surface-2: #eceff4;   /* quiet fills: hover rows, chips */
   --c-ink: #0e1424;         /* primary text, slight blue bias */
   --c-ink-2: #4a5468;       /* secondary text */
-  --c-ink-3: #6b7486;       /* metadata (AA on bg for small mono) */
+  --c-ink-3: #636c7e;       /* metadata: 4.9:1 on bg, AA for small text */
   --c-line: #e0e4ec;        /* hairlines */
   --c-line-strong: #c9cfdb;
   --c-accent: #2447d6;      /* ink blue: links, current section, one mark per screen */

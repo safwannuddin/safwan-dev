@@ -10,7 +10,8 @@ import s from "./Certificates.module.css";
  * Desktop: hovering or focusing a row shows the certificate in a frame
  * beside the list. Any row opens it full size in a native <dialog>.
  * The first certificate is server-rendered in the frame, so nothing waits
- * for JavaScript.
+ * for JavaScript. Mobile thumbnails come from /public/certificates/thumbs
+ * (192x144, same file name).
  */
 export default function Certificates() {
   const sorted = [...certificates].sort(byNewest);
@@ -63,7 +64,7 @@ export default function Certificates() {
                 <span className={`mono ${s.kind}`}>{c.kind}</span>
                 {c.image ? (
                   <span className={s.thumb} aria-hidden="true">
-                    <Image src={c.image.src} alt="" width={96} height={72} sizes="96px" />
+                    <Image src={c.image.src.replace("/certificates/", "/certificates/thumbs/")} alt="" width={96} height={72} sizes="96px" />
                   </span>
                 ) : null}
               </button>

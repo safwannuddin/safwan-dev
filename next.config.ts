@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   reactStrictMode: true,
   poweredByHeader: false,
+  // Inline the (small) stylesheet into each page so first paint does not
+  // wait for a separate CSS request. Helps mobile LCP.
+  experimental: { inlineCss: true },
 };
 
 export default nextConfig;

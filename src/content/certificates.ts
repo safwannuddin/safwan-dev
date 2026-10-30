@@ -1,7 +1,9 @@
 /**
  * Certificates and recognition.
  * To add a certificate: drop an image into /public/certificates (webp,
- * about 1400px wide) and append an entry below. Newest first is automatic.
+ * about 1400px wide), a 192x144 crop with the same name into
+ * /public/certificates/thumbs, and append an entry below. Newest first is
+ * automatic.
  * Titles are copied exactly from the certificate; nothing is upgraded.
  */
 

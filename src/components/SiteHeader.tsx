@@ -6,7 +6,7 @@ export default function SiteHeader() {
   return (
     <header className={s.header}>
       <div className={s.inner}>
-        <a href="/" className={s.brand} aria-label={`${person.name}, home`}>
+        <a href="/" className={s.brand}>
           <Mark size={28} />
           <span className={s.name}>{person.name}</span>
         </a>

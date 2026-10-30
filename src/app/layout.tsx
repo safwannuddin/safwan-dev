@@ -15,6 +15,9 @@ const sans = localFont({
   variable: "--font-schibsted",
   fallback: ["Helvetica Neue", "Arial", "sans-serif"],
   adjustFontFallback: "Arial",
+  // Not preloaded: text paints immediately in the metric-matched fallback,
+  // then swaps without layout shift. Keeps the font off the LCP path.
+  preload: false,
 });
 
 const mono = localFont({

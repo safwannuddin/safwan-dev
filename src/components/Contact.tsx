@@ -7,7 +7,7 @@ const channels = [
   { label: "LinkedIn", value: "safwan-uddin-mohammed", href: links.linkedin },
   { label: "GitHub", value: "safwannuddin", href: links.github },
   { label: "X", value: links.x.replace(/^https?:\/\/(www\.)?x\.com\//, "@"), href: links.x },
-  { label: "Contact card", value: "safwannuddin.github.io/Card", href: links.card },
+  { label: "Contact card", value: "Save my details", href: links.card },
 ].filter((c) => c.href);
 
 export default function Contact() {
